@@ -61,6 +61,7 @@ test('builder WhatsApp URL targets Rwanda and encodes the overview', () => {
   assert.match(text, /Websites, Apps/);
   assert.match(text, /Suggested plan: Starter \(250 PLN\)/);
   assert.match(text, /suggestion only, for the website work/);
+  assert.match(text, /The final quote comes after we talk/);
   assert.ok(text.includes(NOTE));
   assert.equal(text.includes('Super'), false);
   assert.equal(text.includes('700 PLN'), false);
@@ -87,6 +88,7 @@ test('builder WhatsApp URL targets Rwanda and encodes the overview', () => {
     otherNote: otherServicesNote(['Websites'])
   });
   assert.match(sitesOnly, /Suggested plan: Starter \(250 PLN\)/);
+  assert.match(sitesOnly, /The final quote comes after we talk/);
   assert.equal(sitesOnly.includes(NOTE), false);
 
   const url = buildWhatsAppBuilderUrl(text);

@@ -215,119 +215,228 @@
         <header class="section-head">
           <p class="eyebrow">03 — Project builder</p>
           <h2 id="builder-title">What do you want us to build</h2>
-          <p class="deck">Choose the services, a colour palette and a design style. We will put together a project overview you can send on WhatsApp. The suggested plan is a starting point. The final quote comes after we talk.</p>
+          <p class="deck">Choose a service, a colour palette and a design style. A project overview is put together as you go, ready to send on WhatsApp. The suggested plan is for website work only, and it is a starting point. The final quote comes after we talk.</p>
         </header>
-        <form id="builder-form" class="builder-form">
-          <fieldset class="b-step">
-            <legend>Step 1 — Services</legend>
-            <p class="b-hint">You can choose more than one.</p>
-            <div class="b-services">
-              <label class="b-card"><input type="checkbox" name="b-service" value="Websites"><span>Websites</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Apps"><span>Apps</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Games"><span>Games</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Networking"><span>Networking</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Internet provision and connectivity"><span>Internet provision and connectivity</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Tech support"><span>Tech support</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="AI creation"><span>AI creation</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Business management"><span>Business management</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Video content creation"><span>Video content creation</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Freelance support"><span>Freelance support</span></label>
-              <label class="b-card"><input type="checkbox" name="b-service" value="Financial support and management"><span>Financial support and management</span></label>
+
+        <ol class="b-progress" aria-label="Project steps">
+          <li data-step="1" class="is-current" aria-current="step"><span class="b-num">1</span><span class="b-prog-label">Service</span></li>
+          <li data-step="2"><span class="b-num">2</span><span class="b-prog-label">Colours</span></li>
+          <li data-step="3"><span class="b-num">3</span><span class="b-prog-label">Style</span></li>
+          <li data-step="4"><span class="b-num">4</span><span class="b-prog-label">Your project</span></li>
+        </ol>
+
+        <div class="builder-layout">
+          <form id="builder-form" class="builder-form">
+            <fieldset class="b-step" id="b-step-service">
+              <legend><span class="b-step-num">1</span> Service</legend>
+              <p class="b-hint">You can choose more than one.</p>
+              <div class="b-services">
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Websites">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><rect x="3" y="5" width="26" height="22" rx="2" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M3 10h26" fill="none" stroke="#6F4E37" stroke-width="1.6"/><circle cx="7" cy="7.5" r="0.9" fill="#6F4E37"/><circle cx="10.5" cy="7.5" r="0.9" fill="#6F4E37"/><path d="M8 15h10M8 19h16" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Websites</span>
+                    <span class="b-card-benefit">A clear site for your business, built to an agreed brief.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Apps">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><rect x="9" y="3" width="14" height="26" rx="2.5" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M13 6h6" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="25.5" r="1.1" fill="none" stroke="#6F4E37" stroke-width="1.5"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Apps</span>
+                    <span class="b-card-benefit">Applications for phones, tablets and desktop, for a real task you already have.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Games">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M5 18c0-5 3-9 11-9s11 4 11 9c0 4-2.5 8-7 8h-8c-4.5 0-7-4-7-8z" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 18h6M14 15v6" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><circle cx="21" cy="16.5" r="1.1" fill="#6F4E37"/><circle cx="23.5" cy="19.5" r="1.1" fill="#6F4E37"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Games</span>
+                    <span class="b-card-benefit">Games and other interactive work for the web and for desktop.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Networking">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><circle cx="16" cy="7" r="3" fill="none" stroke="#6F4E37" stroke-width="1.6"/><circle cx="7" cy="24" r="3" fill="none" stroke="#6F4E37" stroke-width="1.6"/><circle cx="25" cy="24" r="3" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M14 9.5L9 21.5M18 9.5l5 12M10 24h12" fill="none" stroke="#6F4E37" stroke-width="1.6"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Networking</span>
+                    <span class="b-card-benefit">Wi-Fi and wired networks for homes, offices and events.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Internet provision and connectivity">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M7 16a9 9 0 0 1 18 0" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><path d="M10.5 19.5a5.5 5.5 0 0 1 11 0" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><path d="M14 23a2.2 2.2 0 0 1 4 0" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><circle cx="16" cy="26" r="1.3" fill="#6F4E37"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Internet provision and connectivity</span>
+                    <span class="b-card-benefit">The line, the router and the Wi-Fi — a home or office that is actually online.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Tech support">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M20 8.5a5 5 0 0 0-8.5 3.6c0 1.5.6 2.5 2 3.4L9 25l4.2-1.2 1.8 1.8 1.2-4.3c.9.3 1.8.4 2.8.4A5 5 0 0 0 20 8.5z" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linejoin="round"/><circle cx="18.7" cy="11.2" r="1" fill="#6F4E37"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Tech support</span>
+                    <span class="b-card-benefit">Help when a device or system breaks, and looking after it afterwards if you need us to.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="AI creation">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M16 4l1.6 6.4L24 12l-6.4 1.6L16 20l-1.6-6.4L8 12l6.4-1.6z" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linejoin="round"/><path d="M24 19l.9 3.1L28 23l-3.1.9L24 27l-.9-3.1L20 23l3.1-.9z" fill="none" stroke="#6F4E37" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">AI creation</span>
+                    <span class="b-card-benefit">A small, practical AI tool around a real task, tested before you use it.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Business management">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M10 13V9.5A3.5 3.5 0 0 1 13.5 6h5A3.5 3.5 0 0 1 22 9.5V13" fill="none" stroke="#6F4E37" stroke-width="1.6"/><rect x="4" y="13" width="24" height="14" rx="2" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M4 18h24" fill="none" stroke="#6F4E37" stroke-width="1.6"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Business management</span>
+                    <span class="b-card-benefit">Day-to-day systems a business uses to run the work, set up and made clear.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Video content creation">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><rect x="3" y="9" width="18" height="14" rx="2" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M21 14l8-4v12l-8-4z" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Video content creation</span>
+                    <span class="b-card-benefit">Help to plan, film, edit and package video for a website or for social channels.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Freelance support">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><path d="M8 24V10l14-4v18" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 24c2.5-2 6-2 8 0 2-2 5.5-2 8 0" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/><path d="M15 11.5l3-.8" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Freelance support</span>
+                    <span class="b-card-benefit">An online presence and the simple tools that keep client work moving.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+                <label class="b-card">
+                  <input type="checkbox" name="b-service" value="Financial support and management">
+                  <span class="b-ico" aria-hidden="true"><svg viewBox="0 0 32 32" width="32" height="32" focusable="false"><rect x="6" y="4" width="20" height="24" rx="1.5" fill="none" stroke="#6F4E37" stroke-width="1.6"/><path d="M11 11h10M11 16h10M11 21h6" fill="none" stroke="#6F4E37" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+                  <span class="b-card-copy">
+                    <span class="b-card-name">Financial support and management</span>
+                    <span class="b-card-benefit">Practical tools for tracking money. This is setup and support, not financial or tax advice.</span>
+                  </span>
+                  <span class="b-tick" aria-hidden="true"></span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="b-step" id="b-step-colours">
+              <legend><span class="b-step-num">2</span> Colours</legend>
+              <p class="b-hint">A small set of palettes, including the Vira colours.</p>
+              <div class="b-palettes">
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="vira" data-label="Vira">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-vira-0"></i><i class="sw sw-vira-1"></i><i class="sw sw-vira-2"></i><i class="sw sw-vira-3"></i></span>
+                  <span class="b-pal-name">Vira</span>
+                  <span class="b-pal-meta">Mocha, Platinum, Lavender</span>
+                </label>
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="ink-cream" data-label="Ink and cream">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-ink-0"></i><i class="sw sw-ink-1"></i><i class="sw sw-ink-2"></i><i class="sw sw-ink-3"></i></span>
+                  <span class="b-pal-name">Ink and cream</span>
+                </label>
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="forest" data-label="Forest">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-forest-0"></i><i class="sw sw-forest-1"></i><i class="sw sw-forest-2"></i><i class="sw sw-forest-3"></i></span>
+                  <span class="b-pal-name">Forest</span>
+                </label>
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="night" data-label="Night">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-night-0"></i><i class="sw sw-night-1"></i><i class="sw sw-night-2"></i><i class="sw sw-night-3"></i></span>
+                  <span class="b-pal-name">Night</span>
+                </label>
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="clay" data-label="Clay">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-clay-0"></i><i class="sw sw-clay-1"></i><i class="sw sw-clay-2"></i><i class="sw sw-clay-3"></i></span>
+                  <span class="b-pal-name">Clay</span>
+                </label>
+                <label class="b-palette">
+                  <input type="radio" name="b-palette" value="sea" data-label="Sea">
+                  <span class="swatches" aria-hidden="true"><i class="sw sw-sea-0"></i><i class="sw sw-sea-1"></i><i class="sw sw-sea-2"></i><i class="sw sw-sea-3"></i></span>
+                  <span class="b-pal-name">Sea</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="b-step" id="b-step-style">
+              <legend><span class="b-step-num">3</span> Style</legend>
+              <p class="b-hint">A design and structure direction for the work.</p>
+              <div class="b-styles">
+                <label class="b-style">
+                  <input type="radio" name="b-style" value="minimal" data-label="Minimal">
+                  <span class="b-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 160 108" width="160" height="108" focusable="false"><rect width="160" height="108" fill="#F3EEE6"/><rect x="0.5" y="0.5" width="159" height="107" fill="none" stroke="#6F4E37"/><rect x="18" y="16" width="54" height="5" fill="#1A120D"/><rect x="18" y="32" width="124" height="3" fill="#6F4E37"/><rect x="18" y="42" width="108" height="3" fill="#6F4E37"/><rect x="18" y="52" width="92" height="3" fill="#6F4E37"/><rect x="18" y="70" width="44" height="18" fill="none" stroke="#6F4E37"/></svg>
+                  </span>
+                  <span class="b-style-name">Minimal</span>
+                </label>
+                <label class="b-style">
+                  <input type="radio" name="b-style" value="editorial" data-label="Editorial">
+                  <span class="b-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 160 108" width="160" height="108" focusable="false"><rect width="160" height="108" fill="#F3EEE6"/><rect x="0.5" y="0.5" width="159" height="107" fill="none" stroke="#6F4E37"/><rect x="12" y="12" width="136" height="22" fill="#1A120D"/><rect x="12" y="46" width="68" height="48" fill="#E6E0F0"/><rect x="88" y="46" width="60" height="10" fill="#6F4E37"/><rect x="88" y="64" width="60" height="3" fill="#6F4E37"/><rect x="88" y="72" width="48" height="3" fill="#6F4E37"/><rect x="88" y="80" width="36" height="3" fill="#6F4E37"/></svg>
+                  </span>
+                  <span class="b-style-name">Editorial</span>
+                </label>
+                <label class="b-style">
+                  <input type="radio" name="b-style" value="bold" data-label="Bold">
+                  <span class="b-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 160 108" width="160" height="108" focusable="false"><rect width="160" height="108" fill="#1A120D"/><rect x="0.5" y="0.5" width="159" height="107" fill="none" stroke="#6F4E37"/><rect x="12" y="14" width="136" height="42" fill="#6F4E37"/><rect x="12" y="68" width="58" height="22" fill="#E5E4E2"/></svg>
+                  </span>
+                  <span class="b-style-name">Bold</span>
+                </label>
+                <label class="b-style">
+                  <input type="radio" name="b-style" value="corporate" data-label="Corporate">
+                  <span class="b-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 160 108" width="160" height="108" focusable="false"><rect width="160" height="108" fill="#F3EEE6"/><rect x="0.5" y="0.5" width="159" height="107" fill="none" stroke="#6F4E37"/><rect width="160" height="20" fill="#1A120D"/><rect x="12" y="32" width="42" height="62" fill="#E5E4E2" stroke="#6F4E37"/><rect x="62" y="32" width="42" height="62" fill="#E5E4E2" stroke="#6F4E37"/><rect x="112" y="32" width="36" height="62" fill="#E5E4E2" stroke="#6F4E37"/></svg>
+                  </span>
+                  <span class="b-style-name">Corporate</span>
+                </label>
+                <label class="b-style">
+                  <input type="radio" name="b-style" value="playful" data-label="Playful">
+                  <span class="b-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 160 108" width="160" height="108" focusable="false"><rect width="160" height="108" fill="#E6E0F0"/><rect x="0.5" y="0.5" width="159" height="107" fill="none" stroke="#6F4E37"/><circle cx="44" cy="46" r="22" fill="#6F4E37"/><circle cx="84" cy="38" r="14" fill="#1A120D"/><path d="M20 80c28-18 64 22 120-10" fill="none" stroke="#6F4E37" stroke-width="5" stroke-linecap="round"/></svg>
+                  </span>
+                  <span class="b-style-name">Playful</span>
+                </label>
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="builder-overview" id="builder-overview" aria-labelledby="ov-title" aria-live="polite">
+            <p class="b-step-kicker"><span class="b-step-num">4</span> Your project</p>
+            <h3 id="ov-title">Project overview</h3>
+            <p class="ov-row"><span class="ov-label">Services</span> <span data-ov="services">Choose at least one service.</span></p>
+            <div class="ov-row ov-swatch-row">
+              <span class="ov-label">Palette</span>
+              <span class="ov-pal-wrap"><span data-ov="palette-swatches" class="ov-swatches" aria-hidden="true"></span> <span data-ov="palette">Not chosen yet.</span></span>
             </div>
-          </fieldset>
-          <fieldset class="b-step">
-            <legend>Step 2 — Colour palette</legend>
-            <div class="b-palettes">
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="vira" data-label="Vira">
-                <span class="swatches sw-vira" aria-hidden="true"><i class="sw sw-vira-0"></i><i class="sw sw-vira-1"></i><i class="sw sw-vira-2"></i><i class="sw sw-vira-3"></i></span>
-                <span class="b-pal-name">Vira</span>
-              </label>
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="ink-cream" data-label="Ink and cream">
-                <span class="swatches sw-ink" aria-hidden="true"><i class="sw sw-ink-0"></i><i class="sw sw-ink-1"></i><i class="sw sw-ink-2"></i><i class="sw sw-ink-3"></i></span>
-                <span class="b-pal-name">Ink and cream</span>
-              </label>
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="forest" data-label="Forest">
-                <span class="swatches sw-forest" aria-hidden="true"><i class="sw sw-forest-0"></i><i class="sw sw-forest-1"></i><i class="sw sw-forest-2"></i><i class="sw sw-forest-3"></i></span>
-                <span class="b-pal-name">Forest</span>
-              </label>
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="night" data-label="Night">
-                <span class="swatches sw-night" aria-hidden="true"><i class="sw sw-night-0"></i><i class="sw sw-night-1"></i><i class="sw sw-night-2"></i><i class="sw sw-night-3"></i></span>
-                <span class="b-pal-name">Night</span>
-              </label>
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="clay" data-label="Clay">
-                <span class="swatches sw-clay" aria-hidden="true"><i class="sw sw-clay-0"></i><i class="sw sw-clay-1"></i><i class="sw sw-clay-2"></i><i class="sw sw-clay-3"></i></span>
-                <span class="b-pal-name">Clay</span>
-              </label>
-              <label class="b-palette">
-                <input type="radio" name="b-palette" value="sea" data-label="Sea">
-                <span class="swatches sw-sea" aria-hidden="true"><i class="sw sw-sea-0"></i><i class="sw sw-sea-1"></i><i class="sw sw-sea-2"></i><i class="sw sw-sea-3"></i></span>
-                <span class="b-pal-name">Sea</span>
-              </label>
+            <p class="ov-row"><span class="ov-label">Style</span> <span data-ov="style">Not chosen yet.</span></p>
+            <div class="ov-block">
+              <p class="ov-label">Suggested pages</p>
+              <ul data-ov="pages"></ul>
             </div>
-          </fieldset>
-          <fieldset class="b-step">
-            <legend>Step 3 — Design style</legend>
-            <div class="b-styles">
-              <label class="b-style">
-                <input type="radio" name="b-style" value="minimal" data-label="Minimal">
-                <span class="b-thumb" aria-hidden="true">
-                  <svg viewBox="0 0 80 56" width="80" height="56" focusable="false"><rect x="1" y="1" width="78" height="54" fill="#F3EEE6" stroke="#6F4E37"/><rect x="10" y="10" width="36" height="3" fill="#1A120D"/><rect x="10" y="18" width="60" height="2" fill="#6F4E37"/><rect x="10" y="24" width="52" height="2" fill="#6F4E37"/><rect x="10" y="30" width="44" height="2" fill="#6F4E37"/></svg>
-                </span>
-                <span class="b-style-name">Minimal</span>
-              </label>
-              <label class="b-style">
-                <input type="radio" name="b-style" value="editorial" data-label="Editorial">
-                <span class="b-thumb" aria-hidden="true">
-                  <svg viewBox="0 0 80 56" width="80" height="56" focusable="false"><rect x="1" y="1" width="78" height="54" fill="#F3EEE6" stroke="#6F4E37"/><rect x="8" y="8" width="64" height="10" fill="#1A120D"/><rect x="8" y="24" width="30" height="22" fill="#E6E0F0"/><rect x="42" y="24" width="30" height="6" fill="#6F4E37"/><rect x="42" y="34" width="30" height="2" fill="#6F4E37"/><rect x="42" y="40" width="22" height="2" fill="#6F4E37"/></svg>
-                </span>
-                <span class="b-style-name">Editorial</span>
-              </label>
-              <label class="b-style">
-                <input type="radio" name="b-style" value="bold" data-label="Bold">
-                <span class="b-thumb" aria-hidden="true">
-                  <svg viewBox="0 0 80 56" width="80" height="56" focusable="false"><rect x="1" y="1" width="78" height="54" fill="#1A120D" stroke="#6F4E37"/><rect x="8" y="8" width="64" height="22" fill="#6F4E37"/><rect x="8" y="36" width="28" height="10" fill="#E5E4E2"/></svg>
-                </span>
-                <span class="b-style-name">Bold</span>
-              </label>
-              <label class="b-style">
-                <input type="radio" name="b-style" value="corporate" data-label="Corporate">
-                <span class="b-thumb" aria-hidden="true">
-                  <svg viewBox="0 0 80 56" width="80" height="56" focusable="false"><rect x="1" y="1" width="78" height="54" fill="#F3EEE6" stroke="#6F4E37"/><rect x="1" y="1" width="78" height="10" fill="#1A120D"/><rect x="8" y="18" width="20" height="28" fill="#E5E4E2" stroke="#6F4E37"/><rect x="32" y="18" width="20" height="28" fill="#E5E4E2" stroke="#6F4E37"/><rect x="56" y="18" width="16" height="28" fill="#E5E4E2" stroke="#6F4E37"/></svg>
-                </span>
-                <span class="b-style-name">Corporate</span>
-              </label>
-              <label class="b-style">
-                <input type="radio" name="b-style" value="playful" data-label="Playful">
-                <span class="b-thumb" aria-hidden="true">
-                  <svg viewBox="0 0 80 56" width="80" height="56" focusable="false"><rect x="1" y="1" width="78" height="54" fill="#E6E0F0" stroke="#6F4E37"/><circle cx="22" cy="24" r="10" fill="#6F4E37"/><circle cx="42" cy="20" r="7" fill="#1A120D"/><path d="M12 42 C 28 32, 52 52, 68 38" fill="none" stroke="#6F4E37" stroke-width="3"/></svg>
-                </span>
-                <span class="b-style-name">Playful</span>
-              </label>
+            <div class="ov-block">
+              <p class="ov-label">Suggested features</p>
+              <ul data-ov="features"></ul>
             </div>
-          </fieldset>
-        </form>
-        <article id="builder-overview" class="builder-overview" hidden>
-          <h3>Project overview</h3>
-          <p class="ov-row"><span class="ov-label">Services</span> <span data-ov="services"></span></p>
-          <p class="ov-row"><span class="ov-label">Palette</span> <span data-ov="palette"></span></p>
-          <p class="ov-row"><span class="ov-label">Style</span> <span data-ov="style"></span></p>
-          <div class="ov-block">
-            <p class="ov-label">Suggested pages</p>
-            <ul data-ov="pages"></ul>
-          </div>
-          <div class="ov-block">
-            <p class="ov-label">Suggested features</p>
-            <ul data-ov="features"></ul>
-          </div>
-          <p class="ov-plan" data-ov="plan"></p>
-          <p class="ov-other" data-ov="other"></p>
-        </article>
-        <a class="btn" id="builder-send" hidden aria-disabled="true">Send to WhatsApp</a>
+            <p class="ov-plan" data-ov="plan"></p>
+            <p class="ov-other" data-ov="other"></p>
+            <button type="button" class="btn btn-builder-send" id="builder-send" disabled aria-disabled="true">Send to WhatsApp</button>
+            <p class="ov-send-note">Opens WhatsApp with this overview, ready to send. Rwanda is the main number.</p>
+          </aside>
+        </div>
       </div>
     </section>
 

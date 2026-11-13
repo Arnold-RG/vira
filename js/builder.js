@@ -53,9 +53,9 @@ export function buildOverviewText({ services, palette, style, pages, features, p
     'Hello Vira,',
     'I used the project builder on your site.',
     '',
-    'Services: ' + services.join(', ') + '.',
-    'Palette: ' + palette + '.',
-    'Style: ' + style + '.'
+    'Services: ' + (services.length ? services.join(', ') : 'not chosen yet') + '.',
+    'Palette: ' + (palette || 'not chosen yet') + '.',
+    'Style: ' + (style || 'not chosen yet') + '.'
   ];
   if (pages.length) lines.push('Suggested pages: ' + pages.join(', ') + '.');
   if (features.length) {
@@ -64,7 +64,11 @@ export function buildOverviewText({ services, palette, style, pages, features, p
   }
   if (plan) {
     lines.push(
-      'Suggested plan: ' + plan.id + ' (' + plan.price + '). This is a suggestion only, for the website work.'
+      'Suggested plan: ' +
+        plan.id +
+        ' (' +
+        plan.price +
+        '). This is a suggestion only, for the website work. The final quote comes after we talk.'
     );
   }
   const note = otherNote != null ? otherNote : otherServicesNote(services);
@@ -76,12 +80,14 @@ export function buildWhatsAppBuilderUrl(text) {
   return 'https://wa.me/' + WHATSAPP.RW.e164 + '?text=' + encodeURIComponent(text);
 }
 
-function el(tag, className, text) {
-  const n = document.createElement(tag);
-  if (className) n.className = className;
-  if (text != null) n.textContent = text;
-  return n;
-}
+const PALETTE_SWATCHES = {
+  vira: ['sw-vira-0', 'sw-vira-1', 'sw-vira-2', 'sw-vira-3'],
+  'ink-cream': ['sw-ink-0', 'sw-ink-1', 'sw-ink-2', 'sw-ink-3'],
+  forest: ['sw-forest-0', 'sw-forest-1', 'sw-forest-2', 'sw-forest-3'],
+  night: ['sw-night-0', 'sw-night-1', 'sw-night-2', 'sw-night-3'],
+  clay: ['sw-clay-0', 'sw-clay-1', 'sw-clay-2', 'sw-clay-3'],
+  sea: ['sw-sea-0', 'sw-sea-1', 'sw-sea-2', 'sw-sea-3']
+};
 
 function fillList(ul, items) {
   ul.replaceChildren();
@@ -89,6 +95,38 @@ function fillList(ul, items) {
     const li = document.createElement('li');
     li.textContent = item;
     ul.append(li);
+  }
+}
+
+function fillSwatches(root, paletteId) {
+  root.replaceChildren();
+  const cls = PALETTE_SWATCHES[paletteId];
+  if (!cls) return;
+  for (const c of cls) {
+    const i = document.createElement('i');
+    i.className = 'sw ' + c;
+    root.append(i);
+  }
+}
+
+function markProgress(root, complete) {
+  const items = [...root.querySelectorAll('.b-progress li')];
+  let currentSet = false;
+  items.forEach((li, i) => {
+    const done = Boolean(complete[i]);
+    li.classList.toggle('is-done', done);
+    li.classList.remove('is-current');
+    li.removeAttribute('aria-current');
+    if (!done && !currentSet) {
+      li.classList.add('is-current');
+      li.setAttribute('aria-current', 'step');
+      currentSet = true;
+    }
+  });
+  if (!currentSet && items.length) {
+    const last = items[items.length - 1];
+    last.classList.add('is-current');
+    last.setAttribute('aria-current', 'step');
   }
 }
 
@@ -102,21 +140,21 @@ export function initBuilder() {
   if (!form || !overview || !send) return;
 
   let data = null;
+  let sendUrl = '';
 
   const render = () => {
-    if (!data) return;
     const services = [...form.querySelectorAll('input[name="b-service"]:checked')].map((i) => i.value);
     const palEl = form.querySelector('input[name="b-palette"]:checked');
     const stEl = form.querySelector('input[name="b-style"]:checked');
     const palette = palEl ? palEl.value : '';
     const style = stEl ? stEl.value : '';
-    const palName = palEl ? (palEl.getAttribute('data-label') || palette) : '';
-    const stName = stEl ? (stEl.getAttribute('data-label') || style) : '';
+    const palName = palEl ? palEl.getAttribute('data-label') || palette : '';
+    const stName = stEl ? stEl.getAttribute('data-label') || style : '';
 
-    const ready = services.length > 0 && palette && style;
     const plan = suggestPlan(services);
-    const pages = collectPages(services, data);
-    const features = collectFeatures(services, data);
+    const pages = data ? collectPages(services, data) : [];
+    const features = data ? collectFeatures(services, data) : [];
+    const otherNote = otherServicesNote(services);
 
     const svcOut = overview.querySelector('[data-ov="services"]');
     const palOut = overview.querySelector('[data-ov="palette"]');
@@ -124,22 +162,29 @@ export function initBuilder() {
     const pagesOut = overview.querySelector('[data-ov="pages"]');
     const featOut = overview.querySelector('[data-ov="features"]');
     const planOut = overview.querySelector('[data-ov="plan"]');
+    const otherOut = overview.querySelector('[data-ov="other"]');
+    const swatchOut = overview.querySelector('[data-ov="palette-swatches"]');
 
     if (svcOut) svcOut.textContent = services.length ? services.join(', ') : 'Choose at least one service.';
-    if (palOut) palOut.textContent = palName || 'Choose a palette.';
-    if (stOut) stOut.textContent = stName || 'Choose a style.';
+    if (palOut) palOut.textContent = palName || 'Not chosen yet.';
+    if (stOut) stOut.textContent = stName || 'Not chosen yet.';
+    if (swatchOut) fillSwatches(swatchOut, palette);
     if (pagesOut) fillList(pagesOut, pages);
     if (featOut) fillList(featOut, features);
-    const otherNote = otherServicesNote(services);
     if (planOut) {
       planOut.textContent = plan
-        ? ('Suggested plan: ' + plan.id + ' — ' + plan.price + '. This is a suggestion only, for the website work.')
+        ? 'Suggested plan: ' +
+          plan.id +
+          ' — ' +
+          plan.price +
+          '. This is a suggestion only, for the website work. The final quote comes after we talk.'
         : '';
     }
-    const otherOut = overview.querySelector('[data-ov="other"]');
     if (otherOut) otherOut.textContent = otherNote;
 
-    overview.hidden = !ready;
+    markProgress(root, [services.length > 0, Boolean(palette), Boolean(style), services.length > 0]);
+
+    const ready = services.length > 0;
     if (ready) {
       const text = buildOverviewText({
         services,
@@ -150,13 +195,13 @@ export function initBuilder() {
         plan,
         otherNote
       });
-      send.setAttribute('href', buildWhatsAppBuilderUrl(text));
+      sendUrl = buildWhatsAppBuilderUrl(text);
+      send.disabled = false;
       send.removeAttribute('aria-disabled');
-      send.hidden = false;
     } else {
-      send.removeAttribute('href');
+      sendUrl = '';
+      send.disabled = true;
       send.setAttribute('aria-disabled', 'true');
-      send.hidden = true;
     }
   };
 
@@ -169,9 +214,8 @@ export function initBuilder() {
     .catch(() => {});
 
   form.addEventListener('change', render);
-  send.addEventListener('click', (e) => {
-    if (send.getAttribute('aria-disabled') === 'true' || !send.getAttribute('href')) {
-      e.preventDefault();
-    }
+  send.addEventListener('click', () => {
+    if (send.disabled || send.getAttribute('aria-disabled') === 'true' || !sendUrl) return;
+    window.open(sendUrl, '_blank', 'noopener,noreferrer');
   });
 }
