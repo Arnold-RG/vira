@@ -184,6 +184,14 @@ export function initBuilder() {
 
     markProgress(root, [services.length > 0, Boolean(palette), Boolean(style), services.length > 0]);
 
+    const status = document.getElementById('builder-status');
+    if (status) {
+      const bits = [];
+      if (services.length) bits.push('Services: ' + services.join(', ') + '.');
+      if (plan) bits.push('Suggested plan: ' + plan.id + '.');
+      status.textContent = bits.join(' ');
+    }
+
     const ready = services.length > 0;
     if (ready) {
       const text = buildOverviewText({
