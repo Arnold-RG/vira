@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vira | Intelligent websites, systems and automation</title>
-<meta name="description" content="Vira builds AI-powered websites, web systems and automation, with security and quality checks built into every project.">
+<title>Vira | Websites, apps, games, networks, internet, tech support and AI</title>
+<meta name="description" content="Vira builds websites, apps, games, networks, internet setup, tech support and AI, and helps with business, video, freelance and financial work, with security and quality checks on every project.">
 <meta name="theme-color" content="#6F4E37">
 <link rel="canonical" href="https://arnold-rg.github.io/vira/">
 <meta property="og:url" content="https://arnold-rg.github.io/vira/">
-<meta property="og:title" content="Vira | Intelligent websites, systems and automation">
-<meta property="og:description" content="Vira builds AI-powered websites, web systems and automation, with security and quality checks built into every project.">
+<meta property="og:title" content="Vira | Websites, apps, games, networks, internet, tech support and AI">
+<meta property="og:description" content="Vira builds websites, apps, games, networks, internet setup, tech support and AI, and helps with business, video, freelance and financial work, with security and quality checks on every project.">
 <meta property="og:image" content="https://arnold-rg.github.io/vira/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,28 +21,59 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="spot-layer" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
 
 <header class="nav" id="nav">
-  <a href="#top" class="brand" aria-label="Vira"><img class="brand-mark" src="assets/mark-vira.png" width="40" height="27" alt=""> <span class="wordmark">Vira</span></a>
+  <a href="#top" class="brand" aria-label="Vira">
+    <picture>
+      <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+      <img class="brand-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
+    </picture>
+  </a>
   <nav id="menu">
-    <a href="#about">About</a><a href="#values">Values</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#gallery">Studio</a><a href="#innovation">Innovation</a><a href="#contact" class="btn btn-sm">Start a project</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <div class="nav-more" id="nav-more">
+      <button type="button" class="nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More</button>
+      <div id="more-menu" class="nav-dropdown">
+        <a href="#products">Products</a>
+        <a href="#gallery">Studio</a>
+        <a href="#innovation">Innovation</a>
+        <a href="#showreel">Showreel</a>
+        <a href="#workflow">Video workflow</a>
+        <a href="#events">Events</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#why">Why Vira</a>
+      </div>
+    </div>
+    <a href="#contact" class="btn btn-sm">Start a project</a>
   </nav>
-  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </header>
 
 <main id="top">
-<section class="hero">
+<h1 class="sr-only">Vira</h1>
+<section class="hero" id="hero" aria-label="Vira">
   <canvas id="liquid" aria-hidden="true"></canvas>
-  <div class="hero-shade" aria-hidden="true"></div>
-  <div class="hero-inner">
-    <p class="hero-acronym">Vision · Innovation · Reliability · Automation</p>
-    <h1>Websites that <em>think</em>,<br>businesses that <em>grow</em>.</h1>
-    <p class="lead">We design and build intelligent websites, web systems and automation, with security and quality checks built into every release.</p>
-    <div class="cta"><a href="#products" class="btn">Explore our products</a><a href="#projects" class="btn btn-ghost">See our work</a></div>
-    <p class="motto-line">“Think boldly. Build carefully. Shine together.”</p>
+  <a href="#intro" class="scroll-cue" aria-label="Scroll down">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<section id="intro" class="section intro">
+  <div class="wrap intro-inner reveal">
+    <p class="intro-acronym">Vision · Innovation · Reliability · Automation</p>
+    <h2>Technology that <em>thinks</em>, businesses that <em>grow</em>.</h2>
+    <p class="intro-lead">We design and build websites, apps, games, networks, internet setup, tech support and AI, and we help with business, video, freelance and financial work — with security and quality checks built into every release.</p>
+    <div class="cta">
+      <a href="#services" class="btn">Explore our services</a>
+      <a href="#projects" class="btn btn-ghost-dark">See our work</a>
+      <a href="#contact" class="btn btn-ghost-dark">Start a project</a>
+    </div>
+    <p class="motto-line intro-motto">“Think boldly. Build carefully. Shine together.”</p>
   </div>
-  <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
 </section>
 
 <section id="about" class="section">
@@ -66,13 +97,128 @@
       <p class="eyebrow">Our story</p>
       <h3>Built from curiosity, shaped by discipline.</h3>
       <p>Vira began with a simple question: what if a single founder could run a technology company with the structure and care of a full team? The answer was to build that team from specialised AI agents, each with one clear job, and to put a human in charge of every decision that matters.</p>
-      <p>Today, the studio designs websites, builds web systems, automates everyday work and reviews every release for quality and security. We serve clients wherever they are.</p>
+      <p>Today, the studio works across websites, apps, games, networking, internet setup, tech support and AI creation, and also helps with business operations, video content, freelance workflows and financial systems. We serve clients wherever they are.</p>
       <p>We keep our promises small and our standards high: honest timelines, real results and nothing published without the client's approval.</p>
     </div>
   </div>
 </section>
 
-<section id="values" class="section tint">
+
+
+
+<section id="services" class="section tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">What we do</p>
+      <h2>Services for the full journey</h2>
+      <p class="muted">Build, connect and grow — one studio for the technology and support a business actually needs, including custom requests.</p>
+    </div>
+    <div class="svc-group">
+      <header class="svc-head reveal">
+        <p class="eyebrow">Build</p>
+        <p class="svc-kicker">Websites, apps, games and AI</p>
+      </header>
+      <div class="services-grid">
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><circle cx="6.2" cy="6" r=".7" fill="currentColor" stroke="none"/><circle cx="8.4" cy="6" r=".7" fill="currentColor" stroke="none"/><path d="M7 12h5M7 15h10"/></svg></div>
+        <h3>Websites &amp; web systems</h3>
+        <p>Modern business and personal websites, plus custom web apps and dashboards. Built for speed, phones and search, with a quality and security check on every release.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="11.5" height="9.5" rx="1.5"/><rect x="12" y="3" width="9.5" height="16.5" rx="2"/><path d="M15.2 16.8h3.1"/></svg></div>
+        <h3>Mobile &amp; desktop apps</h3>
+        <p>Applications for phones, tablets and desktops, from the first prototype to a stable release. Designed around how people will actually use them, then tested before they ship.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 9.5h11.6A3.8 3.8 0 0 1 21 15.2a3 3 0 0 1-3 1.8h-2.3l-1.1-1.5a1.8 1.8 0 0 0-3.2 0L10.3 17H6a3 3 0 0 1-3-1.8 3.8 3.8 0 0 1 3.2-5.7z"/><path d="M8 12.6v3.2M6.4 14.2h3.2"/><circle cx="15.4" cy="13" r=".85" fill="currentColor" stroke="none"/><circle cx="17.5" cy="15" r=".85" fill="currentColor" stroke="none"/></svg></div>
+        <h3>Games</h3>
+        <p>Game development and interactive experiences for the web and desktop. We shape the play, build the systems behind it and polish how it feels to use.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 13 7.1 17 8.2 13 9.3 12 13.2 11 9.3 7 8.2 11 7.1z"/><circle cx="6.2" cy="17.4" r="1.55"/><circle cx="12" cy="19.2" r="1.55"/><circle cx="17.8" cy="17.4" r="1.55"/><path d="M7.5 16.2 10.6 11.2M12 14.8v2.8M16.5 16.2 13.4 11.2"/></svg></div>
+        <h3>AI creation</h3>
+        <p>Custom AI assistants, chatbots, automation and data or machine-learning work. Built around your real workflow, then checked before you rely on it.</p>
+      </article>
+      </div>
+    </div>
+    <div class="svc-group">
+      <header class="svc-head reveal">
+        <p class="eyebrow">Connect</p>
+        <p class="svc-kicker">Networks, internet setup and support</p>
+      </header>
+      <div class="services-grid">
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.8" r="2.1"/><circle cx="12" cy="12" r="1.55"/><circle cx="5.6" cy="18.2" r="2.1"/><circle cx="18.4" cy="18.2" r="2.1"/><path d="M12 7.9v2.5M10.7 13.3 7.3 16.4M13.3 13.3l3.4 3.1"/></svg></div>
+        <h3>Networking</h3>
+        <p>Network design, setup and security for homes and offices, including Wi-Fi, LAN and WAN. Planned so devices stay connected and traffic stays protected.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.9 3.9 5.7 3.9 8.5s-1.3 5.6-3.9 8.5C9.4 17.6 8.1 14.8 8.1 12S9.4 6.4 12 3.5z"/></svg></div>
+        <h3>Internet setup</h3>
+        <p>Internet setup and connectivity solutions for homes, offices and events. We plan the connection, set up the hardware and leave you with a link that works.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12a7 7 0 0 1 14 0"/><rect x="3.2" y="12" width="3.3" height="5.6" rx="1.5"/><rect x="17.5" y="12" width="3.3" height="5.6" rx="1.5"/><path d="M20.8 17v1.2A3.2 3.2 0 0 1 17.6 21.4H13"/></svg></div>
+        <h3>Tech support</h3>
+        <p>IT helpdesk, device setup, troubleshooting and ongoing maintenance. Clear help when something breaks, and routine care so it happens less often.</p>
+      </article>
+      </div>
+    </div>
+    <div class="svc-group">
+      <header class="svc-head reveal">
+        <p class="eyebrow">Grow</p>
+        <p class="svc-kicker">Business, content, freelance and finance</p>
+      </header>
+      <div class="services-grid">
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="13" rx="2"/><path d="M8 7V5.8A4 4 0 0 1 16 5.8V7M8 12h8M8 15.5h5"/></svg></div>
+        <h3>Business management</h3>
+        <p>Planning, operations and reporting support for small businesses. We help you set up clear processes and the tools to run them day to day.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M17 10.2 21 8v8l-4-2.2z"/></svg></div>
+        <h3>Video content creation</h3>
+        <p>Planning, filming support, editing and packaging for social and web video. From a clear brief to a finished piece ready to publish.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8.5" r="2.1"/><path d="M3.5 18c.4-3 2.3-4.6 4.5-4.6S12.1 15 12.5 18M13 14.2c1.7-.4 3.4.3 4.5 1.8 1 1.3 1.3 2.5 1.3 2"/></svg></div>
+        <h3>Freelance support</h3>
+        <p>Practical help for independent professionals: a clear online presence, simple workflows and the tools that keep client work moving.</p>
+      </article>
+      <article class="service card reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M7 9h10M7 12.5h7M7 16h5"/></svg></div>
+        <h3>Financial support &amp; management</h3>
+        <p>Tools and systems for tracking money, planning budgets and organising the books. Practical setup and support — not financial or tax advice.</p>
+      </article>
+      <article class="service card reveal service-more">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
+        <h3>And more</h3>
+        <p>Have something else in mind? Tell us what you need and we will tell you honestly whether we can help, and how we would approach it.</p>
+      </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="stats" class="stats-band" aria-label="Vira in numbers">
+  <div class="wrap stats-grid">
+    <div class="stat reveal">
+      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+      <div><b class="count" data-count-from="services">0</b><span>Services offered</span></div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 20h8"/></svg></div>
+      <div><b class="count" data-count-from="projects">0</b><span>Live projects on this site</span></div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div>
+      <div><b class="count count-year" data-year="2026">2026</b><span>Year founded</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="values" class="section">
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow">What we stand for</p><h2>Our values</h2></div>
     <div class="grid g3">
@@ -90,7 +236,7 @@
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow">Where we are going</p><h2>Our objectives</h2></div>
     <ol class="objectives">
-      <li class="reveal"><span>01</span><div><h3>Build intelligent products</h3><p>Ship websites and web systems that use AI to save time and make better decisions.</p></div></li>
+      <li class="reveal"><span>01</span><div><h3>Build intelligent products</h3><p>Ship websites, apps, games, networks and AI tools that save time and help people make better decisions.</p></div></li>
       <li class="reveal"><span>02</span><div><h3>Make quality the default</h3><p>Run every release through testing, code review and a security check.</p></div></li>
       <li class="reveal"><span>03</span><div><h3>Serve real communities</h3><p>Help local businesses, churches, households and creators get online with confidence.</p></div></li>
       <li class="reveal"><span>04</span><div><h3>Grow with knowledge</h3><p>Turn continuous learning into better tools, cleaner code and safer systems.</p></div></li>
@@ -114,7 +260,7 @@
     <div class="reveal">
       <p class="eyebrow">Our visibility</p>
       <h2>Open, accessible and easy to find.</h2>
-      <p>Everything we build is made to be seen and used: fast on any phone or browser, accessible, search-friendly and published on reliable hosting. Our clients' work is visible to the world, while their private data stays private.</p>
+      <p>Everything we build is made to be used: websites and apps that work on any phone or browser, networks and connections that stay reliable, and tools that are accessible and easy to find. Our clients' work is visible to the world, while their private data stays private.</p>
       <ul class="checks"><li>Works in any modern browser and on phones</li><li>Search-friendly structure and clean metadata</li><li>Accessible colours, contrast and navigation</li><li>Privacy kept separate from public content</li></ul>
     </div>
     <div class="swatches reveal">
@@ -127,7 +273,7 @@
 
 <section id="products" class="section tint">
   <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">What we offer</p><h2>Our products and services</h2></div>
+    <div class="head reveal"><p class="eyebrow">Selected products</p><h2>Our products</h2></div>
     <div class="grid g2">
       <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-code.jpg)"></div><div class="p-body"><div class="num">01</div><h3>AI-powered websites</h3><p>Modern business and personal websites with smart features, built for speed, phones and search.</p></div></article>
       <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-dashboard.jpg)"></div><div class="p-body"><div class="num">02</div><h3>Web systems and dashboards</h3><p>Custom web apps, private dashboards, booking and management tools tailored to how you work.</p></div></article>
@@ -185,7 +331,97 @@
   </div>
 </section>
 
-<section class="section">
+
+
+<section id="showreel" class="section dark">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow light">Showreel</p>
+      <h2>A first look at how we work</h2>
+      <p class="sub">A short studio reel is on the way. Until then, this is a living silver study from the same visual language as the site.</p>
+    </div>
+    <div class="showreel-frame" data-showreel>
+      <canvas id="showreel-liquid" aria-hidden="true"></canvas>
+      <p class="showreel-label">Showreel coming soon</p>
+    </div>
+  </div>
+</section>
+
+<section id="workflow" class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Content workflow</p>
+      <h2>Viral video management structure</h2>
+      <p class="muted">When we take on video work, this is the path a piece follows — from the first idea to learning what to do next. It is our process, not a promise of results.</p>
+    </div>
+    <ol class="flow">
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+        <span class="flow-num">01</span>
+        <h3>Strategy &amp; trends</h3>
+        <p>Research what is resonating and plan a content direction that fits the brand.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4M8 11h8M8 15h6"/></svg></div>
+        <span class="flow-num">02</span>
+        <h3>Scripting</h3>
+        <p>Turn the idea into a clear script, hook and storyboard before anything is filmed.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 10.5 21 8v8l-5-2.5z"/></svg></div>
+        <span class="flow-num">03</span>
+        <h3>Production</h3>
+        <p>Capture the footage, voice and assets needed for the piece.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6l2 3h8v10H4z"/><path d="M10 15l4 2.5L10 20v-5z"/></svg></div>
+        <span class="flow-num">04</span>
+        <h3>Editing</h3>
+        <p>Cut, grade, caption and sound-design the video so it is ready to watch.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h4"/></svg></div>
+        <span class="flow-num">05</span>
+        <h3>Publishing &amp; scheduling</h3>
+        <p>Prepare platform-ready versions and a sensible posting plan.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14v9H8l-3 3z"/></svg></div>
+        <span class="flow-num">06</span>
+        <h3>Community management</h3>
+        <p>Watch comments and messages, and help you reply with care.</p>
+      </li>
+      <li class="flow-step reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 15v-4M12 15V8M16 15v-6"/></svg></div>
+        <span class="flow-num">07</span>
+        <h3>Analytics &amp; optimisation</h3>
+        <p>Review what happened and adjust the next piece accordingly.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="events" class="section tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Events</p>
+      <h2>What is coming up</h2>
+    </div>
+    <div id="events-list" class="events-wrap reveal"></div>
+  </div>
+</section>
+
+<section id="reviews" class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2>What clients say</h2>
+    </div>
+    <div id="reviews-wrap" class="reviews-wrap reveal"></div>
+  </div>
+</section>
+
+<section id="why" class="section">
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow">Why Vira</p><h2>What makes working with us different</h2></div>
     <div class="grid g3">
@@ -193,26 +429,80 @@
       <article class="card reveal"><h3>You stay in control</h3><p>Nothing is published, sent or paid without your explicit approval. You see every step and decide every launch.</p></article>
       <article class="card reveal"><h3>Honest reporting</h3><p>Every report shows only real work and real results. No filler, no inflated numbers.</p></article>
       <article class="card reveal"><h3>Security built in</h3><p>Privacy reviews, code checks and security testing are part of every project, not an extra.</p></article>
-      <article class="card reveal"><h3>Modern technology</h3><p>Fast, mobile-first websites and systems built with current tools and published on reliable hosting.</p></article>
+      <article class="card reveal"><h3>Modern technology</h3><p>Websites, apps, games, networks and AI built with current tools, tested properly and delivered on reliable platforms.</p></article>
       <article class="card reveal"><h3>Personal service</h3><p>A small studio means you talk to the people, and agents, who actually build your product.</p></article>
     </div>
   </div>
+
 </section>
 
 <section id="contact" class="section contact">
-  <div class="wrap reveal">
-    <picture>
-      <source type="image/webp" srcset="assets/logo-vira-light.webp">
-      <img class="contact-logo" src="assets/logo-vira-light.png" width="800" height="841" alt="Vira">
-    </picture>
-    <h2>Let's build something brilliant.</h2>
-    <p>Tell us about your idea and we'll reply with a clear plan.</p>
-    <a class="btn" href="mailto:rurangwaarnold32@gmail.com?subject=Project%20enquiry%20for%20Vira">Email us</a>
+  <div class="wrap contact-grid">
+    <div class="contact-intro reveal">
+      <picture>
+        <source type="image/webp" srcset="assets/logo-vira-light.webp">
+        <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
+      </picture>
+      <h2>Let's start a project.</h2>
+      <p>Websites, apps, games, networking, internet setup, tech support, AI, business, video, freelance or financial help — tell us what you need and we will reply with a clear plan.</p>
+      <div class="social" data-social></div>
+    </div>
+    <form id="contact-form" class="contact-form reveal" novalidate>
+      <div class="field">
+        <label for="c-name">Name</label>
+        <input id="c-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
+        <p class="error" data-error-for="name" hidden></p>
+      </div>
+      <div class="field">
+        <label for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" autocomplete="email" required>
+        <p class="error" data-error-for="email" hidden></p>
+      </div>
+      <div class="field field-full">
+        <label for="c-service">Service</label>
+        <select id="c-service" name="service" required>
+          <option value="">Choose a service</option>
+          <option>Websites &amp; web systems</option>
+          <option>Mobile &amp; desktop apps</option>
+          <option>Games</option>
+          <option>AI creation</option>
+          <option>Networking</option>
+          <option>Internet setup</option>
+          <option>Tech support</option>
+          <option>Business management</option>
+          <option>Video content creation</option>
+          <option>Freelance support</option>
+          <option>Financial support &amp; management</option>
+          <option>And more</option>
+        </select>
+        <p class="error" data-error-for="service" hidden></p>
+      </div>
+      <div class="field field-full">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="6" required minlength="20" maxlength="2000"></textarea>
+        <p class="error" data-error-for="message" hidden></p>
+      </div>
+      <div class="field-full form-actions">
+        <button type="submit" class="btn">Send a message</button>
+        <p class="form-note">This opens your email app with the message ready to send. Nothing is stored on our servers.</p>
+      </div>
+    </form>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap foot"><a href="#top" class="brand" aria-label="Vira"><img class="brand-mark" src="assets/mark-vira.png" width="40" height="27" alt=""> <span class="wordmark">Vira</span></a><p>© <span id="yr">2026</span> Vira. All rights reserved. Photos from Unsplash.</p></div></footer>
+<footer>
+  <div class="wrap foot">
+    <a href="#top" class="brand" aria-label="Vira">
+      <picture>
+        <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+        <img class="brand-logo footer-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
+      </picture>
+    </a>
+    <div class="social" data-social></div>
+    <p>© <span id="yr">2026</span> Vira. Websites, apps, games, networks, support, AI and more. Photos from Unsplash.</p>
+  </div>
+</footer>
 <script src="script.js"></script>
 </body>
 </html>
