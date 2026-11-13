@@ -19,9 +19,15 @@ Fonts (self-hosted, SIL Open Font License 1.1)
   No fonts are loaded from a CDN.
 
 Photographs
-  See PHOTO-CREDITS.md. Seven Pexels photographs, self-hosted as WebP
-  under assets/photos/. None is presented as a portrait of the founder,
+  See PHOTO-CREDITS.md. Six Pexels photographs of people at work,
+  self-hosted as WebP under assets/photos/. Captions describe the
+  activity only. None is presented as a portrait of the founder,
   a team member or a client.
+
+QR library
+  js/vendor/qrcode.mjs — qrcode-generator 2.0.4 by Kazuhiko Arase, MIT.
+  Licence: js/vendor/LICENSE-qrcode-generator.txt
+  https://github.com/kazuhikoarase/qrcode-generator
 
 Payment and chat marks
   PayPal    assets/payments/paypal.svg

@@ -81,7 +81,7 @@ test('placeholder slots are clearly empty, not pretended real', () => {
   const content = JSON.parse(readFileSync(join(root, 'content.json'), 'utf8'));
   assert.equal(content.slots.founder_photo.src, '');
   assert.match(content.slots.founder_photo.label, /coming soon/i);
-  for (const k of ['why_i_built_vira', 'motivation', 'education', 'experience']) {
+  for (const k of ['why_i_built_vira', 'motivation', 'education', 'experience', 'mission', 'motto', 'about']) {
     assert.match(content.slots[k].body, /Coming soon — Arnold is writing this/);
   }
   assert.deepEqual(content.slots.work_gallery.projects, []);
@@ -90,15 +90,37 @@ test('placeholder slots are clearly empty, not pretended real', () => {
   assert.match(html, /Real project photos coming soon/);
 });
 
-test('FAQ is present and answered from site facts', () => {
-  assert.match(html, /<details>/);
-  assert.match(html, /<summary>How do I pay\?<\/summary>/);
-  assert.match(html, /<summary>Which regions do you serve\?<\/summary>/);
-  assert.match(html, /<summary>How do I contact you\?<\/summary>/);
-  assert.match(html, /<summary>How does the process work\?<\/summary>/);
+test('FAQ is gone and Vira is not described as small', () => {
+  assert.equal(/id=["']faq["']/.test(html), false);
+  assert.equal(/<details>/.test(html), false);
+  assert.equal(/\bFAQ\b/.test(html), false);
+  assert.equal(/small studio/i.test(html), false);
+  assert.equal(/small technology studio/i.test(html), false);
+  const content = readFileSync(join(root, 'content.json'), 'utf8');
+  assert.equal(/small studio/i.test(content), false);
   assert.match(html, /Verify before you pay/);
-  assert.match(html, /Americas, Europe and Africa/);
+  assert.match(html, /Americas, Europe/);
   assert.match(html, /WhatsApp only/);
+});
+
+test('footer has the studio details on the page', () => {
+  const foot = html.slice(html.indexOf('<footer'));
+  assert.match(foot, /Vision\. Innovation\. Reliability\. Automation\./);
+  assert.match(foot, /Websites/);
+  assert.match(foot, /Financial support and management/);
+  assert.match(foot, /href="#builder"/);
+  assert.match(foot, /href="#why-clients"/);
+  assert.match(foot, /WhatsApp, Main: \+250 794 607 518 \(Rwanda\)/);
+  assert.match(foot, /WhatsApp, Backup: \+48 575 217 930 \(Poland\)/);
+  assert.match(foot, /Kigali, Rwanda/);
+  assert.match(foot, />Poland</);
+  assert.match(foot, /BLIK/);
+  assert.match(foot, /Bank transfer/);
+  assert.match(foot, /MTN MoMo Pay/);
+  assert.match(foot, /PayPal/);
+  assert.match(foot, /Americas, Europe, Africa/);
+  assert.match(foot, /PHOTO-CREDITS\.md/);
+  assert.match(foot, /© 2026 Vira/);
 });
 
 test('every image is local and every photo file is credited', () => {
@@ -125,9 +147,14 @@ test('every image is local and every photo file is credited', () => {
   const photos = readdirSync(photosDir).filter((n) => !n.startsWith('.'));
   assert.ok(photos.length >= 6, 'expected at least 6 photos');
   for (const name of photos) {
-    assert.ok(
-      credits.includes(name) || credits.includes('assets/photos/' + name),
-      name + ' is not listed in PHOTO-CREDITS.md'
-    );
+    const heading = credits.includes('assets/photos/' + name) || credits.includes(name);
+    assert.ok(heading, name + ' is not listed in PHOTO-CREDITS.md');
+    const idx = credits.indexOf(name);
+    const slice = credits.slice(Math.max(0, idx), idx + 600);
+    assert.match(slice, /Photographer:/);
+    assert.match(slice, /Source page: https:\/\/www\.(pexels|unsplash)\.com\//);
+    assert.match(slice, /Licence:/);
   }
+  assert.equal(/kigali|kraków|krakow/i.test(credits), false, 'city photos should be gone');
+  assert.equal(/not our team/i.test(html), false);
 });

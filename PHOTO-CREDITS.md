@@ -1,69 +1,59 @@
-# Photo credits
+# Photo credits and font licences
 
-All photographs are self-hosted under `assets/photos/`. They are editorial illustrations of the kind of work Vira does and of the cities it works from. None of them depicts Arnold Rurangwa, a Vira team member, or a Vira client. The founder photo slot on the page is reserved for his own photograph and is empty until one is supplied.
+All photographs on this site are self-hosted under `assets/photos/`. Captions and alt text describe the activity only. None of the photographs depicts Arnold Rurangwa, a Vira team member, or a Vira client. The founder photo slot is reserved for his own photograph and is empty until one is supplied.
 
-Licence for every file below: the [Pexels License](https://www.pexels.com/license/) (free for commercial and personal use). Downloaded from each photo’s own `images.pexels.com` URL and converted to WebP.
+Licence for every photograph below: the [Pexels License](https://www.pexels.com/license/) (free for commercial and personal use). Each file was downloaded from that photo’s own `images.pexels.com` URL and converted to WebP.
 
-## assets/photos/workspace-laptop.webp
+## assets/photos/working-website.webp
 
-- Subject: a laptop on a desk (workspace)
-- Photographer: Mikhail Nilov
-- Source page: https://www.pexels.com/photo/a-laptop-on-the-table-6592698/
+- Subject: a person building a website on a laptop, with HTML on the screen
+- Photographer: Lukas Blazek
+- Source page: https://www.pexels.com/photo/person-using-macbook-pro-574077/
 - Licence: Pexels License
 - Use: hero, 1600 px wide
-- People: none
 
-## assets/photos/laptop-code.webp
+## assets/photos/working-code.webp
 
-- Subject: a laptop screen showing a code editor
-- Photographer: Nemuel Sereti
-- Source page: https://www.pexels.com/photo/programming-code-on-laptop-screen-6424590/
+- Subject: a person coding at a desk with a laptop and an external monitor
+- Photographer: Mikhail Nilov
+- Source page: https://www.pexels.com/photo/a-person-doing-computer-programming-7988086/
 - Licence: Pexels License
-- Use: services column, 800 px wide
-- People: none
 
-## assets/photos/network-cables.webp
+## assets/photos/working-collab.webp
 
-- Subject: ethernet cables in a network switch
-- Photographer: Sergei Starostin
-- Source page: https://www.pexels.com/photo/close-up-photo-of-ethernet-cables-on-network-switch-6466143/
+- Subject: two people at a laptop, talking through a piece of software
+- Photographer: Mizuno K
+- Source page: https://www.pexels.com/photo/discussion-about-software-development-in-office-12899191/
 - Licence: Pexels License
-- Use: services column, 800 px wide
-- People: none
 
-## assets/photos/phone-apps.webp
+## assets/photos/working-data.webp
 
-- Subject: a smartphone with app icons on a desk
-- Photographer: Vova Kras
-- Source page: https://www.pexels.com/photo/app-icons-on-a-phone-lying-on-a-desk-12123390/
+- Subject: a person looking at charts on a laptop screen
+- Photographer: Mikhail Nilov
+- Source page: https://www.pexels.com/photo/a-woman-looking-at-a-chart-on-the-laptop-screen-7677898/
 - Licence: Pexels License
-- Use: services column, 800 px wide
-- People: none
 
-## assets/photos/video-camera.webp
+## assets/photos/working-app.webp
 
-- Subject: a professional video camera on a tripod
-- Photographer: Alex Pereyra
-- Source page: https://www.pexels.com/photo/broadcasting-movie-camera-15779000/
+- Subject: a person developing an app, with a smartphone on the desk
+- Photographer: ThisIsEngineering
+- Source page: https://www.pexels.com/photo/engineer-developing-app-3912958/
 - Licence: Pexels License
-- Use: services column, 800 px wide
-- People: none
 
-## assets/photos/kigali-rooftops.webp
+## assets/photos/working-phone.webp
 
-- Subject: rooftops and hills in Kigali, Rwanda
-- Photographer: Faustin NKURUNZIZA
-- Source page: https://www.pexels.com/photo/scenic-view-of-kigali-city-rooftops-in-rwanda-31464449/
+- Subject: a person working at a laptop while holding a smartphone
+- Photographer: Christina Morillo
+- Source page: https://www.pexels.com/photo/person-holding-smartphone-while-using-laptop-1181244/
 - Licence: Pexels License
-- Use: “Where we work from” band, 1600 px wide
-- People: none (distant city view)
-- Caption makes clear this is the city, not a Vira office
 
-## assets/photos/krakow-cloth-hall.webp
+## Fonts
 
-- Subject: the Cloth Hall on the main square in Kraków, Poland, at twilight
-- Photographer: Dawid Zawiła
-- Source page: https://www.pexels.com/photo/evening-view-of-krakow-s-historic-cloth-hall-37115348/
-- Licence: Pexels License
-- Use: “Where we work from” band, 1600 px wide
-- People: a long exposure may show motion-blurred, unidentifiable figures; the caption names only the place and the photographer
+Bodoni Moda and Source Sans 3 are self-hosted under `assets/fonts/` and used under the SIL Open Font License:
+
+- [Bodoni Moda — SIL Open Font License](assets/fonts/OFL-Bodoni-Moda.txt)
+- [Source Sans 3 — SIL Open Font License](assets/fonts/OFL-Source-Sans-3.txt)
+
+## QR library
+
+The transfer QR codes (when the account details have been supplied) are drawn on the page by [qrcode-generator 2.0.4](https://github.com/kazuhikoarase/qrcode-generator) by Kazuhiko Arase, vendored at `js/vendor/qrcode.mjs` under the [MIT License](js/vendor/LICENSE-qrcode-generator.txt).

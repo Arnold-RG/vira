@@ -1,0 +1,87 @@
+{
+  "palettes": [
+    {
+      "id": "vira",
+      "name": "Vira",
+      "swatches": ["#6F4E37", "#E5E4E2", "#E6E0F0", "#1A120D"]
+    },
+    {
+      "id": "ink-cream",
+      "name": "Ink and cream",
+      "swatches": ["#1C1917", "#F4EFE6", "#C4A574", "#4A3F35"]
+    },
+    {
+      "id": "forest",
+      "name": "Forest",
+      "swatches": ["#1F3D2B", "#E7EFE4", "#A3B899", "#2C2A24"]
+    },
+    {
+      "id": "night",
+      "name": "Night",
+      "swatches": ["#152033", "#EEF1F5", "#8FA3C0", "#0E0E12"]
+    },
+    {
+      "id": "clay",
+      "name": "Clay",
+      "swatches": ["#8C4A32", "#F3E6D8", "#D9B48F", "#2B2118"]
+    },
+    {
+      "id": "sea",
+      "name": "Sea",
+      "swatches": ["#1E4D5B", "#E8F0F0", "#B7C9C4", "#173038"]
+    }
+  ],
+  "styles": [
+    { "id": "minimal", "name": "Minimal" },
+    { "id": "editorial", "name": "Editorial" },
+    { "id": "bold", "name": "Bold" },
+    { "id": "corporate", "name": "Corporate" },
+    { "id": "playful", "name": "Playful" }
+  ],
+  "services": {
+    "Websites": {
+      "pages": ["Home", "About", "Contact"],
+      "features": ["A clear layout to an agreed brief", "A contact form", "Basic on-page titles and headings"]
+    },
+    "Apps": {
+      "pages": ["Home", "Main task screen", "Settings"],
+      "features": ["A focused set of screens for one real task", "Works on the phones, tablets or desktops we agree"]
+    },
+    "Games": {
+      "pages": ["Start", "Play", "Results"],
+      "features": ["A playable game for the web or for desktop", "A simple way to start, play and finish"]
+    },
+    "Networking": {
+      "pages": ["Setup summary"],
+      "features": ["A Wi-Fi or wired plan for a home, office or event", "Setup and basic security for the network"]
+    },
+    "Internet provision and connectivity": {
+      "pages": ["Setup summary"],
+      "features": ["Help with the line, the router and the Wi-Fi", "A home or office that is actually online"]
+    },
+    "Tech support": {
+      "pages": ["Support notes"],
+      "features": ["Help when a device or system breaks", "Follow-up care if you want it afterwards"]
+    },
+    "AI creation": {
+      "pages": ["Home", "The tool"],
+      "features": ["A small, practical AI tool around a real task", "Tested before you use it"]
+    },
+    "Business management": {
+      "pages": ["Overview", "Day-to-day"],
+      "features": ["Day-to-day systems a business uses to run the work", "Set up and made clear"]
+    },
+    "Video content creation": {
+      "pages": ["Story", "Finished piece"],
+      "features": ["Help to plan, film, edit and package a video", "For a website or for social channels"]
+    },
+    "Freelance support": {
+      "pages": ["Profile", "Contact"],
+      "features": ["An online presence", "Simple tools that keep client work moving"]
+    },
+    "Financial support and management": {
+      "pages": ["Overview", "Records"],
+      "features": ["Practical tools for tracking money", "Setup and support, not financial or tax advice"]
+    }
+  }
+}

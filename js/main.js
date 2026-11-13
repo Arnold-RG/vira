@@ -1,5 +1,7 @@
 import { initForm } from './form.js';
 import { initPayments } from './payments.js';
+import { initQr } from './qr-ui.js';
+import { initBuilder } from './builder.js';
 
 function initYear() {
   document.querySelectorAll('[data-year]').forEach((el) => {
@@ -71,7 +73,7 @@ async function initSlots() {
     }
   }
 
-  for (const key of ['why_i_built_vira', 'motivation', 'education', 'experience']) {
+  for (const key of ['why_i_built_vira', 'motivation', 'education', 'experience', 'mission', 'motto', 'about']) {
     const root = document.querySelector('[data-slot="' + key + '"]');
     const slot = slots[key];
     if (!root || !slot) continue;
@@ -114,4 +116,6 @@ initNav();
 initPlans();
 initForm();
 initPayments();
+initQr();
+initBuilder();
 initSlots();
