@@ -27,7 +27,6 @@
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
-<div class="pointer-light" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
 
 <header class="nav" id="nav">
@@ -43,10 +42,10 @@
   </a>
   <nav class="nav-links" aria-label="Primary">
     <a href="#services">Services</a>
-    <a href="#products">Products</a>
+    <a href="#pricing">Plans</a>
     <a href="#gallery">Work</a>
-    <a href="#videos">Videos</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
   </nav>
   <div class="nav-actions">
     <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
@@ -77,13 +76,10 @@
   </div>
   <nav aria-label="Mobile">
     <a href="#services">Services</a>
-    <a href="#products">Products</a>
+    <a href="#pricing">Plans</a>
     <a href="#gallery">Work</a>
-    <a href="#videos">Videos</a>
-    <a href="#pricing">Pricing</a>
     <a href="#about">About</a>
-    <a href="#events">Events</a>
-    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
   </nav>
   <div class="sheet-cta"><a href="#request-assist" class="btn">Request assist</a></div>
   <div class="sheet-theme">
@@ -102,7 +98,7 @@
     <picture class="hero-poster-pic">
       <source id="hero-poster-webp" type="image/webp" srcset="assets/video/02-liquid-metal.webp">
       <source id="hero-poster-jpeg" type="image/jpeg" srcset="assets/video/02-liquid-metal.jpg">
-      <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.webp" width="1920" height="1080" alt="" decoding="async">
+      <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.webp" width="1280" height="720" alt="" decoding="async">
     </picture>
     <video id="hero-video" class="hero-video" muted autoplay loop playsinline preload="none" aria-hidden="true"></video>
     <div class="hero-overlay" aria-hidden="true"></div>
@@ -402,9 +398,8 @@
 </section>
 
 <section id="request-assist" class="section request-assist" tabindex="-1">
-<span id="pricing" tabindex="-1"></span>
   <div class="wrap">
-    <div class="head reveal">
+    <div class="head reveal" id="pricing" tabindex="-1">
       <p class="eyebrow">Fixed prices</p>
       <h2>Request us to build your project</h2>
       <p class="muted">Choose a plan, tell us what you need, and we will reply with a clear outline before any work begins. Prices are set in Polish zloty.</p>
@@ -483,15 +478,16 @@
       </article>
     </div>
 
+    <div id="contact" tabindex="-1">
     <div class="contact-grid request-form-wrap" id="request-form">
       <div class="contact-intro reveal">
     <picture class="logo-on-dark">
       <source type="image/webp" srcset="assets/logo-vira-dark.webp">
-      <img class="contact-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="Vira">
+      <img class="contact-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="Vira" loading="lazy" decoding="async">
     </picture>
     <picture class="logo-on-light">
       <source type="image/webp" srcset="assets/logo-vira-light.webp">
-      <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
+      <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira" loading="lazy" decoding="async">
     </picture>
         <h2>Tell us about your project.</h2>
         <p>Pick a plan above, or just write to us. We will reply with a clear plan before any work starts.</p>
@@ -550,6 +546,7 @@
         </div>
       </form>
     </div>
+    </div>
   </div>
 </section>
 
@@ -596,62 +593,19 @@
         <a href="#top" class="brand" aria-label="Vira home">
     <picture class="logo-on-dark">
       <source type="image/webp" srcset="assets/logo-vira-dark.webp">
-      <img class="brand-logo footer-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
+      <img class="brand-logo footer-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="" loading="lazy" decoding="async">
     </picture>
         </a>
         <p>Vira is a technology studio. The name stands for Vision, Innovation, Reliability and Automation.</p>
-        <div class="social" data-social></div>
+        <p class="foot-motto">“Think boldly. Build carefully. Shine together.”</p>
       </div>
-      <div>
-        <h3>Services</h3>
-        <div class="foot-links">
-          <a href="#services">What we do</a>
-          <a href="#products">Products</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#request-assist">Request assist</a>
-        </div>
-      </div>
-      <div>
-        <h3>Studio</h3>
-        <div class="foot-links">
-          <a href="#about">About</a>
-          <a href="#gallery">Where ideas take shape</a>
-          <a href="#videos">Video work</a>
-          <a href="#events">Events</a>
-          <a href="#reviews">Reviews</a>
-        </div>
-      </div>
-      <div>
-        <h3>Credits</h3>
-        <p class="foot-credits">
-          Studio photographs by
-          <a href="https://www.pexels.com/photo/macbook-pro-102061/" rel="noopener noreferrer">Julien BRION</a>,
-          <a href="https://www.pexels.com/photo/close-up-photo-of-programming-of-codes-546819/" rel="noopener noreferrer">luis gomes</a>,
-          <a href="https://www.pexels.com/photo/statistics-displayed-on-a-monitor-5466250/" rel="noopener noreferrer">Antoni Shkraba</a>,
-          <a href="https://www.pexels.com/photo/server-racks-on-data-center-5480781/" rel="noopener noreferrer">Brett Sayles</a>,
-          <a href="https://www.pexels.com/photo/gold-circuit-board-in-close-up-photography-6755067/" rel="noopener noreferrer">Tima Miroshnichenko</a>,
-          <a href="https://www.pexels.com/photo/group-of-people-with-their-hands-on-laptop-6894202/" rel="noopener noreferrer">Mikhail Nilov</a>,
-          <a href="https://www.pexels.com/photo/cozy-workspace-with-coffee-and-laptop-setup-30149856/" rel="noopener noreferrer">Han</a>,
-          <a href="https://www.pexels.com/photo/persons-using-laptops-on-table-with-charts-8145328/" rel="noopener noreferrer">olia danilevich</a>
-          and
-          <a href="https://www.pexels.com/photo/black-textile-41949/" rel="noopener noreferrer">Pixabay</a>,
-          from Pexels
-          (eight under the <a href="https://www.pexels.com/license/" rel="noopener noreferrer">Pexels License</a>;
-          photo-earth, by Pixabay, is Creative Commons Zero as stated on its Pexels page;
-          Image: <a href="https://science.nasa.gov/earth/earth-observatory/earth-at-night/" rel="noopener noreferrer">NASA Earth Observatory (Black Marble)</a>;
-          free commercial use, attribution not required).
-          Page URL, photographer, image ID and licence for each file are in
-          <a href="PHOTO-SOURCES.md">PHOTO-SOURCES.md</a>.
-          Hero video options:
-          “Close-Up Video of a Black Silk Cloth” by Mikhail Nilov, <a href="https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/" rel="noopener noreferrer">Pexels</a>
-          (<a href="https://www.pexels.com/license/" rel="noopener noreferrer">Pexels License</a>);
-          “Metallic liquid textures video” by <a href="https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/" rel="noopener noreferrer">Mixkit</a>
-          (<a href="https://mixkit.co/license/" rel="noopener noreferrer">Mixkit License</a>);
-          “Footage of smoke against black background” by cottonbro studio, <a href="https://www.pexels.com/video/footage-of-smoke-against-black-background-9694807/" rel="noopener noreferrer">Pexels</a>;
-          “Abstract Digital Landscape Animation with Grid” by Nicola Narracci, <a href="https://www.pexels.com/video/abstract-digital-landscape-animation-with-grid-28649481/" rel="noopener noreferrer">Pexels</a>.
-          Display type is <a href="assets/fonts/OFL-Fraunces.txt">Fraunces</a> and body type is <a href="assets/fonts/OFL-Inter.txt">Inter</a>, both under the SIL Open Font License.
-        </p>
-      </div>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="#services">Services</a>
+        <a href="#pricing">Plans</a>
+        <a href="#gallery">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
     <div class="foot-bottom">
       <p>© <span data-year>2026</span> Vira.</p>

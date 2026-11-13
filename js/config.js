@@ -55,8 +55,7 @@ export const SOCIAL = {
   facebook: '',
   x: '',
   youtube: '',
-  tiktok: '',
-  github: 'https://github.com/Arnold-RG'
+  tiktok: ''
 };
 
 export const EVENTS = [];

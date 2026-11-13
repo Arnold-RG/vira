@@ -382,12 +382,20 @@
 .site-footer a:hover { color: #E6E0F0; }
 .foot-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
-  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(16rem, 1.5fr) auto;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: start;
   margin-bottom: 3rem;
 }
 .foot-brand .brand-logo { height: 72px; }
 .foot-brand p { color: var(--footer-muted); margin-top: 14px; max-width: 36ch; }
+.foot-motto {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--footer-ink);
+  margin-top: 10px;
+}
 .site-footer h3 {
   font-size: 0.82rem;
   letter-spacing: 0.18em;
@@ -400,13 +408,6 @@
 .foot-links { display: grid; gap: 8px; }
 .foot-links a { font-size: var(--fs-sm); color: var(--footer-muted); }
 .foot-links a:hover { color: #F4F3F1; }
-.foot-credits {
-  font-size: var(--fs-xs);
-  color: var(--footer-muted);
-  line-height: 1.55;
-  max-width: none;
-}
-.foot-credits a { text-decoration: underline; text-underline-offset: 2px; color: #E5E4E2; }
 .foot-bottom {
   display: flex;
   flex-wrap: wrap;
@@ -424,10 +425,7 @@
 }
 .site-footer .social a:hover { background: rgba(230, 224, 240, 0.16); color: #E6E0F0; }
 
-@media (max-width: 860px) {
-  .foot-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 540px) {
+@media (max-width: 600px) {
   .foot-grid { grid-template-columns: 1fr; }
 }
 
@@ -463,6 +461,6 @@
 }
 
 #about, #services, #products, #gallery, #videos, #visibility,
-#values, #request-assist, #pricing, #events, #reviews, #why {
+#values, #request-assist, #pricing, #contact, #events, #reviews, #why {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
