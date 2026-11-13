@@ -321,7 +321,7 @@ html.reduce-motion .spot-layer,html.reduce-motion .glow-edge{display:none!import
 .plan li::before{content:"✦";position:absolute;left:0;color:var(--lav-d)}
 .btn-plan{width:100%;text-align:center;margin-top:auto}
 .plan-popular{border:1px solid var(--lav-d);background:linear-gradient(180deg,#fff,var(--lav));box-shadow:0 22px 50px rgba(111,78,55,.16);transform:translateY(-6px)}
-.plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--mocha),var(--mocha-d));color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:999px;white-space:nowrap}
+.plan p.plan-badge,.plan-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#6F4E37;color:#F4F3F1;font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;white-space:nowrap;opacity:1;z-index:4;line-height:1.2;box-shadow:none}
 .plan.is-chosen{box-shadow:0 0 0 2px var(--mocha)}
 .request-form-wrap{padding-top:12px}
 @media(max-width:960px){
@@ -386,3 +386,6 @@ html.reduce-motion .spot-layer,html.reduce-motion .glow-edge{display:none!import
   .section{padding:var(--section-y) 0}
   .brand-logo{height:44px}
 }
+
+.pricing-grid{padding-top:18px}
+.plan,.plan.card,.plan-popular,.pricing-grid{overflow:visible}
