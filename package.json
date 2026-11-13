@@ -1,0 +1,8 @@
+{
+  "name": "vira",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test js/form.test.js js/payments.test.js"
+  }
+}

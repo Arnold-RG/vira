@@ -1,10 +1,25 @@
 /**
- * Request-assist form.
- *
- * TODO: delivery is pending the owner's decision (keep the current method,
- * use a dedicated studio address, or a form service). The destination is
- * isolated in deliver() and must not be changed until that decision lands.
+ * Light request form: opens WhatsApp click-to-chat in a new tab.
+ * Nothing is stored. There is no backend.
  */
+
+export const WHATSAPP = {
+  PL: { e164: '48575217930', display: '+48 575 217 930 (Poland)' },
+  RW: { e164: '250794607518', display: '+250 794 607 518 (Rwanda)' }
+};
+
+export function buildWhatsAppUrl(payload) {
+  const entry = WHATSAPP[payload.region];
+  if (!entry) return '';
+  const lines = [
+    'Hello Vira, my name is ' + payload.name + '.',
+    'I would like help with: ' + payload.service + '.'
+  ];
+  if (payload.plan) lines.push('Plan: ' + payload.plan + '.');
+  if (payload.currency) lines.push('Currency shown: ' + payload.currency + '.');
+  lines.push('', payload.message);
+  return 'https://wa.me/' + entry.e164 + '?text=' + encodeURIComponent(lines.join('\n'));
+}
 
 function showError(form, name, message) {
   const el = form.querySelector('[data-error-for="' + name + '"]');
@@ -20,46 +35,36 @@ function showError(form, name, message) {
 
 function validate(form) {
   const name = (form.name.value || '').trim();
-  const email = (form.email.value || '').trim();
   const service = (form.service.value || '').trim();
-  const plan = (form.plan.value || '').trim();
   const message = (form.message.value || '').trim();
+  const region = (form.region && form.region.value) || '';
+  const plan = (form.plan && form.plan.value) ? form.plan.value.trim() : '';
+  const currency = (form.currency && form.currency.value) || '';
   let ok = true;
 
   if (name.length < 2) { showError(form, 'name', 'Please tell us your name.'); ok = false; }
   else showError(form, 'name', '');
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError(form, 'email', 'Please enter a valid email address.'); ok = false; }
-  else showError(form, 'email', '');
-
   if (!service) { showError(form, 'service', 'Please choose a project type.'); ok = false; }
   else showError(form, 'service', '');
 
-  if (!plan) { showError(form, 'plan', 'Please choose a plan.'); ok = false; }
-  else showError(form, 'plan', '');
-
-  if (message.length < 20) { showError(form, 'message', 'Please tell us a little more (at least 20 characters).'); ok = false; }
+  if (message.length < 8) { showError(form, 'message', 'Please add a short message.'); ok = false; }
   else showError(form, 'message', '');
 
-  return ok ? { name, email, service, plan, message } : null;
+  if (!WHATSAPP[region]) { showError(form, 'region', 'Please choose Poland or Rwanda.'); ok = false; }
+  else showError(form, 'region', '');
+
+  return ok ? { name, service, message, region, plan, currency } : null;
 }
 
-function deliver(payload) {
-  const pricing = window.ViraPricing;
-  const currency = (pricing && pricing.currency) || (document.getElementById('c-currency') || {}).value || 'PLN';
-  const price = pricing && pricing.priceLine ? pricing.priceLine(payload.plan) : '';
-  const subject = 'Vira request: ' + payload.plan + ' — ' + payload.name;
-  const body = [
-    'Name: ' + payload.name,
-    'Email: ' + payload.email,
-    'Project type: ' + payload.service,
-    'Plan: ' + payload.plan + (price ? ' (' + price + ')' : ''),
-    'Currency shown: ' + currency,
-    '',
-    payload.message
-  ].join('\n');
-  const url = 'mailto:rurangwaarnold32@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  window.location.href = url;
+function openWhatsApp(url) {
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
 }
 
 export function initForm() {
@@ -67,15 +72,19 @@ export function initForm() {
   if (!form) return;
 
   const run = () => validate(form);
-  ['name', 'email', 'service', 'plan', 'message'].forEach((n) => {
+  ['name', 'service', 'message'].forEach((n) => {
     const el = form.elements[n];
     if (el) el.addEventListener('blur', run);
+  });
+  form.querySelectorAll('input[name="region"]').forEach((el) => {
+    el.addEventListener('change', run);
   });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = validate(form);
     if (!data) return;
-    deliver(data);
+    const url = buildWhatsAppUrl(data);
+    if (url) openWhatsApp(url);
   });
 }

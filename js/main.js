@@ -4,6 +4,7 @@ import { initScroll } from './scroll.js';
 import { initReveal } from './reveal.js';
 import { initPricing } from './pricing.js';
 import { initForm } from './form.js';
+import { initPayments } from './payments.js';
 import { initGallery } from './gallery.js';
 
 function initYear() {
@@ -300,7 +301,7 @@ function initActiveNav() {
     document.querySelectorAll('.nav-links a[href^="#"]'),
     document.querySelectorAll('.nav-sheet nav a[href^="#"]')
   ];
-  const targets = ['services', 'pricing', 'gallery', 'about', 'contact']
+  const targets = ['services', 'pricing', 'gallery', 'about', 'payments', 'contact']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
   if (!targets.length) return;
@@ -351,4 +352,5 @@ initScroll();
 initReveal();
 initPricing();
 initForm();
+initPayments();
 initGallery();
