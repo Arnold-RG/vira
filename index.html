@@ -6,6 +6,7 @@
 <title>Vira | Websites, apps, games, networks, internet, tech support and AI</title>
 <meta name="description" content="Vira builds websites, apps, games, networks, internet setup, tech support and AI, and helps with business, video, freelance and financial work, with security and quality checks on every project.">
 <meta name="theme-color" content="#6F4E37">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://open.er-api.com; base-uri 'self'; form-action 'self' mailto:">
 <link rel="canonical" href="https://arnold-rg.github.io/vira/">
 <meta property="og:url" content="https://arnold-rg.github.io/vira/">
 <meta property="og:title" content="Vira | Websites, apps, games, networks, internet, tech support and AI">
@@ -16,77 +17,138 @@
 <meta property="og:image:alt" content="Vira logo">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<script src="js/theme-boot.js"></script>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/sections.css">
 </head>
 <body>
-<a class="skip-link" href="#intro">Skip to content</a>
-<div class="spot-layer" aria-hidden="true"></div>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="pointer-light" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
 
 <header class="nav" id="nav">
-  <a href="#top" class="brand" aria-label="Vira">
-    <picture>
+  <a href="#top" class="brand" aria-label="Vira home">
+    <picture class="logo-on-dark">
       <source type="image/webp" srcset="assets/logo-vira-dark.webp">
       <img class="brand-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
     </picture>
+    <picture class="logo-on-light">
+      <source type="image/webp" srcset="assets/logo-vira-light.webp">
+      <img class="brand-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="">
+    </picture>
   </a>
-  <a href="#request-assist" class="btn btn-sm">Request assist</a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#gallery">Work</a>
+    <a href="#videos">Videos</a>
+    <a href="#pricing">Pricing</a>
+  </nav>
+  <div class="nav-actions">
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 14.5A7.5 7.5 0 1 1 12.5 4 6 6 0 0 0 18 14.5z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 4.8 4.8M19.2 19.2l-1.4-1.4M6.2 17.8l-1.4 1.4M19.2 4.8l-1.4 1.4"/></svg>
+    </button>
+    <a href="#request-assist" class="btn btn-sm">Request assist</a>
+    <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-sheet" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 
+<div class="nav-sheet-backdrop" id="nav-sheet-backdrop" hidden></div>
+<div class="nav-sheet" id="nav-sheet" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" tabindex="-1">
+  <div class="nav-sheet-head">
+    <a href="#top" class="brand" aria-label="Vira home">
+    <picture class="logo-on-dark">
+      <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+      <img class="brand-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
+    </picture>
+    <picture class="logo-on-light">
+      <source type="image/webp" srcset="assets/logo-vira-light.webp">
+      <img class="brand-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="">
+    </picture>
+    </a>
+    <button type="button" class="nav-sheet-close" id="nav-sheet-close" aria-label="Close menu">×</button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#services">Services</a>
+    <a href="#products">Products</a>
+    <a href="#gallery">Work</a>
+    <a href="#videos">Videos</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <div class="sheet-cta"><a href="#request-assist" class="btn">Request assist</a></div>
+  <div class="sheet-theme">
+    <button type="button" class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="Switch to dark theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 14.5A7.5 7.5 0 1 1 12.5 4 6 6 0 0 0 18 14.5z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 3v2M12 19v2M5 12H3M21 12h-2M6.2 6.2 4.8 4.8M19.2 19.2l-1.4-1.4M6.2 17.8l-1.4 1.4M19.2 4.8l-1.4 1.4"/></svg>
+    </button>
+    <span>Theme</span>
+  </div>
+</div>
+
 <main id="top">
-<h1 class="sr-only">Vira</h1>
+
 <section class="hero" id="hero" aria-label="Vira">
-  <canvas id="liquid" aria-hidden="true"></canvas>
-  <a href="#intro" class="scroll-cue" aria-label="Scroll down">
+  <div class="hero-media">
+    <!-- TODO: HERO_VIDEO default is option 2 (liquid metal) until the owner picks. Wired in js/config.js. -->
+    <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.jpg" width="1920" height="1080" alt="" decoding="async">
+    <video id="hero-video" class="hero-video" muted playsinline loop preload="none" poster="assets/video/02-liquid-metal.jpg" aria-hidden="true"></video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+  </div>
+  <div class="hero-content">
+    <div class="wrap">
+      <p class="eyebrow">A technology studio</p>
+      <h1>Vision, Innovation, Reliability, Automation</h1>
+      <p class="hero-lead">We design and build websites, apps, games, networks, internet setup, tech support and AI, and we help with business, video, freelance and financial work — with security and quality checks built into every release.</p>
+      <div class="cta">
+        <a href="#services" class="btn">Explore our services</a>
+        <a href="#request-assist" class="btn btn-hero-ghost">Request assist</a>
+      </div>
+      <p class="motto">“Think boldly. Build carefully. Shine together.”</p>
+    </div>
+  </div>
+  <a href="#content" class="scroll-cue" aria-label="Scroll to content">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
   </a>
 </section>
 
-<section id="intro" class="section intro">
-  <div class="wrap intro-inner reveal">
-    <p class="intro-acronym">Vision · Innovation · Reliability · Automation</p>
-    <h2>Technology that <em>thinks</em>, businesses that <em>grow</em>.</h2>
-    <p class="intro-lead">We design and build websites, apps, games, networks, internet setup, tech support and AI, and we help with business, video, freelance and financial work — with security and quality checks built into every release.</p>
-    <div class="cta">
-      <a href="#services" class="btn">Explore our services</a>
-      <a href="#projects" class="btn btn-ghost-dark">See our work</a>
-      <a href="#request-assist" class="btn btn-ghost-dark">Request assist</a>
-    </div>
-    <p class="motto-line intro-motto">“Think boldly. Build carefully. Shine together.”</p>
-  </div>
-</section>
-
+<div id="content">
 <section id="about" class="section">
-  <div class="wrap two">
+  <div class="wrap about-grid">
     <div class="reveal">
       <p class="eyebrow">Who we are</p>
-      <h2>A small studio with a team of specialised AI agents.</h2>
-      <p>Vira is a technology studio built around a simple idea: one human vision, supported by a disciplined team of AI agents, can deliver work with the care of a much larger company. Every agent has a clear role, and every release passes a quality and security gate before it reaches you.</p>
+      <h2>A small studio with care built into every release.</h2>
+      <p>Vira is a technology studio built around a simple idea: a clear human vision, supported by disciplined tools and a careful process, can deliver work with the care of a much larger company. Every release passes a quality and security gate before it reaches you.</p>
       <p class="the-name"><strong>The name.</strong> Vira comes from the Sanskrit <i>vīra</i> (hero, brave, strong) and echoes the Latin <i>vir</i> and <i>virtus</i> (courage, excellence, integrity, the root of “virtue”). It also stands for <span class="acronym"><b>V</b>ision, <b>I</b>nnovation, <b>R</b>eliability and <b>A</b>utomation</span>: bold, honest technology with real strength behind it.</p>
     </div>
-    <div class="cards-mini reveal">
+    <div class="mini-grid reveal">
       <div class="mini"><h3>Our Mission</h3><p>To give individuals, small businesses and communities intelligent digital tools that are fast, secure and genuinely useful.</p></div>
       <div class="mini"><h3>Our Vision</h3><p>A future where any ambitious idea, however small its budget, can have world-class technology behind it.</p></div>
       <div class="mini accent"><h3>Our Motto</h3><p>Think boldly. Build carefully. Shine together.</p></div>
     </div>
   </div>
-
   <div class="wrap story reveal">
-    <figure class="photo"><img width="1600" height="1067" decoding="async" src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"><figcaption>Building for clients everywhere.</figcaption></figure>
+    <figure class="photo">
+      <img width="1600" height="1067" decoding="async" src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy">
+      <figcaption>Building for clients everywhere.</figcaption>
+    </figure>
     <div class="story-text">
       <p class="eyebrow">Our story</p>
       <h3>Built from curiosity, shaped by discipline.</h3>
-      <p>Vira began with a simple question: what if a single founder could run a technology company with the structure and care of a full team? The answer was to build that team from specialised AI agents, each with one clear job, and to put a human in charge of every decision that matters.</p>
-      <p>Today, the studio works across websites, apps, games, networking, internet setup, tech support and AI creation, and also helps with business operations, video content, freelance workflows and financial systems. We serve clients wherever they are.</p>
+      <p>Vira began with a simple question: what if a small studio could run with the structure and care of a full team? Today we work across websites, apps, games, networking, internet setup, tech support and AI creation, and we also help with business operations, video content, freelance workflows and financial systems. We serve clients wherever they are.</p>
       <p>We keep our promises small and our standards high: honest timelines, real results and nothing published without the client's approval.</p>
     </div>
   </div>
 </section>
-
-
-
 
 <section id="services" class="section tint">
   <div class="wrap">
@@ -95,107 +157,165 @@
       <h2>Services for the full journey</h2>
       <p class="muted">Build, connect and grow — one studio for the technology and support a business actually needs, including custom requests.</p>
     </div>
-    <div class="svc-group">
-      <header class="svc-head reveal">
-        <p class="eyebrow">Build</p>
-        <p class="svc-kicker">Websites, apps, games and AI</p>
-      </header>
-      <div class="services-grid">
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><circle cx="6.2" cy="6" r=".7" fill="currentColor" stroke="none"/><circle cx="8.4" cy="6" r=".7" fill="currentColor" stroke="none"/><path d="M7 12h5M7 15h10"/></svg></div>
+    <div class="bento">
+      <article class="featured reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8h18"/><circle cx="6.2" cy="6" r=".7" fill="currentColor" stroke="none"/><circle cx="8.4" cy="6" r=".7" fill="currentColor" stroke="none"/><path d="M7 12h5M7 15h10"/></svg></div>
         <h3>Websites &amp; web systems</h3>
         <p>Modern business and personal websites, plus custom web apps and dashboards. Built for speed, phones and search, with a quality and security check on every release.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="11.5" height="9.5" rx="1.5"/><rect x="12" y="3" width="9.5" height="16.5" rx="2"/><path d="M15.2 16.8h3.1"/></svg></div>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
         <h3>Mobile &amp; desktop apps</h3>
         <p>Applications for phones, tablets and desktops, from the first prototype to a stable release. Designed around how people will actually use them, then tested before they ship.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 9.5h11.6A3.8 3.8 0 0 1 21 15.2a3 3 0 0 1-3 1.8h-2.3l-1.1-1.5a1.8 1.8 0 0 0-3.2 0L10.3 17H6a3 3 0 0 1-3-1.8 3.8 3.8 0 0 1 3.2-5.7z"/><path d="M8 12.6v3.2M6.4 14.2h3.2"/><circle cx="15.4" cy="13" r=".85" fill="currentColor" stroke="none"/><circle cx="17.5" cy="15" r=".85" fill="currentColor" stroke="none"/></svg></div>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="8" width="20" height="10" rx="3"/><path d="M7 13h2M8 12v2M16 12.5h.01M18 14.5h.01"/></svg></div>
         <h3>Games</h3>
         <p>Game development and interactive experiences for the web and desktop. We shape the play, build the systems behind it and polish how it feels to use.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 13 7.1 17 8.2 13 9.3 12 13.2 11 9.3 7 8.2 11 7.1z"/><circle cx="6.2" cy="17.4" r="1.55"/><circle cx="12" cy="19.2" r="1.55"/><circle cx="17.8" cy="17.4" r="1.55"/><path d="M7.5 16.2 10.6 11.2M12 14.8v2.8M16.5 16.2 13.4 11.2"/></svg></div>
-        <h3>AI creation</h3>
-        <p>Custom AI assistants, chatbots, automation and data or machine-learning work. Built around your real workflow, then checked before you rely on it.</p>
+      <article class="wide reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M12 13v7M8 20h8"/></svg></div>
+        <h3>Networking &amp; connectivity</h3>
+        <p>Network design, setup and security for homes, offices and events, including Wi-Fi, LAN and WAN. We plan the connection, set up the hardware and leave you with a link that stays protected.</p>
       </article>
-      </div>
-    </div>
-    <div class="svc-group">
-      <header class="svc-head reveal">
-        <p class="eyebrow">Connect</p>
-        <p class="svc-kicker">Networks, internet setup and support</p>
-      </header>
-      <div class="services-grid">
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5.8" r="2.1"/><circle cx="12" cy="12" r="1.55"/><circle cx="5.6" cy="18.2" r="2.1"/><circle cx="18.4" cy="18.2" r="2.1"/><path d="M12 7.9v2.5M10.7 13.3 7.3 16.4M13.3 13.3l3.4 3.1"/></svg></div>
-        <h3>Networking</h3>
-        <p>Network design, setup and security for homes and offices, including Wi-Fi, LAN and WAN. Planned so devices stay connected and traffic stays protected.</p>
-      </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.6 2.9 3.9 5.7 3.9 8.5s-1.3 5.6-3.9 8.5C9.4 17.6 8.1 14.8 8.1 12S9.4 6.4 12 3.5z"/></svg></div>
-        <h3>Internet setup</h3>
-        <p>Internet setup and connectivity solutions for homes, offices and events. We plan the connection, set up the hardware and leave you with a link that works.</p>
-      </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12a7 7 0 0 1 14 0"/><rect x="3.2" y="12" width="3.3" height="5.6" rx="1.5"/><rect x="17.5" y="12" width="3.3" height="5.6" rx="1.5"/><path d="M20.8 17v1.2A3.2 3.2 0 0 1 17.6 21.4H13"/></svg></div>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4M9 16h6"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg></div>
         <h3>Tech support</h3>
         <p>IT helpdesk, device setup, troubleshooting and ongoing maintenance. Clear help when something breaks, and routine care so it happens less often.</p>
       </article>
-      </div>
-    </div>
-    <div class="svc-group">
-      <header class="svc-head reveal">
-        <p class="eyebrow">Grow</p>
-        <p class="svc-kicker">Business, content, freelance and finance</p>
-      </header>
-      <div class="services-grid">
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="7" width="17" height="13" rx="2"/><path d="M8 7V5.8A4 4 0 0 1 16 5.8V7M8 12h8M8 15.5h5"/></svg></div>
-        <h3>Business management</h3>
-        <p>Planning, operations and reporting support for small businesses. We help you set up clear processes and the tools to run them day to day.</p>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="8" height="8" rx="1.5"/><path d="M12 8V5M12 19v-3M8 12H5M19 12h-3M7.8 7.8 5.6 5.6M18.4 18.4l-2.2-2.2M16.2 7.8l2.2-2.2M5.6 18.4l2.2-2.2"/></svg></div>
+        <h3>AI creation</h3>
+        <p>Custom AI assistants, chatbots, automation and data or machine-learning work. Built around your real workflow, then checked before you rely on it.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M17 10.2 21 8v8l-4-2.2z"/></svg></div>
-        <h3>Video content creation</h3>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10.5 21 8v8l-5-2.5z"/></svg></div>
+        <h3>Video content</h3>
         <p>Planning, filming support, editing and packaging for social and web video. From a clear brief to a finished piece ready to publish.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.4"/><circle cx="16" cy="8.5" r="2.1"/><path d="M3.5 18c.4-3 2.3-4.6 4.5-4.6S12.1 15 12.5 18M13 14.2c1.7-.4 3.4.3 4.5 1.8 1 1.3 1.3 2.5 1.3 2"/></svg></div>
-        <h3>Freelance support</h3>
-        <p>Practical help for independent professionals: a clear online presence, simple workflows and the tools that keep client work moving.</p>
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg></div>
+        <h3>Business &amp; finance support</h3>
+        <p>Planning, operations and reporting for small businesses, plus practical tools for tracking money and organising the books. Setup and support — not financial or tax advice.</p>
       </article>
-      <article class="service card reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="16" rx="2"/><path d="M7 9h10M7 12.5h7M7 16h5"/></svg></div>
-        <h3>Financial support &amp; management</h3>
-        <p>Tools and systems for tracking money, planning budgets and organising the books. Practical setup and support — not financial or tax advice.</p>
-      </article>
-      <article class="service card reveal service-more">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></div>
-        <h3>And more</h3>
-        <p>Have something else in mind? Tell us what you need and we will tell you honestly whether we can help, and how we would approach it.</p>
-      </article>
-      </div>
     </div>
   </div>
 </section>
 
+<section id="products" class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Selected products</p>
+      <h2>Our products</h2>
+      <p class="muted">Offerings we already provide. New products appear here only when they are ready to share.</p>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <article class="product reveal">
+        <div class="p-img"><img src="assets/photo-code.jpg" alt="A close view of code on a computer screen" width="1600" height="1067" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div class="num">01</div><h3>AI-powered websites</h3><p>Modern business and personal websites with smart features, built for speed, phones and search.</p></div>
+      </article>
+      <article class="product reveal">
+        <div class="p-img"><img src="assets/photo-dashboard.jpg" alt="A laptop showing an analytics dashboard" width="1600" height="1140" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div class="num">02</div><h3>Web systems and dashboards</h3><p>Custom web apps, private dashboards, booking and management tools tailored to how you work.</p></div>
+      </article>
+      <article class="product reveal">
+        <div class="p-img"><img src="assets/photo-servers.jpg" alt="Rows of network cables in a server rack" width="1600" height="898" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div class="num">03</div><h3>Automation</h3><p>Routines, reports and workflows that run on their own and free hours from your week.</p></div>
+      </article>
+      <article class="product reveal">
+        <div class="p-img"><img src="assets/photo-circuit.jpg" alt="Glowing circuit board lines" width="1600" height="1068" loading="lazy" decoding="async"></div>
+        <div class="p-body"><div class="num">04</div><h3>Security and QA</h3><p>Code review, testing, privacy checks and security hardening for new or existing projects.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
 
-<section id="stats" class="stats-band" aria-label="Vira in numbers">
-  <div class="wrap stats-grid">
-    <div class="stat reveal">
-      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-      <div><b class="count" data-count-from="services">0</b><span>Services offered</span></div>
+<section id="gallery" class="section tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Inside the studio</p>
+      <h2>Where ideas take shape</h2>
+      <p class="muted">From the first sketch to the final launch, every project moves through planning, building, testing and care.</p>
     </div>
-    <div class="stat reveal">
-      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 20h8"/></svg></div>
-      <div><b class="count" data-count-from="projects">0</b><span>Live projects on this site</span></div>
+    <div class="masonry">
+      <figure class="reveal" data-full="assets/photo-team.jpg">
+        <button type="button" aria-label="View Collaboration: A team working together on laptops around a table"><img width="1600" height="1067" decoding="async" src="assets/photo-team.jpg" alt="A team working together on laptops around a table" loading="lazy"></button>
+          <figcaption><b>Collaboration</b><span>Every project starts with listening.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-dashboard.jpg">
+        <button type="button" aria-label="View Data that speaks: A laptop showing an analytics dashboard"><img width="1600" height="1140" decoding="async" src="assets/photo-dashboard.jpg" alt="A laptop showing an analytics dashboard" loading="lazy"></button>
+          <figcaption><b>Data that speaks</b><span>Dashboards that turn numbers into decisions.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-circuit.jpg">
+        <button type="button" aria-label="View Security first: Glowing circuit board lines"><img width="1600" height="1068" decoding="async" src="assets/photo-circuit.jpg" alt="Glowing circuit board lines" loading="lazy"></button>
+          <figcaption><b>Security first</b><span>Protection built into every layer.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-workspace.jpg">
+        <button type="button" aria-label="View Clean code: A bright desk with a laptop showing code"><img width="1600" height="1065" decoding="async" src="assets/photo-workspace.jpg" alt="A bright desk with a laptop showing code" loading="lazy"></button>
+          <figcaption><b>Clean code</b><span>Crafted to be fast, clear and easy to grow.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-servers.jpg">
+        <button type="button" aria-label="View Reliable infrastructure: Rows of network cables in a server rack"><img width="1600" height="898" decoding="async" src="assets/photo-servers.jpg" alt="Rows of network cables in a server rack" loading="lazy"></button>
+          <figcaption><b>Reliable infrastructure</b><span>Hosting and networks that stay up.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-collab.jpg">
+        <button type="button" aria-label="View Planning together: Overhead view of people working at laptops on a shared desk"><img width="1600" height="1067" decoding="async" src="assets/photo-collab.jpg" alt="Overhead view of people working at laptops on a shared desk" loading="lazy"></button>
+          <figcaption><b>Planning together</b><span>Clear steps, honest timelines and regular updates.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-laptop.jpg">
+        <button type="button" aria-label="View A quiet desk: A laptop with code on a clean white desk"><img width="1600" height="1067" decoding="async" src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"></button>
+          <figcaption><b>A quiet desk</b><span>Room to think, then to build.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-code.jpg">
+        <button type="button" aria-label="View The craft: A close view of code on a computer screen"><img width="1600" height="1067" decoding="async" src="assets/photo-code.jpg" alt="A close view of code on a computer screen" loading="lazy"></button>
+          <figcaption><b>The craft</b><span>Careful work, line by line.</span></figcaption>
+      </figure>
+      <figure class="reveal" data-full="assets/photo-earth.jpg">
+        <button type="button" aria-label="View A wider view: Earth at night from space, with glowing city lights"><img width="1600" height="1065" decoding="async" src="assets/photo-earth.jpg" alt="Earth at night from space, with glowing city lights" loading="lazy"></button>
+          <figcaption><b>A wider view</b><span>Work that can travel.</span></figcaption>
+      </figure>
     </div>
-    <div class="stat reveal">
-      <div class="stat-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div>
-      <div><b class="count count-year" data-year="2026">2026</b><span>Year founded</span></div>
+  </div>
+</section>
+
+<section id="videos" class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Video work</p>
+      <h2>Viral videos we helped with</h2>
+      <p class="muted">This gallery is for finished pieces we helped make, shown only with the client's permission.</p>
+    </div>
+    <div class="empty-state reveal">
+      <p>No videos to show yet.</p>
+      <p class="empty-hint">When we have client-approved work to share, it will appear here. We do not invent titles, clients or view counts.</p>
+    </div>
+  </div>
+</section>
+
+<section id="visibility" class="section tint">
+  <div class="wrap visibility-grid">
+    <div class="reveal">
+      <p class="eyebrow">Our visibility</p>
+      <h2>Open, accessible and easy to find.</h2>
+      <p>Everything we build is made to be used: websites and apps that work on any phone or browser, networks and connections that stay reliable, and tools that are accessible and easy to find. Our clients' work is visible to the world, while their private data stays private.</p>
+      <ul class="checks">
+        <li>Works in any modern browser and on phones</li>
+        <li>Search-friendly structure and clean metadata</li>
+        <li>Accessible colours, contrast and navigation</li>
+        <li>Privacy kept separate from public content</li>
+      </ul>
+      <div class="social" data-social></div>
+    </div>
+    <div class="stats-panel reveal">
+      <div class="stat">
+        <div>
+          <b data-year>2026</b>
+          <span>Year founded</span>
+        </div>
+      </div>
+      <div class="stat is-empty empty-state">
+        <p>Public figures will appear here when we have numbers we can stand behind.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -203,222 +323,19 @@
 <section id="values" class="section">
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow">What we stand for</p><h2>Our values</h2></div>
-    <div class="grid g3">
-      <article class="card reveal"><div class="ico">◆</div><h3>Integrity</h3><p>Real data only. We never fake numbers, reviews or results, and we tell you plainly what works and what doesn't.</p></article>
-      <article class="card reveal"><div class="ico">✦</div><h3>Excellence</h3><p>Every page, line of code and design detail is reviewed before release. Good enough is where we start, not where we stop.</p></article>
-      <article class="card reveal"><div class="ico">⬡</div><h3>Security first</h3><p>Privacy and safety are designed in from day one, with testing and review on every change.</p></article>
-      <article class="card reveal"><div class="ico">❖</div><h3>Collaboration</h3><p>Human judgement and AI speed working as one team, each doing what it does best.</p></article>
-      <article class="card reveal"><div class="ico">✧</div><h3>Curiosity</h3><p>We keep learning across computer science, AI, cybersecurity and networking, and bring it into our work.</p></article>
-      <article class="card reveal"><div class="ico">◈</div><h3>Respect</h3><p>Your time, your data and your goals come first. Nothing goes live without your approval.</p></article>
+    <div class="grid g3 values-grid">
+      <article class="card reveal"><div class="ico" aria-hidden="true">◆</div><h3>Integrity</h3><p>Real data only. We never fake numbers, reviews or results, and we tell you plainly what works and what doesn't.</p></article>
+      <article class="card reveal"><div class="ico" aria-hidden="true">✦</div><h3>Excellence</h3><p>Every page, line of code and design detail is reviewed before release. Good enough is where we start, not where we stop.</p></article>
+      <article class="card reveal"><div class="ico" aria-hidden="true">⬡</div><h3>Security first</h3><p>Privacy and safety are designed in from day one, with testing and review on every change.</p></article>
+      <article class="card reveal"><div class="ico" aria-hidden="true">❖</div><h3>Collaboration</h3><p>Human judgement and careful tools working as one team, each doing what it does best.</p></article>
+      <article class="card reveal"><div class="ico" aria-hidden="true">✧</div><h3>Curiosity</h3><p>We keep learning across computer science, AI, cybersecurity and networking, and bring it into our work.</p></article>
+      <article class="card reveal"><div class="ico" aria-hidden="true">◈</div><h3>Respect</h3><p>Your time, your data and your goals come first. Nothing goes live without your approval.</p></article>
     </div>
   </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Where we are going</p><h2>Our objectives</h2></div>
-    <ol class="objectives">
-      <li class="reveal"><span>01</span><div><h3>Build intelligent products</h3><p>Ship websites, apps, games, networks and AI tools that save time and help people make better decisions.</p></div></li>
-      <li class="reveal"><span>02</span><div><h3>Make quality the default</h3><p>Run every release through testing, code review and a security check.</p></div></li>
-      <li class="reveal"><span>03</span><div><h3>Serve real communities</h3><p>Help local businesses, churches, households and creators get online with confidence.</p></div></li>
-      <li class="reveal"><span>04</span><div><h3>Grow with knowledge</h3><p>Turn continuous learning into better tools, cleaner code and safer systems.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<section class="section dark">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow light">What drives us</p><h2>Motivation, inspiration and creativity</h2></div>
-    <div class="grid g3">
-      <article class="glass reveal"><h3>Our Motivation</h3><p>We believe great technology shouldn't be reserved for big companies. Seeing an idea become a working product for someone who couldn't otherwise afford it is why we build.</p></article>
-      <article class="glass reveal"><h3>Our Inspiration</h3><p>The name Vira is our compass: Sanskrit <i>vīra</i>, for the hero, the brave and the strong, and Latin <i>virtus</i>, for courage, excellence and integrity. That is the character we want every project to carry, from the first idea to the launch.</p></article>
-      <article class="glass reveal"><h3>Our Creativity</h3><p>We combine thoughtful design, cinematic interfaces and practical engineering, so every product feels as good as it works.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap two">
-    <div class="reveal">
-      <p class="eyebrow">Our visibility</p>
-      <h2>Open, accessible and easy to find.</h2>
-      <p>Everything we build is made to be used: websites and apps that work on any phone or browser, networks and connections that stay reliable, and tools that are accessible and easy to find. Our clients' work is visible to the world, while their private data stays private.</p>
-      <ul class="checks"><li>Works in any modern browser and on phones</li><li>Search-friendly structure and clean metadata</li><li>Accessible colours, contrast and navigation</li><li>Privacy kept separate from public content</li></ul>
-    </div>
-    <div class="swatches reveal">
-      <div class="sw" style="background:#6F4E37;color:#fff"><b>Mocha Brown</b><span>#6F4E37</span></div>
-      <div class="sw" style="background:#E5E4E2"><b>Platinum Silver</b><span>#E5E4E2</span></div>
-      <div class="sw" style="background:#E6E0F0"><b>Pale Lavender</b><span>#E6E0F0</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="products" class="section tint">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Selected products</p><h2>Our products</h2></div>
-    <div class="grid g2">
-      <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-code.jpg)"></div><div class="p-body"><div class="num">01</div><h3>AI-powered websites</h3><p>Modern business and personal websites with smart features, built for speed, phones and search.</p></div></article>
-      <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-dashboard.jpg)"></div><div class="p-body"><div class="num">02</div><h3>Web systems and dashboards</h3><p>Custom web apps, private dashboards, booking and management tools tailored to how you work.</p></div></article>
-      <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-servers.jpg)"></div><div class="p-body"><div class="num">03</div><h3>Automation</h3><p>Routines, reports and workflows that run on their own and free hours from your week.</p></div></article>
-      <article class="product has-img reveal"><div class="p-img" style="background-image:url(assets/photo-circuit.jpg)"></div><div class="p-body"><div class="num">04</div><h3>Security and QA</h3><p>Code review, testing, privacy checks and security hardening for new or existing projects.</p></div></article>
-    </div>
-  </div>
-</section>
-
-<section id="projects" class="section">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Built by our team</p><h2>Our projects</h2></div>
-    <div class="grid g3 projects">
-      <article class="proj reveal"><span class="tag">Mobility</span><h3>STANS</h3><p>A live traffic desk built on real map data.</p></article>
-      <article class="proj reveal"><span class="tag">Cybersecurity</span><h3>Africa Shield SOC</h3><p>A public security-operations wall showing reported threat activity from public feeds on a 3D globe.</p></article>
-      <article class="proj reveal"><span class="tag">Science · AI</span><h3>Peakwise</h3><p>Ranks likely chemical structures from mass-spectrometry peak lists, in any browser.</p></article>
-      <article class="proj reveal"><span class="tag">Finance</span><h3>AbroadCost</h3><p>A country budget planner covering 195 countries.</p></article>
-      <article class="proj reveal"><span class="tag">Household</span><h3>Our Money Hub</h3><p>Shared household books where every member adds lines and sees the same table.</p></article>
-      <article class="proj reveal"><span class="tag">Productivity</span><h3>RAGI</h3><p>An on-device private secretary for notes, money and projects, with a cinematic 3D desk.</p></article>
-      <article class="proj reveal"><span class="tag">Retail</span><h3>Boutique La Différence</h3><p>An elegant storefront website for a fashion boutique.</p></article>
-      <article class="proj reveal"><span class="tag">Community</span><h3>Kingdom Life Kraków</h3><p>The public website of an English-speaking church campus.</p></article>
-      <article class="proj reveal"><span class="tag">Entertainment</span><h3>2daymovie</h3><p>A curated library of official HD movie and TV trailers.</p></article>
-    </div>
-  </div>
-</section>
-
-<section id="gallery" class="section tint">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Inside the studio</p><h2>Where ideas take shape</h2><p class="muted">From the first sketch to the final launch, every project moves through planning, building, testing and care.</p></div>
-    <div class="mosaic">
-      <figure class="tile t-big reveal"><img width="1600" height="1067" decoding="async" src="assets/photo-team.jpg" alt="A team working together on laptops around a table" loading="lazy"><figcaption><b>Collaboration</b><span>Every project starts with listening.</span></figcaption></figure>
-      <figure class="tile reveal"><img width="1600" height="1140" decoding="async" src="assets/photo-dashboard.jpg" alt="A laptop showing an analytics dashboard" loading="lazy"><figcaption><b>Data that speaks</b><span>Dashboards that turn numbers into decisions.</span></figcaption></figure>
-      <figure class="tile reveal"><img width="1600" height="1068" decoding="async" src="assets/photo-circuit.jpg" alt="Glowing circuit board lines" loading="lazy"><figcaption><b>Security first</b><span>Protection built into every layer.</span></figcaption></figure>
-      <figure class="tile reveal"><img width="1600" height="1065" decoding="async" src="assets/photo-workspace.jpg" alt="A bright desk with a laptop showing code" loading="lazy"><figcaption><b>Clean code</b><span>Crafted to be fast, clear and easy to grow.</span></figcaption></figure>
-      <figure class="tile reveal"><img width="1600" height="898" decoding="async" src="assets/photo-servers.jpg" alt="Rows of network cables in a server rack" loading="lazy"><figcaption><b>Reliable infrastructure</b><span>Hosting and networks that stay up.</span></figcaption></figure>
-      <figure class="tile t-wide reveal"><img width="1600" height="1067" decoding="async" src="assets/photo-collab.jpg" alt="Overhead view of people working at laptops on a shared desk" loading="lazy"><figcaption><b>Planning together</b><span>Clear steps, honest timelines and regular updates.</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section id="innovation" class="section dark">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow light">How we innovate</p><h2>One vision, five specialised AI agents.</h2><p class="sub">Our team is organised like a real company, with a human in charge and clear roles for each agent. Work moves from planning to build to a strict quality gate, so speed never comes at the cost of safety.</p></div>
-    <figure class="photo wide reveal"><img width="1600" height="1065" decoding="async" src="assets/photo-earth.jpg" alt="Earth at night from space, with glowing city lights" loading="lazy"></figure>
-    <div class="grid g5 team">
-      <div class="agent reveal"><div class="dot"></div><h3>Operations</h3><p>Planning, scheduling, reports and coordination.</p></div>
-      <div class="agent reveal"><div class="dot"></div><h3>Engineering</h3><p>Code, design, cloud and video production.</p></div>
-      <div class="agent reveal"><div class="dot"></div><h3>Security &amp; QA</h3><p>Testing, review, cybersecurity and networking.</p></div>
-      <div class="agent reveal"><div class="dot"></div><h3>Talent</h3><p>Careers, growth and partnerships.</p></div>
-      <div class="agent reveal"><div class="dot"></div><h3>Learning</h3><p>Research, teaching and continuous improvement.</p></div>
-    </div>
-    <div class="process reveal">
-      <div><b>1</b><span>Discover</span></div><div><b>2</b><span>Design</span></div><div><b>3</b><span>Build</span></div><div><b>4</b><span>Quality gate</span></div><div><b>5</b><span>Launch</span></div>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="showreel" class="section dark">
-  <div class="wrap">
-    <div class="head reveal">
-      <p class="eyebrow light">Showreel</p>
-      <h2>A first look at how we work</h2>
-      <p class="sub">A short studio reel is on the way. Until then, this is a living silver study from the same visual language as the site.</p>
-    </div>
-    <div class="showreel-frame" data-showreel>
-      <canvas id="showreel-liquid" aria-hidden="true"></canvas>
-      <p class="showreel-label">Showreel coming soon</p>
-    </div>
-  </div>
-</section>
-
-<section id="workflow" class="section">
-  <div class="wrap">
-    <div class="head reveal">
-      <p class="eyebrow">Content workflow</p>
-      <h2>Viral video management structure</h2>
-      <p class="muted">When we take on video work, this is the path a piece follows — from the first idea to learning what to do next. It is our process, not a promise of results.</p>
-    </div>
-    <ol class="flow">
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
-        <span class="flow-num">01</span>
-        <h3>Strategy &amp; trends</h3>
-        <p>Research what is resonating and plan a content direction that fits the brand.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4M8 11h8M8 15h6"/></svg></div>
-        <span class="flow-num">02</span>
-        <h3>Scripting</h3>
-        <p>Turn the idea into a clear script, hook and storyboard before anything is filmed.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 10.5 21 8v8l-5-2.5z"/></svg></div>
-        <span class="flow-num">03</span>
-        <h3>Production</h3>
-        <p>Capture the footage, voice and assets needed for the piece.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h6l2 3h8v10H4z"/><path d="M10 15l4 2.5L10 20v-5z"/></svg></div>
-        <span class="flow-num">04</span>
-        <h3>Editing</h3>
-        <p>Cut, grade, caption and sound-design the video so it is ready to watch.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M8 14h4"/></svg></div>
-        <span class="flow-num">05</span>
-        <h3>Publishing &amp; scheduling</h3>
-        <p>Prepare platform-ready versions and a sensible posting plan.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 6h14v9H8l-3 3z"/></svg></div>
-        <span class="flow-num">06</span>
-        <h3>Community management</h3>
-        <p>Watch comments and messages, and help you reply with care.</p>
-      </li>
-      <li class="flow-step reveal">
-        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16"/><path d="M8 15v-4M12 15V8M16 15v-6"/></svg></div>
-        <span class="flow-num">07</span>
-        <h3>Analytics &amp; optimisation</h3>
-        <p>Review what happened and adjust the next piece accordingly.</p>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<section id="events" class="section tint">
-  <div class="wrap">
-    <div class="head reveal">
-      <p class="eyebrow">Events</p>
-      <h2>What is coming up</h2>
-    </div>
-    <div id="events-list" class="events-wrap reveal"></div>
-  </div>
-</section>
-
-<section id="reviews" class="section">
-  <div class="wrap">
-    <div class="head reveal">
-      <p class="eyebrow">Reviews</p>
-      <h2>What clients say</h2>
-    </div>
-    <div id="reviews-wrap" class="reviews-wrap reveal"></div>
-  </div>
-</section>
-
-<section id="why" class="section">
-  <div class="wrap">
-    <div class="head reveal"><p class="eyebrow">Why Vira</p><h2>What makes working with us different</h2></div>
-    <div class="grid g3">
-      <article class="card reveal"><h3>Always on</h3><p>Our agents work around the clock on planning, building, testing and reporting, so projects keep moving while you sleep.</p></article>
-      <article class="card reveal"><h3>You stay in control</h3><p>Nothing is published, sent or paid without your explicit approval. You see every step and decide every launch.</p></article>
-      <article class="card reveal"><h3>Honest reporting</h3><p>Every report shows only real work and real results. No filler, no inflated numbers.</p></article>
-      <article class="card reveal"><h3>Security built in</h3><p>Privacy reviews, code checks and security testing are part of every project, not an extra.</p></article>
-      <article class="card reveal"><h3>Modern technology</h3><p>Websites, apps, games, networks and AI built with current tools, tested properly and delivered on reliable platforms.</p></article>
-      <article class="card reveal"><h3>Personal service</h3><p>A small studio means you talk to the people, and agents, who actually build your product.</p></article>
-    </div>
-  </div>
-
 </section>
 
 <section id="request-assist" class="section request-assist">
+<span id="pricing"></span>
   <div class="wrap">
     <div class="head reveal">
       <p class="eyebrow">Fixed prices</p>
@@ -433,13 +350,27 @@
         <button type="button" class="currency-btn" data-currency="USD" aria-pressed="false">USD</button>
         <button type="button" class="currency-btn" data-currency="RWF" aria-pressed="false">RWF</button>
       </div>
-      <p class="price-note">Prices are fixed in PLN; other currencies are approximate.</p>
+      <p class="price-note" data-rates-as-of>Prices are fixed in PLN; other currencies are approximate, using rates as of 13 November 2026.</p>
     </div>
 
+    <!-- TODO: plan feature lists are generic placeholders pending the owner's confirmation of what each plan includes. Prices (Starter 250 / Basic 500 / Super 700 / Premium Plus 1000 PLN) are also pending confirmation. -->
     <div class="pricing-grid">
+      <article class="plan card reveal" data-plan="Starter">
+        <h3>Starter</h3>
+        <p class="plan-price" data-price="starter">250 PLN</p>
+        <p class="plan-tag">A clearly scoped starting brief</p>
+        <ul>
+          <li>A small, clearly agreed starting piece of work</li>
+          <li>One round of revisions</li>
+          <li>Email support while the work is underway</li>
+          <li>A short written outline before we start</li>
+        </ul>
+        <button type="button" class="btn btn-plan" data-choose="Starter">Choose plan</button>
+      </article>
+
       <article class="plan card reveal" data-plan="Basic">
         <h3>Basic</h3>
-        <p class="plan-price" data-price="basic">250–500 PLN</p>
+        <p class="plan-price" data-price="basic">500 PLN</p>
         <p class="plan-tag">A clearly scoped small brief</p>
         <ul>
           <li>A small, clearly agreed piece of work</li>
@@ -483,10 +414,14 @@
 
     <div class="contact-grid request-form-wrap" id="request-form">
       <div class="contact-intro reveal">
-        <picture>
-          <source type="image/webp" srcset="assets/logo-vira-light.webp">
-          <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
-        </picture>
+    <picture class="logo-on-dark">
+      <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+      <img class="contact-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="Vira">
+    </picture>
+    <picture class="logo-on-light">
+      <source type="image/webp" srcset="assets/logo-vira-light.webp">
+      <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
+    </picture>
         <h2>Tell us about your project.</h2>
         <p>Pick a plan above, or just write to us. We will reply with a clear plan before any work starts.</p>
         <div class="social" data-social></div>
@@ -525,6 +460,7 @@
           <label for="c-plan">Chosen plan</label>
           <select id="c-plan" name="plan" required>
             <option value="">Choose a plan</option>
+            <option>Starter</option>
             <option>Basic</option>
             <option>Super</option>
             <option>Premium Plus</option>
@@ -545,20 +481,107 @@
     </div>
   </div>
 </section>
+
+<section id="events" class="section">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Events</p>
+      <h2>What is coming up</h2>
+    </div>
+    <div id="events-list" class="events-wrap reveal"></div>
+  </div>
+</section>
+
+<section id="reviews" class="section tint">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Reviews</p>
+      <h2>What clients say</h2>
+    </div>
+    <div id="reviews-wrap" class="reviews-wrap reveal"></div>
+  </div>
+</section>
+
+<section id="why" class="section">
+  <div class="wrap">
+    <div class="head reveal"><p class="eyebrow">Why Vira</p><h2>What makes working with us different</h2></div>
+    <div class="grid g3 why-grid">
+      <article class="card reveal"><h3>Always on</h3><p>Planning, building, testing and reporting keep moving, so projects do not stall while you sleep.</p></article>
+      <article class="card reveal"><h3>You stay in control</h3><p>Nothing is published, sent or paid without your explicit approval. You see every step and decide every launch.</p></article>
+      <article class="card reveal"><h3>Honest reporting</h3><p>Every report shows only real work and real results. No filler, no inflated numbers.</p></article>
+      <article class="card reveal"><h3>Security built in</h3><p>Privacy reviews, code checks and security testing are part of every project, not an extra.</p></article>
+      <article class="card reveal"><h3>Modern technology</h3><p>Websites, apps, games, networks and AI built with current tools, tested properly and delivered on reliable platforms.</p></article>
+      <article class="card reveal"><h3>Personal service</h3><p>A small studio means you talk to the people who actually build your product.</p></article>
+    </div>
+  </div>
+</section>
+</div>
 </main>
 
-<footer>
-  <div class="wrap foot">
-    <a href="#top" class="brand" aria-label="Vira">
-      <picture>
-        <source type="image/webp" srcset="assets/logo-vira-dark.webp">
-        <img class="brand-logo footer-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
-      </picture>
-    </a>
-    <div class="social" data-social></div>
-    <p>© <span id="yr">2026</span> Vira. Websites, apps, games, networks, support, AI and more. Photos from Unsplash.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand" aria-label="Vira home">
+    <picture class="logo-on-dark">
+      <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+      <img class="brand-logo footer-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
+    </picture>
+        </a>
+        <p>Vira is a technology studio. The name stands for Vision, Innovation, Reliability and Automation.</p>
+        <div class="social" data-social></div>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <div class="foot-links">
+          <a href="#services">What we do</a>
+          <a href="#products">Products</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#request-assist">Request assist</a>
+        </div>
+      </div>
+      <div>
+        <h3>Studio</h3>
+        <div class="foot-links">
+          <a href="#about">About</a>
+          <a href="#gallery">Where ideas take shape</a>
+          <a href="#videos">Video work</a>
+          <a href="#events">Events</a>
+          <a href="#reviews">Reviews</a>
+        </div>
+      </div>
+      <div>
+        <h3>Credits</h3>
+        <p class="foot-credits">
+          Studio photographs from <a href="https://unsplash.com/" rel="noopener noreferrer">Unsplash</a>.
+          Hero video options:
+          “Close-Up Video of a Black Silk Cloth” by Mikhail Nilov, <a href="https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/" rel="noopener noreferrer">Pexels</a>
+          (<a href="https://www.pexels.com/license/" rel="noopener noreferrer">Pexels License</a>);
+          “Metallic liquid textures video” by <a href="https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/" rel="noopener noreferrer">Mixkit</a>
+          (<a href="https://mixkit.co/license/" rel="noopener noreferrer">Mixkit License</a>);
+          “Footage of smoke against black background” by cottonbro studio, <a href="https://www.pexels.com/video/footage-of-smoke-against-black-background-9694807/" rel="noopener noreferrer">Pexels</a>;
+          “Abstract Digital Landscape Animation with Grid” by Nicola Narracci, <a href="https://www.pexels.com/video/abstract-digital-landscape-animation-with-grid-28649481/" rel="noopener noreferrer">Pexels</a>.
+          Display type is <a href="assets/fonts/OFL-Fraunces.txt">Fraunces</a> and body type is <a href="assets/fonts/OFL-Inter.txt">Inter</a>, both under the SIL Open Font License.
+        </p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span data-year>2026</span> Vira.</p>
+      <a href="#top" class="back-top">Back to top ↑</a>
+    </div>
   </div>
 </footer>
-<script src="script.js"></script>
+
+<dialog class="lightbox" id="lightbox" aria-label="Photograph">
+  <div class="lightbox-inner">
+    <button type="button" class="lightbox-close" aria-label="Close">×</button>
+    <button type="button" class="lightbox-prev" aria-label="Previous photograph">‹</button>
+    <img class="lightbox-image" alt="">
+    <div class="lightbox-caption"></div>
+    <button type="button" class="lightbox-next" aria-label="Next photograph">›</button>
+  </div>
+</dialog>
+
+<script type="module" src="js/main.js"></script>
 </body>
 </html>

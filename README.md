@@ -42,11 +42,11 @@ Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 ## Project structure
 
 ```text
-index.html    Site markup
-styles.css    Design system and layout
-script.js     Navigation and motion
-assets/       Studio photographs
-docs/         README screenshot
+index.html       Site markup
+css/             Design tokens, base, components and sections
+js/              Theme, motion, pricing, form and gallery modules
+assets/          Photographs, logos, self-hosted fonts and hero video
+docs/            README screenshot
 ```
 
 ## Tests
