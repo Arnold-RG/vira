@@ -99,9 +99,11 @@
 
 <section class="hero" id="hero" aria-label="Vira">
   <div class="hero-media" aria-hidden="true">
-    <!-- TODO: HERO_VIDEO default is option 2 (liquid metal) until the owner picks. Wired in js/config.js. -->
-    <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.jpg" width="1920" height="1080" alt="" decoding="async">
-    <video id="hero-video" class="hero-video" muted playsinline loop preload="none" poster="assets/video/02-liquid-metal.jpg" aria-hidden="true"></video>
+    <picture class="hero-poster-pic">
+      <source id="hero-poster-webp" type="image/webp" srcset="assets/video/02-liquid-metal.webp">
+      <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.jpg" width="1920" height="1080" alt="" decoding="async">
+    </picture>
+    <video id="hero-video" class="hero-video" muted autoplay loop playsinline preload="none" poster="assets/video/02-liquid-metal.jpg" aria-hidden="true"></video>
     <div class="hero-overlay" aria-hidden="true"></div>
   </div>
   <div class="hero-content">

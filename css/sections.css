@@ -15,6 +15,7 @@
   z-index: 0;
   background: #1a120e;
 }
+.hero-media picture,
 .hero-media img,
 .hero-media video {
   width: 100%;
@@ -23,6 +24,12 @@
   object-position: center;
   max-width: none;
 }
+.hero-media picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.hero-media img,
 .hero-media video { position: absolute; inset: 0; }
 .hero-overlay {
   position: absolute;

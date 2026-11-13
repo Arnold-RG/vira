@@ -22,26 +22,37 @@ function prefersPosterOnly() {
   return reduce || narrow || saveData || slow;
 }
 
-function initHero() {
-  const video = document.getElementById('hero-video');
+function applyPoster(choice) {
   const poster = document.getElementById('hero-poster');
-  const media = document.querySelector('.hero-media');
-  const choice = HERO_VIDEOS[HERO_VIDEO] || HERO_VIDEOS['02-liquid-metal'];
-  if (!choice || !media) return;
-
+  const webp = document.getElementById('hero-poster-webp');
   if (poster) {
     poster.src = choice.poster;
     poster.alt = '';
     poster.width = 1920;
     poster.height = 1080;
   }
-  if (media) media.setAttribute('aria-hidden', 'true');
+  if (webp) {
+    if (choice.posterWebp) webp.srcset = choice.posterWebp;
+    else webp.remove();
+  }
+}
 
-  /* Load the file from JS only when the viewport, motion preference and
-     network allow it. Never set src on small screens or constrained links. */
+function initHero() {
+  const video = document.getElementById('hero-video');
+  const media = document.querySelector('.hero-media');
+  const choice = HERO_VIDEOS[HERO_VIDEO] || HERO_VIDEOS['02-liquid-metal'];
+  if (!choice || !media) return;
+
+  applyPoster(choice);
+  media.setAttribute('aria-hidden', 'true');
+
+  /* Load the clip from JS only when the viewport, motion preference and
+     network allow it. Never set src on small screens or constrained links.
+     Poster-only under 768px, prefers-reduced-motion, Save-Data, and 2g/3g. */
   if (!video || prefersPosterOnly()) {
     if (video) {
       video.removeAttribute('src');
+      video.querySelectorAll('source').forEach((s) => s.remove());
       video.remove();
     }
     return;
@@ -49,17 +60,32 @@ function initHero() {
 
   video.poster = choice.poster;
   video.muted = true;
+  video.defaultMuted = true;
+  video.autoplay = true;
   video.loop = true;
   video.playsInline = true;
   video.setAttribute('playsinline', '');
   video.setAttribute('muted', '');
+  video.setAttribute('autoplay', '');
   video.preload = 'metadata';
   video.setAttribute('aria-hidden', 'true');
-  video.src = choice.src;
+  video.removeAttribute('src');
+  video.querySelectorAll('source').forEach((s) => s.remove());
+  if (choice.webm) {
+    const webm = document.createElement('source');
+    webm.src = choice.webm;
+    webm.type = 'video/webm';
+    video.appendChild(webm);
+  }
+  const mp4 = document.createElement('source');
+  mp4.src = choice.src;
+  mp4.type = 'video/mp4';
+  video.appendChild(mp4);
+  video.load();
 
   const tryPlay = () => {
     const p = video.play();
-    if (p && typeof p.catch === 'function') p.catch(() => { video.remove(); });
+    if (p && typeof p.catch === 'function') p.catch(() => { /* keep the poster */ });
   };
 
   if (video.readyState >= 2) tryPlay();

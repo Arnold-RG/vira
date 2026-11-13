@@ -1,10 +1,8 @@
 /* Site configuration. Empty arrays and unset URLs are intentional — do not invent content. */
 
 /*
- * TODO: HERO_VIDEO — the owner has not picked a hero background yet.
- * Valid values: '01-black-silk' | '02-liquid-metal' | '03-smoke' | '04-digital-grid'
- * Default is option 2 (liquid metal) so the component is wired and reviewable.
- * Change this one value to switch the hero clip and poster.
+ * The owner picked option 2: liquid metal (Mixkit, free licence).
+ * Other prepared clips remain in HERO_VIDEOS if a later swap is wanted.
  */
 export const HERO_VIDEO = '02-liquid-metal';
 
@@ -16,7 +14,9 @@ export const HERO_VIDEOS = {
   },
   '02-liquid-metal': {
     src: 'assets/video/02-liquid-metal-web.mp4',
+    webm: 'assets/video/02-liquid-metal-web.webm',
     poster: 'assets/video/02-liquid-metal.jpg',
+    posterWebp: 'assets/video/02-liquid-metal.webp',
     label: 'Liquid metal'
   },
   '03-smoke': {
