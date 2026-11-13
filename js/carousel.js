@@ -177,7 +177,7 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
       explicitPause: control.explicitPause,
       hidden: document.hidden,
       hovering: root.matches(':hover'),
-      focusWithin: root.matches(':focus-within'),
+      focusWithin: root.matches(':focus-within') && document.activeElement !== toggle,
       dragging
     });
   }
@@ -243,7 +243,7 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
   root.addEventListener('keydown', onKey);
   root.addEventListener('mouseenter', stopTimer);
   root.addEventListener('mouseleave', restartTimer);
-  root.addEventListener('focusin', stopTimer);
+  root.addEventListener('focusin', (e) => { if (e.target !== toggle) stopTimer(); });
   root.addEventListener('focusout', () => {
     requestAnimationFrame(restartTimer);
   });
