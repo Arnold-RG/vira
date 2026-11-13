@@ -8,24 +8,13 @@ source page identified by a known photo ID. Nothing here is guessed.
 
 Studio photographs
 ------------------
-All nine JPEGs in assets/ were already on the site, and the previous
-footer credited them only as “Photos from Unsplash”. A search of the
-repository history, commit messages, and image metadata (no EXIF
-artist, copyright, or source URL) did not turn up a photographer
-name or an Unsplash photo ID, so no Unsplash page could be fetched.
+The nine previous JPEGs in assets/ had no verified photographer or
+source page (no EXIF artist, copyright, or photo ID in git history),
+so they were replaced on 13 November 2026 with photographs from
+Pexels. Page URL, photographer (as shown on each fetched page),
+image ID and licence for every file are recorded in PHOTO-SOURCES.md.
 
-  assets/photo-laptop.jpg      Unsplash (source to confirm)
-  assets/photo-code.jpg        Unsplash (source to confirm)
-  assets/photo-dashboard.jpg   Unsplash (source to confirm)
-  assets/photo-servers.jpg     Unsplash (source to confirm)
-  assets/photo-circuit.jpg     Unsplash (source to confirm)
-  assets/photo-team.jpg        Unsplash (source to confirm)
-  assets/photo-workspace.jpg   Unsplash (source to confirm)
-  assets/photo-collab.jpg      Unsplash (source to confirm)
-  assets/photo-earth.jpg       Unsplash (source to confirm)
-
-If a verified source is found later, replace the “source to confirm”
-line with the photographer’s name and the Unsplash URL.
+  See PHOTO-SOURCES.md
 
 
 Hero video options

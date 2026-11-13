@@ -78,7 +78,7 @@ function initProducts() {
     const n = String(i + 1).padStart(2, '0');
     return (
       '<article class="product reveal">' +
-        '<div class="p-img"><img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.alt) + '" width="1600" height="1000" loading="lazy" decoding="async"></div>' +
+        '<div class="p-img"><img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.alt) + '" width="' + (p.width || 1600) + '" height="' + (p.height || 1000) + '" loading="lazy" decoding="async"></div>' +
         '<div class="p-body"><div class="num">' + n + '</div><h3>' + escapeHtml(p.title) + '</h3><p>' + escapeHtml(p.body) + '</p></div>' +
       '</article>'
     );

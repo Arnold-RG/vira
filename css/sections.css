@@ -123,7 +123,7 @@
   box-shadow: var(--shadow-lg);
   position: relative;
 }
-.photo img { width: 100%; height: auto; object-fit: cover; aspect-ratio: 3/2; }
+.photo img { width: 100%; height: auto; object-fit: cover; aspect-ratio: 3/2; object-position: 50% 72%; }
 .photo figcaption {
   padding: 12px 4px 0;
   font-size: var(--fs-sm);
@@ -270,6 +270,10 @@
 .masonry figcaption span { font-size: var(--fs-sm); color: #E5E4E2; }
 .masonry figure:nth-child(3n) img { aspect-ratio: 4 / 5; }
 .masonry figure:nth-child(5n) img { aspect-ratio: 1 / 1; }
+.masonry figure.wide img { aspect-ratio: 2 / 1; }
+.masonry img[src="assets/photo-laptop.jpg"] { object-position: 50% 72%; }
+.masonry img[src="assets/photo-workspace.jpg"] { object-position: 50% 55%; }
+.masonry img[src="assets/photo-dashboard.jpg"] { object-position: 50% 45%; }
 
 @media (max-width: 900px) { .masonry { columns: 2; } }
 @media (max-width: 540px) { .masonry { columns: 1; } }
@@ -438,6 +442,7 @@
   object-fit: cover;
   aspect-ratio: 16 / 10;
 }
+.product .p-img img[src="assets/photo-dashboard.jpg"] { object-position: 50% 45%; }
 
 /* Footer sits on a dark ground in both themes, so always use the light wordmark. */
 .site-footer .logo-on-dark { display: block !important; }

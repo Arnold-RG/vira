@@ -27,7 +27,7 @@ Vira is a static public website. It explains the studio’s values and its servi
 | --- | --- |
 | Markup & style | HTML5, CSS3, vanilla JavaScript (ES modules) |
 | Hosting | GitHub Pages, from the `main` branch root |
-| Photography | Unsplash (see [SOURCES.txt](SOURCES.txt); photographer and page for each file are still to be confirmed) |
+| Photography | Pexels (see [PHOTO-SOURCES.md](PHOTO-SOURCES.md) for page URL, photographer, image ID and licence) |
 | Hero video | Four licensed options from Pexels and Mixkit, credited in [SOURCES.txt](SOURCES.txt) and in the site footer |
 | Type | Self-hosted Inter and Fraunces, SIL Open Font License |
 
@@ -48,7 +48,8 @@ index.html       Site markup
 css/             Design tokens, base, components and sections
 js/              Theme, motion, pricing, form and gallery modules
 assets/          Photographs, logos, self-hosted fonts and hero video
-SOURCES.txt      Photo, video and font credits
+SOURCES.txt      Video and font credits; points to PHOTO-SOURCES.md
+PHOTO-SOURCES.md Page URL, photographer, image ID and licence for each studio photo
 docs/            README screenshot
 ```
 

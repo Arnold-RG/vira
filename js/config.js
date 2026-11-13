@@ -69,24 +69,32 @@ export const PRODUCTS = [
     title: 'AI-powered websites',
     body: 'Modern business and personal websites with smart features, built for speed, phones and search.',
     image: 'assets/photo-code.jpg',
-    alt: 'A close view of code on a computer screen'
+    alt: 'A close view of programming code on a laptop screen',
+    width: 1600,
+    height: 1063
   },
   {
     title: 'Web systems and dashboards',
     body: 'Custom web apps, private dashboards, booking and management tools tailored to how you work.',
     image: 'assets/photo-dashboard.jpg',
-    alt: 'A laptop showing an analytics dashboard'
+    alt: 'A laptop showing a quarterly revenue chart on a wooden desk',
+    width: 1600,
+    height: 2400
   },
   {
     title: 'Automation',
     body: 'Routines, reports and workflows that run on their own and free hours from your week.',
     image: 'assets/photo-servers.jpg',
-    alt: 'Rows of network cables in a server rack'
+    alt: 'A row of server racks with red cables behind mesh doors',
+    width: 1600,
+    height: 1065
   },
   {
     title: 'Security and QA',
     body: 'Code review, testing, privacy checks and security hardening for new or existing projects.',
     image: 'assets/photo-circuit.jpg',
-    alt: 'Glowing circuit board lines'
+    alt: 'Close-up of a gold circuit board with silver solder points',
+    width: 1600,
+    height: 1067
   }
 ];
