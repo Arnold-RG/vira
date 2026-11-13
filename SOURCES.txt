@@ -1,0 +1,69 @@
+Vira website media sources
+==========================
+
+Photographers are named only where the source was verified from
+git history, a commit message, image metadata, or a fetched
+source page identified by a known photo ID. Nothing here is guessed.
+
+
+Studio photographs
+------------------
+The nine previous JPEGs in assets/ had no verified photographer or
+source page (no EXIF artist, copyright, or photo ID in git history),
+so they were replaced on 13 November 2026 with photographs from
+Pexels. Page URL, photographer (as shown on each fetched page),
+image ID and licence for every file are recorded in PHOTO-SOURCES.md.
+
+  See PHOTO-SOURCES.md
+
+
+Hero video options
+------------------
+Prepared 13 November 2026. All four clips allow commercial use on a
+website and do not require attribution. Web versions are muted H.264
+MP4, 1920×1080, 10–15 seconds, each under 6 MB. Sources checked
+against the notes prepared with the clips.
+
+OPTION 1 — Dark flowing silk
+  Web file:     assets/video/01-black-silk-web.mp4
+  Still:        assets/video/01-black-silk.jpg
+  Title:        Close-Up Video of a Black Silk Cloth
+  Author:       Mikhail Nilov
+  Source page:  https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/
+  Licence:      Pexels License — free for commercial and personal use,
+                including websites; modification allowed; attribution
+                not required. https://www.pexels.com/license/
+
+OPTION 2 — Liquid metal  (chosen for the live hero)
+  Web file:     assets/video/02-liquid-metal-web.mp4  (H.264, faststart, 1920×1080, 11.5 s, muted, 1,789,706 bytes)
+  WebM:         assets/video/02-liquid-metal-web.webm (same clip, re-encoded VP9, 1920×1080, 11.5 s, muted, 834,130 bytes)
+  Still:        assets/video/02-liquid-metal.jpg      (1920×1080 JPEG fallback, 151,141 bytes)
+  Still WebP:   assets/video/02-liquid-metal.webp     (1920×1080, 71,002 bytes)
+  Title:        Metallic liquid textures video
+  Author:       Mixkit
+  Source page:  https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/
+  Licence:      Mixkit Stock Video Free License — free use in commercial
+                and non-commercial projects; attribution not required
+                (credit appreciated). https://mixkit.co/license/
+
+OPTION 3 — Moody smoke
+  Web file:     assets/video/03-smoke-web.mp4
+  Still:        assets/video/03-smoke.jpg
+  Title:        Footage of smoke against black background
+  Author:       cottonbro studio
+  Source page:  https://www.pexels.com/video/footage-of-smoke-against-black-background-9694807/
+  Licence:      Pexels License. https://www.pexels.com/license/
+
+OPTION 4 — Digital grid
+  Web file:     assets/video/04-digital-grid-web.mp4
+  Still:        assets/video/04-digital-grid.jpg
+  Title:        Abstract Digital Landscape Animation with Grid
+  Author:       Nicola Narracci
+  Source page:  https://www.pexels.com/video/abstract-digital-landscape-animation-with-grid-28649481/
+  Licence:      Pexels License. https://www.pexels.com/license/
+
+
+Fonts
+-----
+  Inter      SIL Open Font License 1.1  — assets/fonts/OFL-Inter.txt
+  Fraunces   SIL Open Font License 1.1  — assets/fonts/OFL-Fraunces.txt
