@@ -2,6 +2,7 @@ import { initForm } from './form.js';
 import { initPayments } from './payments.js';
 import { initQr } from './qr-ui.js';
 import { initBuilder } from './builder.js';
+import { initCarousel } from './carousel.js';
 
 function initYear() {
   document.querySelectorAll('[data-year]').forEach((el) => {
@@ -118,4 +119,5 @@ initForm();
 initPayments();
 initQr();
 initBuilder();
+initCarousel();
 initSlots();
