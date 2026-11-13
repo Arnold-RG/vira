@@ -353,7 +353,7 @@
   margin: 4px 0 8px;
 }
 .plan-tag { color: var(--ink-soft); font-size: var(--fs-sm); margin-bottom: 16px; }
-.plan ul { margin: 0 0 22px; display: grid; gap: 9px; flex: 1; }
+.plan ul { margin: 0 0 22px; display: grid; gap: 9px; flex: 0 0 auto; align-content: start; }
 .plan li {
   position: relative;
   padding-left: 22px;
@@ -370,7 +370,7 @@
   border-radius: 50%;
   background: var(--mocha);
 }
-.plan .btn { width: 100%; }
+.plan .btn { width: 100%; margin-top: auto; }
 .plan-popular .btn-plan {
   background: linear-gradient(135deg, #6F4E37, #3E2A1D);
   color: #F4F3F1;

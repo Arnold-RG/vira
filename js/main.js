@@ -25,8 +25,13 @@ function prefersPosterOnly() {
 function applyPoster(choice) {
   const poster = document.getElementById('hero-poster');
   const webp = document.getElementById('hero-poster-webp');
+  const jpeg = document.getElementById('hero-poster-jpeg');
+  /* WebP is the img src and the preferred <source>. The JPEG <source>
+     is only for browsers that cannot decode WebP, so Chromium requests
+     one poster format, not both. The video has no poster attribute:
+     the picture sits behind it until the first frame. */
   if (poster) {
-    poster.src = choice.poster;
+    poster.src = choice.posterWebp || choice.poster;
     poster.alt = '';
     poster.width = 1920;
     poster.height = 1080;
@@ -34,6 +39,10 @@ function applyPoster(choice) {
   if (webp) {
     if (choice.posterWebp) webp.srcset = choice.posterWebp;
     else webp.remove();
+  }
+  if (jpeg) {
+    if (choice.poster) jpeg.srcset = choice.poster;
+    else jpeg.remove();
   }
 }
 
@@ -58,7 +67,7 @@ function initHero() {
     return;
   }
 
-  video.poster = choice.poster;
+  video.removeAttribute('poster');
   video.muted = true;
   video.defaultMuted = true;
   video.autoplay = true;

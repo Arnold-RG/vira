@@ -101,9 +101,10 @@
   <div class="hero-media" aria-hidden="true">
     <picture class="hero-poster-pic">
       <source id="hero-poster-webp" type="image/webp" srcset="assets/video/02-liquid-metal.webp">
-      <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.jpg" width="1920" height="1080" alt="" decoding="async">
+      <source id="hero-poster-jpeg" type="image/jpeg" srcset="assets/video/02-liquid-metal.jpg">
+      <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.webp" width="1920" height="1080" alt="" decoding="async">
     </picture>
-    <video id="hero-video" class="hero-video" muted autoplay loop playsinline preload="none" poster="assets/video/02-liquid-metal.jpg" aria-hidden="true"></video>
+    <video id="hero-video" class="hero-video" muted autoplay loop playsinline preload="none" aria-hidden="true"></video>
     <div class="hero-overlay" aria-hidden="true"></div>
   </div>
   <div class="hero-content">
@@ -451,8 +452,7 @@
         <button type="button" class="btn btn-plan" data-choose="Basic">Choose plan</button>
       </article>
 
-      <article class="plan plan-popular card reveal" data-plan="Super">
-        <p class="plan-badge">Most popular</p>
+      <article class="plan card reveal" data-plan="Super">
         <h3>Super</h3>
         <p class="plan-price" data-price="super">700 PLN</p>
         <p class="plan-tag">Best for a small-business site that needs analytics and a careful launch.</p>

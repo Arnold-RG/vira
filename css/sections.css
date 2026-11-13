@@ -46,7 +46,7 @@
   padding-top: calc(var(--header-h) + 2rem);
 }
 .hero-content .wrap { max-width: 920px; margin: 0; padding: 0; }
-.hero .eyebrow { color: #E6E0F0; }
+.hero .eyebrow { color: #E6E0F0; text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45); }
 .hero h1 {
   color: #FFFFFF;
   margin: 0 0 22px;

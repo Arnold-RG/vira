@@ -35,10 +35,10 @@ OPTION 1 — Dark flowing silk
                 not required. https://www.pexels.com/license/
 
 OPTION 2 — Liquid metal  (chosen for the live hero)
-  Web file:     assets/video/02-liquid-metal-web.mp4  (H.264, faststart, 1920×1080, 11.5 s, muted)
-  WebM:         assets/video/02-liquid-metal-web.webm (VP9, same length and size)
-  Still:        assets/video/02-liquid-metal.jpg
-  Still WebP:   assets/video/02-liquid-metal.webp
+  Web file:     assets/video/02-liquid-metal-web.mp4  (H.264, faststart, 1920×1080, 11.5 s, muted, 1,789,706 bytes)
+  WebM:         assets/video/02-liquid-metal-web.webm (same clip, re-encoded VP9, 1920×1080, 11.5 s, muted, 834,130 bytes)
+  Still:        assets/video/02-liquid-metal.jpg      (1920×1080 JPEG fallback, 151,141 bytes)
+  Still WebP:   assets/video/02-liquid-metal.webp     (1920×1080, 71,002 bytes)
   Title:        Metallic liquid textures video
   Author:       Mixkit
   Source page:  https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/
