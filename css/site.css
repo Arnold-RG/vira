@@ -98,6 +98,13 @@
   --display: "Bodoni Moda", "Palatino Linotype", Palatino, "Times New Roman", serif;
   --sans: "Source Sans 3", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --wrap: min(1140px, calc(100% - 2.25rem));
+  --space-1: 0.5rem;
+  --space-2: 0.85rem;
+  --space-3: 1.5rem;
+  --space-4: 2.25rem;
+  --space-5: 3.5rem;
+  --space-6: 5rem;
+  --measure: 68ch;
 }
 
 *,
@@ -1597,3 +1604,333 @@ section[id] { scroll-margin-top: 4.75rem; }
 body.is-fullpage-shot .site-header { position: static; }
 body.is-fullpage-shot { scroll-behavior: auto; }
 body.is-fullpage-shot .builder-overview { position: static; }
+
+
+/* ---------- Alignment pass (fix/alignment) ---------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* One vertical rhythm for sections. */
+.section,
+.band-dark {
+  padding: var(--space-6) 0;
+}
+.cta-final.band-dark { padding: var(--space-6) 0; }
+.section-head { margin-bottom: var(--space-4); }
+.section-head .eyebrow { margin-bottom: var(--space-1); }
+.section-head h2 { margin-top: 0; }
+.section-head .deck { margin-top: var(--space-2); }
+
+/* Body copy measure, ~60–72ch. Headings stay on their shorter title measure. */
+.lead,
+.deck,
+.trust-line,
+.trust-list p,
+.service-list p,
+.slot p,
+.steps p,
+.values-lead,
+.values dd,
+.pay-verify p,
+.contact-intro p,
+.fine,
+.form-note,
+.ov-plan,
+.ov-other,
+.b-hint,
+.gallery-empty,
+.cta-final .deck {
+  max-width: var(--measure);
+}
+
+/* Hero image: one landscape ratio for this photograph. */
+.frame-hero img,
+.frame-hero img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 40%;
+  width: 100%;
+  height: auto;
+  max-height: 27.5rem;
+}
+
+/* Service photos: one column, one ratio, one width. */
+.service-photos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  padding-top: 0;
+  align-content: start;
+}
+.service-photos .frame,
+.service-photos .frame:nth-child(even),
+.service-photos .frame:nth-child(3),
+.service-photos .frame-offset,
+.service-photos .frame-narrow,
+.service-photos .frame-offset-left {
+  width: 100%;
+  margin: 0;
+}
+.service-photos img,
+.service-photos .frame-narrow img,
+.service-photos .frame:nth-child(4) img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Founder portrait slot keeps a portrait ratio. */
+.monogram {
+  aspect-ratio: 3 / 4;
+  width: 100%;
+}
+.monogram img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Equal-height cards in each grid row. */
+.b-services,
+.b-palettes,
+.b-styles,
+.why-grid,
+.pay-methods,
+.qr-cards,
+.values {
+  align-items: stretch;
+}
+.b-card,
+.b-palette,
+.b-style,
+.why-card,
+.pay-methods li,
+.qr-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+.steps li {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Builder and why-client inner rhythm. */
+.builder-form { gap: var(--space-4); }
+.builder-layout { gap: var(--space-4) var(--space-4); }
+.b-services,
+.b-palettes,
+.b-styles { gap: var(--space-2); }
+.why-grid { gap: var(--space-2) var(--space-3); }
+
+/* Payment QR frames stay square and the same size. */
+.qr-frame {
+  aspect-ratio: 1;
+  object-fit: cover;
+  width: 100%;
+  max-width: 11.5rem;
+}
+
+@media (max-width: 900px) {
+  .service-photos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: unset;
+    flex-wrap: unset;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+  }
+  .service-photos .frame,
+  .service-photos .frame:nth-child(even),
+  .service-photos .frame:nth-child(3),
+  .frame-offset,
+  .frame-narrow,
+  .frame-offset-left {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 430px) {
+  .section,
+  .band-dark,
+  .cta-final.band-dark {
+    padding: var(--space-5) 0;
+  }
+  .frame-hero img { aspect-ratio: 3 / 2; }
+  .service-photos { grid-template-columns: 1fr 1fr; }
+}
+
+/* Services: heading on its own row so the photo rail lines up with the list. */
+.services-grid {
+  grid-template-areas:
+    "head head"
+    "list photos";
+  gap: var(--space-4) var(--space-4);
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .services-grid { grid-template-areas: "head" "list" "photos"; }
+}
+
+/* ---------- Services photo carousel ---------- */
+#services .wrap,
+.services-grid {
+  min-width: 0;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "head"
+    "list"
+    "photos";
+  gap: var(--space-4);
+  align-items: start;
+}
+.services-grid .section-head,
+.services-grid .service-list,
+.photo-carousel {
+  grid-area: auto;
+  max-width: none;
+}
+.services-grid .section-head { grid-area: head; }
+.services-grid .service-list { grid-area: list; max-width: var(--measure); }
+.photo-carousel {
+  grid-area: photos;
+  position: relative;
+  outline: none;
+  margin-top: var(--space-2);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+.photo-carousel:focus-visible {
+  outline: 2px solid var(--mocha);
+  outline-offset: 6px;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  touch-action: pan-y;
+  cursor: grab;
+}
+.carousel-viewport:active { cursor: grabbing; }
+
+.carousel-track {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--carousel-gap, 1.25rem);
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 var(--slide-w, 32%);
+  width: var(--slide-w, 32%);
+  margin: 0;
+  min-width: 0;
+}
+.carousel-slide img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+  border: 1.5px solid var(--mocha);
+  background: var(--paper);
+  color: var(--mocha);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+  font-family: var(--sans);
+}
+.carousel-btn:hover { background: var(--mocha); color: var(--platinum); }
+.carousel-btn:focus-visible {
+  outline: 2px solid var(--mocha);
+  outline-offset: 3px;
+}
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.carousel-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  padding: 0;
+  border: 1.5px solid var(--mocha);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.carousel-dot[aria-current="true"] {
+  background: var(--mocha);
+}
+.carousel-dot:focus-visible {
+  outline: 2px solid var(--mocha);
+  outline-offset: 3px;
+}
+.carousel-toggle {
+  width: auto;
+  min-width: 2.4rem;
+  padding: 0 0.75rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-family: var(--sans);
+}
+.carousel-toggle-label { line-height: 1; }
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track { transition: none !important; }
+}
+
+@media (max-width: 900px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "head"
+      "list"
+      "photos";
+  }
+}
+
+@media (max-width: 430px) {
+  .carousel-btn { width: 2.6rem; height: 2.6rem; }
+  .carousel-toggle { width: auto; height: 2.6rem; }
+}

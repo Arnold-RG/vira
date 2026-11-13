@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test js/form.test.js js/payments.test.js js/quality.test.js js/qr-payload.test.js js/builder.test.js"
+    "test": "node --test js/form.test.js js/payments.test.js js/quality.test.js js/qr-payload.test.js js/builder.test.js js/carousel.test.js"
   }
 }
