@@ -61,7 +61,7 @@
 </header>
 
 <div class="nav-sheet-backdrop" id="nav-sheet-backdrop" hidden></div>
-<div class="nav-sheet" id="nav-sheet" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" tabindex="-1">
+<div class="nav-sheet" id="nav-sheet" role="dialog" aria-modal="true" aria-label="Menu" aria-hidden="true" tabindex="-1" inert>
   <div class="nav-sheet-head">
     <a href="#top" class="brand" aria-label="Vira home">
     <picture class="logo-on-dark">
@@ -98,7 +98,7 @@
 <main id="top">
 
 <section class="hero" id="hero" aria-label="Vira">
-  <div class="hero-media">
+  <div class="hero-media" aria-hidden="true">
     <!-- TODO: HERO_VIDEO default is option 2 (liquid metal) until the owner picks. Wired in js/config.js. -->
     <img id="hero-poster" class="hero-poster" src="assets/video/02-liquid-metal.jpg" width="1920" height="1080" alt="" decoding="async">
     <video id="hero-video" class="hero-video" muted playsinline loop preload="none" poster="assets/video/02-liquid-metal.jpg" aria-hidden="true"></video>
@@ -121,7 +121,7 @@
   </a>
 </section>
 
-<div id="content">
+<div id="content" tabindex="-1">
 <section id="about" class="section">
   <div class="wrap about-grid">
     <div class="reveal">
@@ -173,7 +173,7 @@
         <h3>Games</h3>
         <p>Game development and interactive experiences for the web and desktop. We shape the play, build the systems behind it and polish how it feels to use.</p>
       </article>
-      <article class="wide reveal">
+      <article class="reveal">
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12a7 7 0 0 1 14 0"/><path d="M8.5 12a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="12" r="1.2" fill="currentColor" stroke="none"/><path d="M12 13v7M8 20h8"/></svg></div>
         <h3>Networking &amp; connectivity</h3>
         <p>Network design, setup and security for homes, offices and events, including Wi-Fi, LAN and WAN. We plan the connection, set up the hardware and leave you with a link that stays protected.</p>
@@ -197,6 +197,12 @@
         <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V9l8-5 8 5v10"/><path d="M9 19v-6h6v6"/></svg></div>
         <h3>Business &amp; finance support</h3>
         <p>Planning, operations and reporting for small businesses, plus practical tools for tracking money and organising the books. Setup and support — not financial or tax advice.</p>
+      </article>
+
+      <article class="reveal">
+        <div class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3"/><path d="M5 19c.5-3.2 3.2-5 7-5s6.5 1.8 7 5"/><path d="M16.5 4.5 19 3v3.5"/></svg></div>
+        <h3>Freelance support</h3>
+        <p>Practical help for independent professionals: a clear online presence, simple workflows and the tools that keep client work moving.</p>
       </article>
     </div>
   </div>
@@ -352,6 +358,7 @@
       </div>
       <p class="price-note" data-rates-as-of>Prices are fixed in PLN; other currencies are approximate, using rates as of 13 November 2026.</p>
     </div>
+    <p class="plan-disclaimer reveal">Indicative prices. Final plan details are confirmed when we scope your project.</p>
 
     <!-- TODO: plan feature lists are generic placeholders pending the owner's confirmation of what each plan includes. Prices (Starter 250 / Basic 500 / Super 700 / Premium Plus 1000 PLN) are also pending confirmation. -->
     <div class="pricing-grid">
@@ -553,7 +560,9 @@
       <div>
         <h3>Credits</h3>
         <p class="foot-credits">
-          Studio photographs from <a href="https://unsplash.com/" rel="noopener noreferrer">Unsplash</a>.
+          Studio photographs from <a href="https://unsplash.com/" rel="noopener noreferrer">Unsplash</a>
+          (photographer and source page for each file are listed as “source to confirm” in <a href="SOURCES.txt">SOURCES.txt</a>, until those can be verified):
+          photo-laptop, photo-code, photo-dashboard, photo-servers, photo-circuit, photo-team, photo-workspace, photo-collab, photo-earth.
           Hero video options:
           “Close-Up Video of a Black Silk Cloth” by Mikhail Nilov, <a href="https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/" rel="noopener noreferrer">Pexels</a>
           (<a href="https://www.pexels.com/license/" rel="noopener noreferrer">Pexels License</a>);

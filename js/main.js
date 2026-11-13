@@ -15,8 +15,11 @@ function initYear() {
 
 function prefersPosterOnly() {
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const saveData = (navigator.connection && (navigator.connection.saveData || /2g/.test(navigator.connection.effectiveType || '')));
-  return reduce || !!saveData;
+  const narrow = matchMedia('(max-width: 767px)').matches;
+  const conn = navigator.connection;
+  const saveData = !!(conn && conn.saveData);
+  const slow = !!(conn && /^(slow-2g|2g|3g)$/i.test(conn.effectiveType || ''));
+  return reduce || narrow || saveData || slow;
 }
 
 function initHero() {
@@ -32,10 +35,15 @@ function initHero() {
     poster.width = 1920;
     poster.height = 1080;
   }
-  if (media) media.setAttribute('aria-label', 'Background: ' + choice.label);
+  if (media) media.setAttribute('aria-hidden', 'true');
 
+  /* Load the file from JS only when the viewport, motion preference and
+     network allow it. Never set src on small screens or constrained links. */
   if (!video || prefersPosterOnly()) {
-    if (video) video.remove();
+    if (video) {
+      video.removeAttribute('src');
+      video.remove();
+    }
     return;
   }
 
@@ -137,18 +145,36 @@ function initMenu() {
   const closeBtn = document.getElementById('nav-sheet-close');
   if (!btn || !sheet) return;
 
-  const focusables = () => sheet.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+  const focusables = () => {
+    if (sheet.inert) return [];
+    return sheet.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+  };
   let last = null;
+
+  const parkSheet = () => {
+    sheet.inert = true;
+    sheet.setAttribute('inert', '');
+    sheet.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-label', 'Open menu');
+  };
+  const unparkSheet = () => {
+    sheet.inert = false;
+    sheet.removeAttribute('inert');
+    sheet.setAttribute('aria-hidden', 'false');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.setAttribute('aria-label', 'Close menu');
+  };
+  parkSheet();
 
   const open = () => {
     last = document.activeElement;
+    unparkSheet();
     sheet.classList.add('is-open');
     if (backdrop) {
       backdrop.hidden = false;
       backdrop.classList.add('is-open');
     }
-    sheet.setAttribute('aria-hidden', 'false');
-    btn.setAttribute('aria-expanded', 'true');
     document.body.classList.add('is-locked');
     const list = focusables();
     (closeBtn || list[0] || sheet).focus();
@@ -156,12 +182,11 @@ function initMenu() {
 
   const close = () => {
     sheet.classList.remove('is-open');
+    parkSheet();
     if (backdrop) {
       backdrop.classList.remove('is-open');
-      setTimeout(() => { if (!sheet.classList.contains('is-open')) backdrop.hidden = true; }, 400);
+      setTimeout(() => { if (!sheet.classList.contains('is-open')) backdrop.hidden = true; }, 450);
     }
-    sheet.setAttribute('aria-hidden', 'true');
-    btn.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('is-locked');
     if (last && last.focus) last.focus();
   };
