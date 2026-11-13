@@ -1176,13 +1176,15 @@ fieldset { border: 0; margin: 0; padding: 0; }
 .ov-block { margin: 0.8rem 0; }
 .ov-block ul { margin: 0.3rem 0 0 1.15rem; padding: 0; }
 .ov-block li { margin: 0.15rem 0; }
-.ov-plan {
+.ov-plan, .ov-other {
   margin: 1rem 0 0;
   font-weight: 600;
   max-width: 52ch;
 }
+.ov-other { font-weight: 400; }
 #builder-send { margin-top: 1.15rem; display: inline-flex; }
 #builder-send[hidden] { display: none; }
+#builder-send[aria-disabled="true"] { pointer-events: none; }
 
 /* ---------- About / Why clients ---------- */
 .founder-grid-lg { margin-bottom: 0.4rem; }

@@ -5,19 +5,25 @@
  */
 import { WHATSAPP } from './form.js';
 
+/** Exact line shown and sent for any selected service that is not Websites. */
+export const OTHER_SERVICES_NOTE =
+  'Other services are quoted separately; the final quote comes after we talk.';
+
+/**
+ * Suggest a website plan only when Websites is selected, using the existing
+ * website-plan inclusions and labelled "suggested". Other services never
+ * change the plan: they are quoted separately.
+ * Without a page count from the client, the suggested starting plan is
+ * Starter (one landing page, one revision round, about one week).
+ */
 export function suggestPlan(services) {
-  const set = new Set(services);
-  if (set.has('AI creation') || set.has('Games') || services.length >= 4) {
-    return { id: 'Premium Plus', price: '1000 PLN' };
-  }
-  if (services.length >= 3 || set.has('Apps') || set.has('Business management')) {
-    return { id: 'Super', price: '700 PLN' };
-  }
-  if (services.length === 1 && set.has('Websites')) {
-    return { id: 'Starter', price: '250 PLN' };
-  }
-  if (services.length === 0) return null;
-  return { id: 'Basic', price: '500 PLN' };
+  if (!Array.isArray(services) || !services.includes('Websites')) return null;
+  return { id: 'Starter', price: '250 PLN' };
+}
+
+export function otherServicesNote(services) {
+  if (!Array.isArray(services)) return '';
+  return services.some((s) => s !== 'Websites') ? OTHER_SERVICES_NOTE : '';
 }
 
 export function collectPages(services, data) {
@@ -42,7 +48,7 @@ export function collectFeatures(services, data) {
   return features;
 }
 
-export function buildOverviewText({ services, palette, style, pages, features, plan }) {
+export function buildOverviewText({ services, palette, style, pages, features, plan, otherNote }) {
   const lines = [
     'Hello Vira,',
     'I used the project builder on your site.',
@@ -58,9 +64,11 @@ export function buildOverviewText({ services, palette, style, pages, features, p
   }
   if (plan) {
     lines.push(
-      'Suggested plan: ' + plan.id + ' (' + plan.price + '). This is a suggestion only. The final quote comes after we talk.'
+      'Suggested plan: ' + plan.id + ' (' + plan.price + '). This is a suggestion only, for the website work.'
     );
   }
+  const note = otherNote != null ? otherNote : otherServicesNote(services);
+  if (note) lines.push(note);
   return lines.join('\n');
 }
 
@@ -122,16 +130,16 @@ export function initBuilder() {
     if (stOut) stOut.textContent = stName || 'Choose a style.';
     if (pagesOut) fillList(pagesOut, pages);
     if (featOut) fillList(featOut, features);
+    const otherNote = otherServicesNote(services);
     if (planOut) {
       planOut.textContent = plan
-        ? ('Suggested plan: ' + plan.id + ' — ' + plan.price + '. This is a suggestion only. The final quote comes after we talk.')
+        ? ('Suggested plan: ' + plan.id + ' — ' + plan.price + '. This is a suggestion only, for the website work.')
         : '';
     }
+    const otherOut = overview.querySelector('[data-ov="other"]');
+    if (otherOut) otherOut.textContent = otherNote;
 
     overview.hidden = !ready;
-    send.hidden = !ready;
-    send.disabled = !ready;
-
     if (ready) {
       const text = buildOverviewText({
         services,
@@ -139,11 +147,16 @@ export function initBuilder() {
         style: stName,
         pages,
         features,
-        plan
+        plan,
+        otherNote
       });
       send.setAttribute('href', buildWhatsAppBuilderUrl(text));
+      send.removeAttribute('aria-disabled');
+      send.hidden = false;
     } else {
       send.removeAttribute('href');
+      send.setAttribute('aria-disabled', 'true');
+      send.hidden = true;
     }
   };
 
@@ -156,4 +169,9 @@ export function initBuilder() {
     .catch(() => {});
 
   form.addEventListener('change', render);
+  send.addEventListener('click', (e) => {
+    if (send.getAttribute('aria-disabled') === 'true' || !send.getAttribute('href')) {
+      e.preventDefault();
+    }
+  });
 }
