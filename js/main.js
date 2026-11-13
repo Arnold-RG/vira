@@ -71,6 +71,18 @@ function initHero() {
   });
 }
 
+
+function photoPicture(file, alt, width, height, sizes) {
+  const stem = String(file || '').replace(/\.(jpe?g|webp)$/i, '');
+  return (
+    '<picture>' +
+      '<source type="image/webp" srcset="' + escapeAttr(stem + '-800.webp') + ' 800w, ' + escapeAttr(stem + '.webp') + ' 1600w" sizes="' + escapeAttr(sizes) + '">' +
+      '<source type="image/jpeg" srcset="' + escapeAttr(stem + '-800.jpg') + ' 800w, ' + escapeAttr(stem + '.jpg') + ' 1600w" sizes="' + escapeAttr(sizes) + '">' +
+      '<img src="' + escapeAttr(stem + '.jpg') + '" alt="' + escapeAttr(alt) + '" width="' + width + '" height="' + height + '" loading="lazy" decoding="async">' +
+    '</picture>'
+  );
+}
+
 function initProducts() {
   const root = document.getElementById('products-grid');
   if (!root) return;
@@ -78,7 +90,7 @@ function initProducts() {
     const n = String(i + 1).padStart(2, '0');
     return (
       '<article class="product reveal">' +
-        '<div class="p-img"><img src="' + escapeAttr(p.image) + '" alt="' + escapeAttr(p.alt) + '" width="' + (p.width || 1600) + '" height="' + (p.height || 1000) + '" loading="lazy" decoding="async"></div>' +
+        '<div class="p-img">' + photoPicture(p.image, p.alt, p.width || 1600, p.height || 1000, '(max-width: 700px) 92vw, 45vw') + '</div>' +
         '<div class="p-body"><div class="num">' + n + '</div><h3>' + escapeHtml(p.title) + '</h3><p>' + escapeHtml(p.body) + '</p></div>' +
       '</article>'
     );

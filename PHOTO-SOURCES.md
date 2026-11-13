@@ -6,7 +6,9 @@ source page. Each page below was fetched and the photographer’s name was
 copied from the byline on that page (`creditText`: “Photo by …”). Every
 image allows free commercial use; attribution is not required.
 
-Optimised copies are stored as JPEG and WebP, at most 1,600 pixels wide.
+Optimised copies are stored as JPEG and WebP at 1,600 and 800 pixels wide.
+The markup uses a `<picture>` element so browsers that support WebP request it,
+with a JPEG fallback, and pick 800w or 1600w from the `srcset`.
 
 ## photo-laptop
 
@@ -65,14 +67,17 @@ Optimised copies are stored as JPEG and WebP, at most 1,600 pixels wide.
 
 ## photo-team
 
-- Files: `assets/photo-team.jpg`, `assets/photo-team.webp`
-- Title: Overhead Shot of Business People Working
+- Files: `assets/photo-team.jpg`, `assets/photo-team.webp`,
+  `assets/photo-team-800.jpg`, `assets/photo-team-800.webp`
+- Title: Group of People With Their Hands On Laptop
 - Photographer: Mikhail Nilov
-- Page: https://www.pexels.com/photo/overhead-shot-of-business-people-working-6592701/
-- Image ID: 6592701
+- Page: https://www.pexels.com/photo/group-of-people-with-their-hands-on-laptop-6894202/
+- Image ID: 6894202
 - Licence: Pexels License — free for commercial and personal use,
   including websites; modification allowed; attribution not required.
   https://www.pexels.com/license/
+  Replaced the previous 6592701 image on 13 November 2026 so the
+  photograph shows hands only, with no identifiable faces.
 
 ## photo-workspace
 
@@ -98,13 +103,19 @@ Optimised copies are stored as JPEG and WebP, at most 1,600 pixels wide.
 
 ## photo-earth
 
-- Files: `assets/photo-earth.jpg`, `assets/photo-earth.webp`
+- Files: `assets/photo-earth.jpg`, `assets/photo-earth.webp`,
+  `assets/photo-earth-800.jpg`, `assets/photo-earth-800.webp`
 - Title: Black Textile (Pexels page title; the photograph is a satellite
   view of Earth at night)
 - Photographer: Pixabay
+- Image: NASA Earth Observatory (Black Marble)
 - Page: https://www.pexels.com/photo/black-textile-41949/
 - Image ID: 41949
 - Licence: Creative Commons Zero (CC0), as stated on the Pexels photo
   page — free for commercial and personal use, attribution not required.
   Pexels documents CC0 alongside the Pexels License at
   https://www.pexels.com/license/
+  The picture is a night-lights composite in the NASA Earth Observatory
+  “Black Marble” / Earth at Night family, published on Pexels via Pixabay.
+  Attribution is not required; the NASA courtesy line is recorded here
+  and in the site footer.
