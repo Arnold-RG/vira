@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Vira, Kigali and Poland">
+  <circle cx="100" cy="100" r="94" fill="none" stroke="#6F4E37" stroke-width="1.15"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#6F4E37" stroke-width="0.7"/>
+  <circle cx="100" cy="100" r="58" fill="none" stroke="#6F4E37" stroke-width="0.6"/>
+  <defs>
+    <path id="r" d="M100,100 m0,-74 a74,74 0 1,1 0,148 a74,74 0 1,1 0,-148"/>
+  </defs>
+  <text fill="#6F4E37" font-family="Georgia, 'Times New Roman', serif" font-size="13" letter-spacing="5.2">
+    <textPath href="#r" startOffset="0%">VIRA  ·  KIGALI  ·  POLAND  ·  VIRA  ·  KIGALI  ·</textPath>
+  </text>
+  <text x="100" y="112" text-anchor="middle" fill="#6F4E37" font-family="Georgia, 'Times New Roman', serif" font-size="38" letter-spacing="3">V</text>
+</svg>

@@ -1,0 +1,30 @@
+{
+  "slots": {
+    "founder_photo": {
+      "label": "Founder photo coming soon",
+      "src": "",
+      "alt": ""
+    },
+    "why_i_built_vira": {
+      "title": "Why I built Vira",
+      "body": "Coming soon — Arnold is writing this"
+    },
+    "motivation": {
+      "title": "Motivation",
+      "body": "Coming soon — Arnold is writing this"
+    },
+    "education": {
+      "title": "Education",
+      "body": "Coming soon — Arnold is writing this"
+    },
+    "experience": {
+      "title": "Experience",
+      "body": "Coming soon — Arnold is writing this"
+    },
+    "work_gallery": {
+      "empty": "Real project photos coming soon",
+      "projects": []
+    }
+  },
+  "_note": "Drop real founder copy and project photos here. Leave src empty and projects as [] until the real files exist. The page will keep showing the coming-soon labels and will not invent anything."
+}
