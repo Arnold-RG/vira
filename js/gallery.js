@@ -7,6 +7,7 @@ export function initGallery() {
   if (!figures.length) return;
 
   const img = dialog.querySelector('.lightbox-image');
+  const webpSource = dialog.querySelector('.lightbox-webp');
   const caption = dialog.querySelector('.lightbox-caption');
   const btnClose = dialog.querySelector('.lightbox-close');
   const btnPrev = dialog.querySelector('.lightbox-prev');
@@ -18,8 +19,12 @@ export function initGallery() {
     const pic = fig.querySelector('img');
     const title = fig.querySelector('figcaption b');
     const sub = fig.querySelector('figcaption span');
+    const full = fig.dataset.full || '';
+    const webp = /\.webp$/i.test(full) ? full : full.replace(/\.jpe?g$/i, '.webp');
+    const jpg = /\.webp$/i.test(full) ? full.replace(/\.webp$/i, '.jpg') : (full || (pic && pic.getAttribute('src')) || '');
     return {
-      src: fig.dataset.full || (pic && pic.currentSrc) || (pic && pic.src),
+      webp,
+      jpg,
       alt: (pic && pic.alt) || '',
       title: title ? title.textContent : '',
       sub: sub ? sub.textContent : ''
@@ -29,7 +34,8 @@ export function initGallery() {
   const show = (i) => {
     index = (i + items.length) % items.length;
     const it = items[index];
-    img.src = it.src;
+    if (webpSource) webpSource.setAttribute('srcset', it.webp);
+    img.src = it.jpg;
     img.alt = it.alt;
     caption.innerHTML = (it.title ? '<b>' + it.title + '</b>' : '') + (it.sub ? '<span>' + it.sub + '</span>' : '');
     btnPrev.hidden = items.length < 2;
@@ -64,6 +70,7 @@ export function initGallery() {
   dialog.addEventListener('close', () => {
     document.body.classList.remove('is-locked');
     img.removeAttribute('src');
+    if (webpSource) webpSource.removeAttribute('srcset');
   });
   dialog.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') { e.preventDefault(); show(index - 1); }
