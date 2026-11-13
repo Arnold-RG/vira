@@ -11,6 +11,38 @@ function perViewFor() {
   return window.innerWidth <= BREAKPOINT ? 1 : 3;
 }
 
+/**
+ * Pure pause/play transitions. Hover and focus are temporary and are
+ * not represented here — they must never clear an explicit pause.
+ *
+ * @param {{ explicitPause: boolean }} state
+ * @param {'toggle' | 'navigate' | 'reduceOn'} event
+ * @returns {{ explicitPause: boolean, label: string, text: string }}
+ */
+export function nextCarouselControl(state, event) {
+  let explicitPause = !!state.explicitPause;
+  if (event === 'toggle') explicitPause = !explicitPause;
+  else if (event === 'navigate' || event === 'reduceOn') explicitPause = true;
+  return {
+    explicitPause,
+    label: explicitPause ? 'Play slideshow' : 'Pause slideshow',
+    text: explicitPause ? 'Play' : 'Pause'
+  };
+}
+
+/**
+ * Whether the interval should be running. An explicit pause always wins.
+ */
+export function shouldAutoplay({
+  explicitPause,
+  hidden = false,
+  hovering = false,
+  focusWithin = false,
+  dragging = false
+}) {
+  return !explicitPause && !hidden && !hovering && !focusWithin && !dragging;
+}
+
 export function initCarousel(root = document.getElementById('photo-carousel')) {
   if (!root) return;
 
@@ -18,14 +50,17 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
   const track = root.querySelector('.carousel-track');
   const prev = root.querySelector('.carousel-prev');
   const next = root.querySelector('.carousel-next');
+  const toggle = root.querySelector('.carousel-toggle');
   const dotsRoot = root.querySelector('.carousel-dots');
-  if (!viewport || !track || !prev || !next || !dotsRoot) return;
+  if (!viewport || !track || !prev || !next || !toggle || !dotsRoot) return;
 
+  const toggleLabel = toggle.querySelector('.carousel-toggle-label') || toggle;
   const slides = [...track.querySelectorAll('.carousel-slide')];
   if (!slides.length) return;
 
   const reduceMq = window.matchMedia('(prefers-reduced-motion: reduce)');
   let reduce = reduceMq.matches;
+  let control = nextCarouselControl({ explicitPause: reduce }, reduce ? 'reduceOn' : 'init');
   let perView = perViewFor();
   let page = 0;
   let timer = null;
@@ -64,7 +99,7 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
           ? 'Show photograph ' + (i + 1)
           : 'Show photographs ' + (i + 1) + ' to ' + last
       );
-      b.addEventListener('click', () => go(i));
+      b.addEventListener('click', () => userGo(i));
       dotsRoot.append(b);
     }
   }
@@ -74,6 +109,32 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
       if (i === page) b.setAttribute('aria-current', 'true');
       else b.removeAttribute('aria-current');
     });
+  }
+
+  function syncSlides() {
+    const first = page;
+    const last = page + perView;
+    slides.forEach((slide, i) => {
+      const on = i >= first && i < last;
+      if (on) {
+        slide.removeAttribute('aria-hidden');
+        slide.inert = false;
+      } else {
+        slide.setAttribute('aria-hidden', 'true');
+        slide.inert = true;
+      }
+    });
+  }
+
+  function syncToggle() {
+    toggle.setAttribute('aria-label', control.label);
+    toggleLabel.textContent = control.text;
+  }
+
+  function applyControl(event) {
+    control = nextCarouselControl(control, event);
+    syncToggle();
+    restartTimer();
   }
 
   function offsetFor(p, extra = 0) {
@@ -91,11 +152,18 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
     page = ((n % (max + 1)) + (max + 1)) % (max + 1);
     apply(offsetFor(page), instant);
     syncDots();
+    syncSlides();
     restartTimer();
   }
 
-  function nextPage() { go(page + 1); }
-  function prevPage() { go(page - 1); }
+  function userGo(n, instant) {
+    control = nextCarouselControl(control, 'navigate');
+    syncToggle();
+    go(n, instant);
+  }
+
+  function nextPage() { userGo(page + 1); }
+  function prevPage() { userGo(page - 1); }
 
   function stopTimer() {
     if (timer) {
@@ -105,7 +173,13 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
   }
 
   function paused() {
-    return reduce || document.hidden || root.matches(':hover') || root.matches(':focus-within') || dragging;
+    return !shouldAutoplay({
+      explicitPause: control.explicitPause,
+      hidden: document.hidden,
+      hovering: root.matches(':hover'),
+      focusWithin: root.matches(':focus-within'),
+      dragging
+    });
   }
 
   function restartTimer() {
@@ -139,8 +213,9 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
     dragging = false;
     pointerId = null;
     const threshold = Math.max(40, slideW * 0.18);
-    if (dragDelta <= -threshold) go(page + 1);
-    else if (dragDelta >= threshold) go(page - 1);
+    if (dragDelta <= -threshold) userGo(page + 1);
+    else if (dragDelta >= threshold) userGo(page - 1);
+    else if (Math.abs(dragDelta) >= 10) userGo(page);
     else go(page);
     dragDelta = 0;
   }
@@ -162,6 +237,7 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
     go(page, true);
   }
 
+  toggle.addEventListener('click', () => applyControl('toggle'));
   prev.addEventListener('click', prevPage);
   next.addEventListener('click', nextPage);
   root.addEventListener('keydown', onKey);
@@ -183,11 +259,13 @@ export function initCarousel(root = document.getElementById('photo-carousel')) {
   if (reduceMq.addEventListener) {
     reduceMq.addEventListener('change', (ev) => {
       reduce = ev.matches;
+      if (reduce) applyControl('reduceOn');
       go(page, true);
     });
   }
 
   measure();
   renderDots();
+  syncToggle();
   go(0, true);
 }
