@@ -180,7 +180,8 @@ function initMenu() {
     (closeBtn || list[0] || sheet).focus();
   };
 
-  const close = () => {
+  const close = (opts) => {
+    opts = opts || {};
     sheet.classList.remove('is-open');
     parkSheet();
     if (backdrop) {
@@ -188,7 +189,17 @@ function initMenu() {
       setTimeout(() => { if (!sheet.classList.contains('is-open')) backdrop.hidden = true; }, 450);
     }
     document.body.classList.remove('is-locked');
-    if (last && last.focus) last.focus();
+    if (opts.restore === false) return;
+    const fallback = (last && last.focus) ? last : btn;
+    if (fallback && fallback.focus) fallback.focus();
+    else if (btn && btn.focus) btn.focus();
+  };
+
+  const resolveFocusTarget = (href) => {
+    if (!href || href.charAt(0) !== '#' || href.length < 2) return null;
+    const el = document.getElementById(href.slice(1));
+    if (!el) return null;
+    return el.tagName === 'SECTION' ? el : (el.closest('section') || el);
   };
 
   btn.addEventListener('click', () => {
@@ -196,7 +207,24 @@ function initMenu() {
   });
   if (closeBtn) closeBtn.addEventListener('click', close);
   if (backdrop) backdrop.addEventListener('click', close);
-  sheet.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  sheet.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href') || '';
+      const target = resolveFocusTarget(href);
+      if (!target) {
+        close();
+        return;
+      }
+      e.preventDefault();
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      close({ restore: false });
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      target.focus({ preventScroll: true });
+      try { history.pushState(null, '', href); }
+      catch (err) { location.hash = href; }
+    });
+  });
 
   sheet.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') { e.preventDefault(); close(); return; }
