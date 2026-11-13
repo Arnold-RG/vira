@@ -1,0 +1,78 @@
+Vira website media sources
+==========================
+
+Photographers are named only where the source was verified from
+git history, a commit message, image metadata, or a fetched
+source page identified by a known photo ID. Nothing here is guessed.
+
+
+Studio photographs
+------------------
+All nine JPEGs in assets/ were already on the site, and the previous
+footer credited them only as “Photos from Unsplash”. A search of the
+repository history, commit messages, and image metadata (no EXIF
+artist, copyright, or source URL) did not turn up a photographer
+name or an Unsplash photo ID, so no Unsplash page could be fetched.
+
+  assets/photo-laptop.jpg      Unsplash (source to confirm)
+  assets/photo-code.jpg        Unsplash (source to confirm)
+  assets/photo-dashboard.jpg   Unsplash (source to confirm)
+  assets/photo-servers.jpg     Unsplash (source to confirm)
+  assets/photo-circuit.jpg     Unsplash (source to confirm)
+  assets/photo-team.jpg        Unsplash (source to confirm)
+  assets/photo-workspace.jpg   Unsplash (source to confirm)
+  assets/photo-collab.jpg      Unsplash (source to confirm)
+  assets/photo-earth.jpg       Unsplash (source to confirm)
+
+If a verified source is found later, replace the “source to confirm”
+line with the photographer’s name and the Unsplash URL.
+
+
+Hero video options
+------------------
+Prepared 13 November 2026. All four clips allow commercial use on a
+website and do not require attribution. Web versions are muted H.264
+MP4, 1920×1080, 10–15 seconds, each under 6 MB. Sources checked
+against the notes prepared with the clips.
+
+OPTION 1 — Dark flowing silk
+  Web file:     assets/video/01-black-silk-web.mp4
+  Still:        assets/video/01-black-silk.jpg
+  Title:        Close-Up Video of a Black Silk Cloth
+  Author:       Mikhail Nilov
+  Source page:  https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/
+  Licence:      Pexels License — free for commercial and personal use,
+                including websites; modification allowed; attribution
+                not required. https://www.pexels.com/license/
+
+OPTION 2 — Liquid metal
+  Web file:     assets/video/02-liquid-metal-web.mp4
+  Still:        assets/video/02-liquid-metal.jpg
+  Title:        Metallic liquid textures video
+  Author:       Mixkit
+  Source page:  https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/
+  Licence:      Mixkit Stock Video Free License — free use in commercial
+                and non-commercial projects; attribution not required
+                (credit appreciated). https://mixkit.co/license/
+
+OPTION 3 — Moody smoke
+  Web file:     assets/video/03-smoke-web.mp4
+  Still:        assets/video/03-smoke.jpg
+  Title:        Footage of smoke against black background
+  Author:       cottonbro studio
+  Source page:  https://www.pexels.com/video/footage-of-smoke-against-black-background-9694807/
+  Licence:      Pexels License. https://www.pexels.com/license/
+
+OPTION 4 — Digital grid
+  Web file:     assets/video/04-digital-grid-web.mp4
+  Still:        assets/video/04-digital-grid.jpg
+  Title:        Abstract Digital Landscape Animation with Grid
+  Author:       Nicola Narracci
+  Source page:  https://www.pexels.com/video/abstract-digital-landscape-animation-with-grid-28649481/
+  Licence:      Pexels License. https://www.pexels.com/license/
+
+
+Fonts
+-----
+  Inter      SIL Open Font License 1.1  — assets/fonts/OFL-Inter.txt
+  Fraunces   SIL Open Font License 1.1  — assets/fonts/OFL-Fraunces.txt

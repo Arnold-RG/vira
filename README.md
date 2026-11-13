@@ -2,7 +2,7 @@
 
 **Vision · Innovation · Reliability · Automation**
 
-A technology studio site for intelligent websites, web systems, and automation, with security and quality review built into every release. Based in Kraków, Poland.
+A technology studio site for websites, apps, games, networks, internet setup, tech support and AI, and for business, video, freelance and financial work, with security and quality checks on every release. Based in Kraków, Poland.
 
 [![Live demo](https://img.shields.io/badge/Live_demo-GitHub_Pages-6F4E37?style=for-the-badge&logo=github)](https://arnold-rg.github.io/vira/)
 
@@ -12,22 +12,24 @@ A technology studio site for intelligent websites, web systems, and automation, 
 
 ## What it is
 
-Vira is a static public website. It explains the studio’s values, services (websites, web systems, automation, security and QA), and a selection of shipped projects. The name comes from the Sanskrit *vīra* (hero, brave, strong) and the Latin roots of *virtus* (courage, excellence, integrity). It also stands for **Vision, Innovation, Reliability, Automation**.
+Vira is a static public website. It explains the studio’s values and its services: websites and web systems, mobile and desktop apps, games, networking and connectivity, tech support, AI creation, video content, business and finance support, and freelance support. The name comes from the Sanskrit *vīra* (hero, brave, strong) and the Latin roots of *virtus* (courage, excellence, integrity). It also stands for **Vision, Innovation, Reliability, Automation**.
 
 ## Features
 
 - Responsive marketing site that works on phones and desktop browsers
-- Wordmark identity in Mocha, Platinum, and Lavender
-- About, values, products, projects, studio gallery, and a project-inquiry section
+- Wordmark identity in Mocha, Platinum, and Lavender, with a dark and a light theme
+- About, services, products, studio gallery, indicative pricing, and a project-inquiry form
 - Static hosting on GitHub Pages (no account required to visit)
 
 ## Tech stack
 
 | Layer | Tools |
 | --- | --- |
-| Markup & style | HTML5, CSS3, vanilla JavaScript |
+| Markup & style | HTML5, CSS3, vanilla JavaScript (ES modules) |
 | Hosting | GitHub Pages, from the `main` branch root |
-| Photography | Unsplash (credited on the site) |
+| Photography | Unsplash (see [SOURCES.txt](SOURCES.txt); photographer and page for each file are still to be confirmed) |
+| Hero video | Four licensed options from Pexels and Mixkit, credited in [SOURCES.txt](SOURCES.txt) and in the site footer |
+| Type | Self-hosted Inter and Fraunces, SIL Open Font License |
 
 ## Getting started
 
@@ -46,6 +48,7 @@ index.html       Site markup
 css/             Design tokens, base, components and sections
 js/              Theme, motion, pricing, form and gallery modules
 assets/          Photographs, logos, self-hosted fonts and hero video
+SOURCES.txt      Photo, video and font credits
 docs/            README screenshot
 ```
 
