@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#intro">Skip to content</a>
 <div class="spot-layer" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
 
@@ -31,26 +32,7 @@
       <img class="brand-logo" src="assets/logo-vira-dark.png" width="459" height="424" alt="">
     </picture>
   </a>
-  <nav id="menu">
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <div class="nav-more" id="nav-more">
-      <button type="button" class="nav-more-btn" aria-expanded="false" aria-haspopup="true" aria-controls="more-menu">More</button>
-      <div id="more-menu" class="nav-dropdown">
-        <a href="#products">Products</a>
-        <a href="#gallery">Studio</a>
-        <a href="#innovation">Innovation</a>
-        <a href="#showreel">Showreel</a>
-        <a href="#workflow">Video workflow</a>
-        <a href="#events">Events</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#why">Why Vira</a>
-      </div>
-    </div>
-    <a href="#contact" class="btn btn-sm">Start a project</a>
-  </nav>
-  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  <a href="#request-assist" class="btn btn-sm">Request assist</a>
 </header>
 
 <main id="top">
@@ -70,7 +52,7 @@
     <div class="cta">
       <a href="#services" class="btn">Explore our services</a>
       <a href="#projects" class="btn btn-ghost-dark">See our work</a>
-      <a href="#contact" class="btn btn-ghost-dark">Start a project</a>
+      <a href="#request-assist" class="btn btn-ghost-dark">Request assist</a>
     </div>
     <p class="motto-line intro-motto">“Think boldly. Build carefully. Shine together.”</p>
   </div>
@@ -92,7 +74,7 @@
   </div>
 
   <div class="wrap story reveal">
-    <figure class="photo"><img src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"><figcaption>Building for clients everywhere.</figcaption></figure>
+    <figure class="photo"><img width="1600" height="1067" decoding="async" src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"><figcaption>Building for clients everywhere.</figcaption></figure>
     <div class="story-text">
       <p class="eyebrow">Our story</p>
       <h3>Built from curiosity, shaped by discipline.</h3>
@@ -304,12 +286,12 @@
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow">Inside the studio</p><h2>Where ideas take shape</h2><p class="muted">From the first sketch to the final launch, every project moves through planning, building, testing and care.</p></div>
     <div class="mosaic">
-      <figure class="tile t-big reveal"><img src="assets/photo-team.jpg" alt="A team working together on laptops around a table" loading="lazy"><figcaption><b>Collaboration</b><span>Every project starts with listening.</span></figcaption></figure>
-      <figure class="tile reveal"><img src="assets/photo-dashboard.jpg" alt="A laptop showing an analytics dashboard" loading="lazy"><figcaption><b>Data that speaks</b><span>Dashboards that turn numbers into decisions.</span></figcaption></figure>
-      <figure class="tile reveal"><img src="assets/photo-circuit.jpg" alt="Glowing circuit board lines" loading="lazy"><figcaption><b>Security first</b><span>Protection built into every layer.</span></figcaption></figure>
-      <figure class="tile reveal"><img src="assets/photo-workspace.jpg" alt="A bright desk with a laptop showing code" loading="lazy"><figcaption><b>Clean code</b><span>Crafted to be fast, clear and easy to grow.</span></figcaption></figure>
-      <figure class="tile reveal"><img src="assets/photo-servers.jpg" alt="Rows of network cables in a server rack" loading="lazy"><figcaption><b>Reliable infrastructure</b><span>Hosting and networks that stay up.</span></figcaption></figure>
-      <figure class="tile t-wide reveal"><img src="assets/photo-collab.jpg" alt="Overhead view of people working at laptops on a shared desk" loading="lazy"><figcaption><b>Planning together</b><span>Clear steps, honest timelines and regular updates.</span></figcaption></figure>
+      <figure class="tile t-big reveal"><img width="1600" height="1067" decoding="async" src="assets/photo-team.jpg" alt="A team working together on laptops around a table" loading="lazy"><figcaption><b>Collaboration</b><span>Every project starts with listening.</span></figcaption></figure>
+      <figure class="tile reveal"><img width="1600" height="1140" decoding="async" src="assets/photo-dashboard.jpg" alt="A laptop showing an analytics dashboard" loading="lazy"><figcaption><b>Data that speaks</b><span>Dashboards that turn numbers into decisions.</span></figcaption></figure>
+      <figure class="tile reveal"><img width="1600" height="1068" decoding="async" src="assets/photo-circuit.jpg" alt="Glowing circuit board lines" loading="lazy"><figcaption><b>Security first</b><span>Protection built into every layer.</span></figcaption></figure>
+      <figure class="tile reveal"><img width="1600" height="1065" decoding="async" src="assets/photo-workspace.jpg" alt="A bright desk with a laptop showing code" loading="lazy"><figcaption><b>Clean code</b><span>Crafted to be fast, clear and easy to grow.</span></figcaption></figure>
+      <figure class="tile reveal"><img width="1600" height="898" decoding="async" src="assets/photo-servers.jpg" alt="Rows of network cables in a server rack" loading="lazy"><figcaption><b>Reliable infrastructure</b><span>Hosting and networks that stay up.</span></figcaption></figure>
+      <figure class="tile t-wide reveal"><img width="1600" height="1067" decoding="async" src="assets/photo-collab.jpg" alt="Overhead view of people working at laptops on a shared desk" loading="lazy"><figcaption><b>Planning together</b><span>Clear steps, honest timelines and regular updates.</span></figcaption></figure>
     </div>
   </div>
 </section>
@@ -317,7 +299,7 @@
 <section id="innovation" class="section dark">
   <div class="wrap">
     <div class="head reveal"><p class="eyebrow light">How we innovate</p><h2>One vision, five specialised AI agents.</h2><p class="sub">Our team is organised like a real company, with a human in charge and clear roles for each agent. Work moves from planning to build to a strict quality gate, so speed never comes at the cost of safety.</p></div>
-    <figure class="photo wide reveal"><img src="assets/photo-earth.jpg" alt="Earth at night from space, with glowing city lights" loading="lazy"></figure>
+    <figure class="photo wide reveal"><img width="1600" height="1065" decoding="async" src="assets/photo-earth.jpg" alt="Earth at night from space, with glowing city lights" loading="lazy"></figure>
     <div class="grid g5 team">
       <div class="agent reveal"><div class="dot"></div><h3>Operations</h3><p>Planning, scheduling, reports and coordination.</p></div>
       <div class="agent reveal"><div class="dot"></div><h3>Engineering</h3><p>Code, design, cloud and video production.</p></div>
@@ -436,57 +418,131 @@
 
 </section>
 
-<section id="contact" class="section contact">
-  <div class="wrap contact-grid">
-    <div class="contact-intro reveal">
-      <picture>
-        <source type="image/webp" srcset="assets/logo-vira-light.webp">
-        <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
-      </picture>
-      <h2>Let's start a project.</h2>
-      <p>Websites, apps, games, networking, internet setup, tech support, AI, business, video, freelance or financial help — tell us what you need and we will reply with a clear plan.</p>
-      <div class="social" data-social></div>
+<section id="request-assist" class="section request-assist">
+  <div class="wrap">
+    <div class="head reveal">
+      <p class="eyebrow">Fixed prices</p>
+      <h2>Request us to build your project</h2>
+      <p class="muted">Choose a plan, tell us what you need, and we will reply with a clear outline before any work begins. Prices are set in Polish zloty.</p>
     </div>
-    <form id="contact-form" class="contact-form reveal" novalidate>
-      <div class="field">
-        <label for="c-name">Name</label>
-        <input id="c-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
-        <p class="error" data-error-for="name" hidden></p>
+
+    <div class="currency-row reveal">
+      <div class="currency-switch" role="group" aria-label="Currency">
+        <button type="button" class="currency-btn is-active" data-currency="PLN" aria-pressed="true">PLN</button>
+        <button type="button" class="currency-btn" data-currency="EUR" aria-pressed="false">EUR</button>
+        <button type="button" class="currency-btn" data-currency="USD" aria-pressed="false">USD</button>
+        <button type="button" class="currency-btn" data-currency="RWF" aria-pressed="false">RWF</button>
       </div>
-      <div class="field">
-        <label for="c-email">Email</label>
-        <input id="c-email" name="email" type="email" autocomplete="email" required>
-        <p class="error" data-error-for="email" hidden></p>
+      <p class="price-note">Prices are fixed in PLN; other currencies are approximate.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <article class="plan card reveal" data-plan="Basic">
+        <h3>Basic</h3>
+        <p class="plan-price" data-price="basic">250–500 PLN</p>
+        <p class="plan-tag">A clearly scoped small brief</p>
+        <ul>
+          <li>A small, clearly agreed piece of work</li>
+          <li>One round of revisions</li>
+          <li>Email support while the work is underway</li>
+          <li>Typical delivery in about 1–2 weeks, depending on the brief</li>
+          <li>A short written outline before we start</li>
+        </ul>
+        <button type="button" class="btn btn-plan" data-choose="Basic">Choose plan</button>
+      </article>
+
+      <article class="plan plan-popular card reveal" data-plan="Super">
+        <p class="plan-badge">Most popular</p>
+        <h3>Super</h3>
+        <p class="plan-price" data-price="super">700 PLN</p>
+        <p class="plan-tag">A mid-size, agreed scope</p>
+        <ul>
+          <li>A mid-size project with a clearly agreed scope</li>
+          <li>Two rounds of revisions</li>
+          <li>Email support for 14 days after delivery</li>
+          <li>Typical delivery in about 2–3 weeks, depending on the brief</li>
+          <li>A simple plan and regular progress updates</li>
+        </ul>
+        <button type="button" class="btn btn-plan" data-choose="Super">Choose plan</button>
+      </article>
+
+      <article class="plan card reveal" data-plan="Premium Plus">
+        <h3>Premium Plus</h3>
+        <p class="plan-price" data-price="premium">1000 PLN</p>
+        <p class="plan-tag">A larger, agreed scope</p>
+        <ul>
+          <li>A larger project with a clearly agreed scope</li>
+          <li>Three rounds of revisions</li>
+          <li>Email support for 30 days after delivery</li>
+          <li>Typical delivery in about 3–4 weeks, depending on the brief</li>
+          <li>A written plan, regular updates and a short handover</li>
+        </ul>
+        <button type="button" class="btn btn-plan" data-choose="Premium Plus">Choose plan</button>
+      </article>
+    </div>
+
+    <div class="contact-grid request-form-wrap" id="request-form">
+      <div class="contact-intro reveal">
+        <picture>
+          <source type="image/webp" srcset="assets/logo-vira-light.webp">
+          <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira">
+        </picture>
+        <h2>Tell us about your project.</h2>
+        <p>Pick a plan above, or just write to us. We will reply with a clear plan before any work starts.</p>
+        <div class="social" data-social></div>
       </div>
-      <div class="field field-full">
-        <label for="c-service">Service</label>
-        <select id="c-service" name="service" required>
-          <option value="">Choose a service</option>
-          <option>Websites &amp; web systems</option>
-          <option>Mobile &amp; desktop apps</option>
-          <option>Games</option>
-          <option>AI creation</option>
-          <option>Networking</option>
-          <option>Internet setup</option>
-          <option>Tech support</option>
-          <option>Business management</option>
-          <option>Video content creation</option>
-          <option>Freelance support</option>
-          <option>Financial support &amp; management</option>
-          <option>And more</option>
-        </select>
-        <p class="error" data-error-for="service" hidden></p>
-      </div>
-      <div class="field field-full">
-        <label for="c-message">Message</label>
-        <textarea id="c-message" name="message" rows="6" required minlength="20" maxlength="2000"></textarea>
-        <p class="error" data-error-for="message" hidden></p>
-      </div>
-      <div class="field-full form-actions">
-        <button type="submit" class="btn">Send a message</button>
-        <p class="form-note">This opens your email app with the message ready to send. Nothing is stored on our servers.</p>
-      </div>
-    </form>
+      <form id="contact-form" class="contact-form reveal" novalidate>
+        <div class="field">
+          <label for="c-name">Name</label>
+          <input id="c-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
+          <p class="error" data-error-for="name" hidden></p>
+        </div>
+        <div class="field">
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" required>
+          <p class="error" data-error-for="email" hidden></p>
+        </div>
+        <div class="field">
+          <label for="c-service">Project type</label>
+          <select id="c-service" name="service" required>
+            <option value="">Choose a service</option>
+            <option>Websites &amp; web systems</option>
+            <option>Mobile &amp; desktop apps</option>
+            <option>Games</option>
+            <option>AI creation</option>
+            <option>Networking</option>
+            <option>Internet setup</option>
+            <option>Tech support</option>
+            <option>Business management</option>
+            <option>Video content creation</option>
+            <option>Freelance support</option>
+            <option>Financial support &amp; management</option>
+            <option>And more</option>
+          </select>
+          <p class="error" data-error-for="service" hidden></p>
+        </div>
+        <div class="field">
+          <label for="c-plan">Chosen plan</label>
+          <select id="c-plan" name="plan" required>
+            <option value="">Choose a plan</option>
+            <option>Basic</option>
+            <option>Super</option>
+            <option>Premium Plus</option>
+          </select>
+          <p class="error" data-error-for="plan" hidden></p>
+        </div>
+        <div class="field field-full">
+          <label for="c-message">Short description</label>
+          <textarea id="c-message" name="message" rows="6" required minlength="20" maxlength="2000" placeholder="What would you like us to build?"></textarea>
+          <p class="error" data-error-for="message" hidden></p>
+        </div>
+        <input type="hidden" id="c-currency" name="currency" value="PLN">
+        <div class="field-full form-actions">
+          <button type="submit" class="btn">Send a request</button>
+          <p class="form-note">This opens your email app with the message ready to send. Nothing is stored on our servers.</p>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 </main>

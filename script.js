@@ -1,7 +1,5 @@
 const nav=document.getElementById('nav'),bar=document.getElementById('progress');
 addEventListener('scroll',()=>{nav.classList.toggle('solid',scrollY>40);const h=document.documentElement;bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'});
-const burger=document.getElementById('burger'),menu=document.getElementById('menu');
-burger.onclick=()=>menu.classList.toggle('open');menu.querySelectorAll('a').forEach(a=>a.onclick=()=>menu.classList.remove('open'));
 const io=new IntersectionObserver(es=>es.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('in'),(i%6)*80);io.unobserve(e.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 document.getElementById('yr').textContent=new Date().getFullYear();
@@ -279,7 +277,7 @@ const FOUNDING_YEAR = 2026;
   const layer = document.querySelector('.spot-layer');
   if(reduce) document.documentElement.classList.add('reduce-motion');
   if(coarse || reduce) return;
-  const hosts = document.querySelectorAll('.card, .service, .product, .proj, .mini, .glass, .agent, .stat, .flow-step, .contact-form, .event-card, .empty-state');
+  const hosts = document.querySelectorAll('.card, .service, .product, .proj, .mini, .glass, .agent, .stat, .flow-step, .contact-form, .event-card, .empty-state, .plan');
   hosts.forEach(el => {
     if(getComputedStyle(el).position === 'static') el.style.position = 'relative';
     el.classList.add('glow-host');
@@ -394,7 +392,112 @@ const FOUNDING_YEAR = 2026;
   if(r.top < innerHeight && r.bottom > 0) kick();
 })();
 
-/* Contact form → mailto */
+/* Pricing + request form
+   Fallback FX snapshot from https://open.er-api.com/v6/latest/PLN
+   on 13 Nov 2026, 00:02 UTC (base PLN). */
+const FX_FALLBACK = { EUR: 0.227, USD: 0.251, RWF: 372 };
+const PLANS = {
+  Basic: { min: 250, max: 500, range: true },
+  Super: { min: 700, max: 700, range: false },
+  'Premium Plus': { min: 1000, max: 1000, range: false }
+};
+
+(function pricing(){
+  const root = document.getElementById('request-assist');
+  if(!root) return;
+  const state = { currency: 'PLN', rates: { EUR: FX_FALLBACK.EUR, USD: FX_FALLBACK.USD, RWF: FX_FALLBACK.RWF }, source: 'fallback' };
+  window.ViraPricing = state;
+
+  const formatNum = (n, currency) => {
+    if(currency === 'RWF' || currency === 'PLN'){
+      return new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 }).format(n);
+    }
+    return new Intl.NumberFormat('en-GB', { maximumFractionDigits: 0 }).format(n);
+  };
+  const convert = (pln, currency) => {
+    if(currency === 'PLN') return Math.round(pln);
+    const raw = pln * (state.rates[currency] || 0);
+    if(currency === 'RWF') return Math.round(raw / 1000) * 1000;
+    return Math.round(raw);
+  };
+  const labelFor = (plnMin, plnMax, range) => {
+    const c = state.currency;
+    if(range){
+      return formatNum(convert(plnMin, c), c) + '–' + formatNum(convert(plnMax, c), c) + ' ' + c;
+    }
+    return formatNum(convert(plnMin, c), c) + ' ' + c;
+  };
+  const priceLine = (planName) => {
+    const p = PLANS[planName];
+    if(!p) return '';
+    return labelFor(p.min, p.max, p.range);
+  };
+  state.priceLine = priceLine;
+
+  const render = () => {
+    const map = { basic: ['Basic'], super: ['Super'], premium: ['Premium Plus'] };
+    Object.entries(map).forEach(([key, [name]]) => {
+      const el = root.querySelector('[data-price="'+key+'"]');
+      if(el) el.textContent = priceLine(name);
+    });
+    const hidden = document.getElementById('c-currency');
+    if(hidden) hidden.value = state.currency;
+    root.querySelectorAll('.currency-btn').forEach(btn => {
+      const on = btn.dataset.currency === state.currency;
+      btn.classList.toggle('is-active', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  };
+  state.render = render;
+
+  root.querySelectorAll('.currency-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.currency = btn.dataset.currency;
+      render();
+    });
+  });
+
+  const choose = (plan) => {
+    const sel = document.getElementById('c-plan');
+    if(sel){
+      sel.value = plan;
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+    document.querySelectorAll('.plan').forEach(card => {
+      card.classList.toggle('is-chosen', card.dataset.plan === plan);
+    });
+    const form = document.getElementById('request-form') || document.getElementById('contact-form');
+    if(form) form.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    if(sel) setTimeout(() => sel.focus(), 400);
+  };
+  state.choose = choose;
+  root.querySelectorAll('[data-choose]').forEach(btn => {
+    btn.addEventListener('click', () => choose(btn.dataset.choose));
+  });
+
+  render();
+
+  const applyLive = (rates) => {
+    if(!rates) return;
+    if(typeof rates.EUR === 'number') state.rates.EUR = rates.EUR;
+    if(typeof rates.USD === 'number') state.rates.USD = rates.USD;
+    if(typeof rates.RWF === 'number') state.rates.RWF = rates.RWF;
+    state.source = 'live';
+    render();
+  };
+
+  const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+  const timer = setTimeout(() => { if(ctrl) ctrl.abort(); }, 6000);
+  fetch('https://open.er-api.com/v6/latest/PLN', ctrl ? { signal: ctrl.signal } : {})
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(data => {
+      clearTimeout(timer);
+      if(data && data.result === 'success' && data.rates) applyLive(data.rates);
+    })
+    .catch(() => { clearTimeout(timer); });
+})();
+
+/* Request form → mailto */
 (function contactForm(){
   const form = document.getElementById('contact-form');
   if(!form) return;
@@ -402,13 +505,16 @@ const FOUNDING_YEAR = 2026;
     name: form.querySelector('#c-name'),
     email: form.querySelector('#c-email'),
     service: form.querySelector('#c-service'),
+    plan: form.querySelector('#c-plan'),
     message: form.querySelector('#c-message')
   };
   const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
   const show = (name, msg) => {
-    const field = fields[name].closest('.field');
+    const el = fields[name];
+    if(!el) return;
+    const field = el.closest('.field');
     const err = form.querySelector('[data-error-for="'+name+'"]');
-    field.classList.toggle('invalid', !!msg);
+    if(field) field.classList.toggle('invalid', !!msg);
     if(err){ err.hidden = !msg; err.textContent = msg || ''; }
   };
   const validate = () => {
@@ -416,22 +522,35 @@ const FOUNDING_YEAR = 2026;
     const name = fields.name.value.trim();
     const email = fields.email.value.trim();
     const service = fields.service.value;
+    const plan = fields.plan ? fields.plan.value : '';
     const message = fields.message.value.trim();
     if(name.length < 2){ show('name','Please enter your name.'); ok = false; } else show('name','');
     if(!email){ show('email','Please enter your email.'); ok = false; }
     else if(!emailOk(email)){ show('email','Please enter a valid email address.'); ok = false; }
     else show('email','');
-    if(!service){ show('service','Please choose a service.'); ok = false; } else show('service','');
+    if(!service){ show('service','Please choose a project type.'); ok = false; } else show('service','');
+    if(fields.plan && !plan){ show('plan','Please choose a plan.'); ok = false; } else if(fields.plan) show('plan','');
     if(message.length < 20){ show('message','Please tell us a little more (at least 20 characters).'); ok = false; } else show('message','');
-    return ok ? {name,email,service,message} : null;
+    return ok ? {name,email,service,plan,message} : null;
   };
-  Object.values(fields).forEach(el => el.addEventListener('blur', validate));
+  Object.values(fields).forEach(el => { if(el) el.addEventListener('blur', validate); });
   form.addEventListener('submit', e => {
     e.preventDefault();
     const data = validate();
     if(!data) return;
-    const subject = `Vira enquiry: ${data.service} — ${data.name}`;
-    const body = `Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\n${data.message}`;
+    const pricing = window.ViraPricing;
+    const currency = (pricing && pricing.currency) || (document.getElementById('c-currency')||{}).value || 'PLN';
+    const price = pricing && pricing.priceLine ? pricing.priceLine(data.plan) : '';
+    const subject = 'Vira request: ' + data.plan + ' — ' + data.name;
+    const body = [
+      'Name: ' + data.name,
+      'Email: ' + data.email,
+      'Project type: ' + data.service,
+      'Plan: ' + data.plan + (price ? ' (' + price + ')' : ''),
+      'Currency shown: ' + currency,
+      '',
+      data.message
+    ].join('\n');
     const url = 'mailto:rurangwaarnold32@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
     window.location.href = url;
   });
