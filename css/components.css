@@ -573,6 +573,10 @@
   color: var(--ink);
   border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
   box-shadow: none;
+  white-space: normal;
+  text-align: left;
+  max-width: 100%;
+  height: auto;
 }
 .btn-wa:hover { background: var(--bg-tint); color: var(--ink); transform: none; box-shadow: none; }
 .btn-wa em { font-style: normal; color: var(--ink-soft); font-weight: 500; }

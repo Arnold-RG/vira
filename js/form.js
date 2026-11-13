@@ -3,9 +3,12 @@
  * Nothing is stored. There is no backend.
  */
 
+export const PRIMARY_REGION = 'RW';
+export const CONTACT_ORDER = ['RW', 'PL'];
+
 export const WHATSAPP = {
-  PL: { e164: '48575217930', display: '+48 575 217 930 (Poland)' },
-  RW: { e164: '250794607518', display: '+250 794 607 518 (Rwanda)' }
+  RW: { e164: '250794607518', display: '+250 794 607 518 (Rwanda)', role: 'Main' },
+  PL: { e164: '48575217930', display: '+48 575 217 930 (Poland)', role: 'Backup' }
 };
 
 export function buildWhatsAppUrl(payload) {
