@@ -4,13 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vira | Intelligent websites, systems and automation</title>
-<meta name="description" content="Vira builds AI-powered websites, web systems and automation from Kraków, Poland, with security and quality checks built into every project.">
+<meta name="description" content="Vira builds AI-powered websites, web systems and automation, with security and quality checks built into every project.">
 <meta name="theme-color" content="#6F4E37">
 <link rel="canonical" href="https://arnold-rg.github.io/vira/">
 <meta property="og:url" content="https://arnold-rg.github.io/vira/">
 <meta property="og:title" content="Vira | Intelligent websites, systems and automation">
-<meta property="og:description" content="Vira builds AI-powered websites, web systems and automation from Kraków, Poland, with security and quality checks built into every project.">
+<meta property="og:description" content="Vira builds AI-powered websites, web systems and automation, with security and quality checks built into every project.">
+<meta property="og:image" content="https://arnold-rg.github.io/vira/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Vira logo">
 <link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -19,7 +24,7 @@
 <div class="progress" id="progress"></div>
 
 <header class="nav" id="nav">
-  <a href="#top" class="brand" aria-label="Vira"><span class="wordmark">Vira</span></a>
+  <a href="#top" class="brand" aria-label="Vira"><img class="brand-mark" src="assets/mark-vira.png" width="40" height="27" alt=""> <span class="wordmark">Vira</span></a>
   <nav id="menu">
     <a href="#about">About</a><a href="#values">Values</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#gallery">Studio</a><a href="#innovation">Innovation</a><a href="#contact" class="btn btn-sm">Start a project</a>
   </nav>
@@ -28,11 +33,10 @@
 
 <main id="top">
 <section class="hero">
-  <canvas id="stars" aria-hidden="true"></canvas>
+  <canvas id="liquid" aria-hidden="true"></canvas>
+  <div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="hero-wordmark" aria-label="Vira">Vira</p>
     <p class="hero-acronym">Vision · Innovation · Reliability · Automation</p>
-    <p class="eyebrow">Vira · Kraków, Poland</p>
     <h1>Websites that <em>think</em>,<br>businesses that <em>grow</em>.</h1>
     <p class="lead">We design and build intelligent websites, web systems and automation, with security and quality checks built into every release.</p>
     <div class="cta"><a href="#products" class="btn">Explore our products</a><a href="#projects" class="btn btn-ghost">See our work</a></div>
@@ -57,12 +61,12 @@
   </div>
 
   <div class="wrap story reveal">
-    <figure class="photo"><img src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"><figcaption>Based in Kraków, building for clients everywhere.</figcaption></figure>
+    <figure class="photo"><img src="assets/photo-laptop.jpg" alt="A laptop with code on a clean white desk" loading="lazy"><figcaption>Building for clients everywhere.</figcaption></figure>
     <div class="story-text">
       <p class="eyebrow">Our story</p>
       <h3>Built from curiosity, shaped by discipline.</h3>
       <p>Vira began with a simple question: what if a single founder could run a technology company with the structure and care of a full team? The answer was to build that team from specialised AI agents, each with one clear job, and to put a human in charge of every decision that matters.</p>
-      <p>Today, the studio designs websites, builds web systems, automates everyday work and reviews every release for quality and security. We work from Kraków, Poland, and serve clients wherever they are.</p>
+      <p>Today, the studio designs websites, builds web systems, automates everyday work and reviews every release for quality and security. We serve clients wherever they are.</p>
       <p>We keep our promises small and our standards high: honest timelines, real results and nothing published without the client's approval.</p>
     </div>
   </div>
@@ -144,7 +148,7 @@
       <article class="proj reveal"><span class="tag">Household</span><h3>Our Money Hub</h3><p>Shared household books where every member adds lines and sees the same table.</p></article>
       <article class="proj reveal"><span class="tag">Productivity</span><h3>RAGI</h3><p>An on-device private secretary for notes, money and projects, with a cinematic 3D desk.</p></article>
       <article class="proj reveal"><span class="tag">Retail</span><h3>Boutique La Différence</h3><p>An elegant storefront website for a fashion boutique.</p></article>
-      <article class="proj reveal"><span class="tag">Community</span><h3>Kingdom Life Kraków</h3><p>The public website of an English-speaking church campus in Kraków.</p></article>
+      <article class="proj reveal"><span class="tag">Community</span><h3>Kingdom Life Kraków</h3><p>The public website of an English-speaking church campus.</p></article>
       <article class="proj reveal"><span class="tag">Entertainment</span><h3>2daymovie</h3><p>A curated library of official HD movie and TV trailers.</p></article>
     </div>
   </div>
@@ -197,16 +201,18 @@
 
 <section id="contact" class="section contact">
   <div class="wrap reveal">
-    <p class="contact-wordmark" aria-label="Vira">Vira</p>
+    <picture>
+      <source type="image/webp" srcset="assets/logo-vira-light.webp">
+      <img class="contact-logo" src="assets/logo-vira-light.png" width="800" height="841" alt="Vira">
+    </picture>
     <h2>Let's build something brilliant.</h2>
     <p>Tell us about your idea and we'll reply with a clear plan.</p>
     <a class="btn" href="mailto:rurangwaarnold32@gmail.com?subject=Project%20enquiry%20for%20Vira">Email us</a>
-    <p class="small">Based in Kraków, Poland</p>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap foot"><a href="#top" class="brand" aria-label="Vira"><span class="wordmark">Vira</span></a><p>© <span id="yr">2026</span> Vira. All rights reserved. Photos from Unsplash.</p></div></footer>
+<footer><div class="wrap foot"><a href="#top" class="brand" aria-label="Vira"><img class="brand-mark" src="assets/mark-vira.png" width="40" height="27" alt=""> <span class="wordmark">Vira</span></a><p>© <span id="yr">2026</span> Vira. All rights reserved. Photos from Unsplash.</p></div></footer>
 <script src="script.js"></script>
 </body>
 </html>
