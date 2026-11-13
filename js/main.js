@@ -1,7 +1,6 @@
 import { HERO_VIDEO, HERO_VIDEOS, PRODUCTS, SOCIAL, EVENTS, REVIEWS, FOUNDING_YEAR } from './config.js';
 import { initTheme } from './theme.js';
 import { initScroll } from './scroll.js';
-import { initPointerLight } from './pointer-light.js';
 import { initReveal } from './reveal.js';
 import { initPricing } from './pricing.js';
 import { initForm } from './form.js';
@@ -33,8 +32,8 @@ function applyPoster(choice) {
   if (poster) {
     poster.src = choice.posterWebp || choice.poster;
     poster.alt = '';
-    poster.width = 1920;
-    poster.height = 1080;
+    poster.width = 1280;
+    poster.height = 720;
   }
   if (webp) {
     if (choice.posterWebp) webp.srcset = choice.posterWebp;
@@ -100,9 +99,20 @@ function initHero() {
   if (video.readyState >= 2) tryPlay();
   else video.addEventListener('canplay', tryPlay, { once: true });
 
+  let inView = true;
+  const hero = document.getElementById('hero') || media;
+  if (typeof IntersectionObserver === 'function' && hero) {
+    const io = new IntersectionObserver((entries) => {
+      inView = entries.some((e) => e.isIntersecting);
+      if (inView && !document.hidden) tryPlay();
+      else video.pause();
+    }, { threshold: 0.15 });
+    io.observe(hero);
+  }
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) video.pause();
-    else tryPlay();
+    else if (inView) tryPlay();
   });
 }
 
@@ -148,10 +158,9 @@ function initSocial() {
     facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4V10c0-.6.4-1 1-1z"/></svg>',
     x: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3.5h3.1l-6.8 7.8 8 9.2h-6.3l-4.9-6.4-5.6 6.4H2l7.3-8.3L1.6 3.5h6.4l4.5 5.9 5-5.9zm-1.1 15.4h1.7L7.7 5.1H5.9l10.5 13.8z"/></svg>',
     youtube: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12.2c0-2.3-.3-3.8-.8-4.7-.5-.9-1.3-1.5-2.3-1.8C17.2 5.3 12 5.3 12 5.3s-5.2 0-6.9.4c-1 .3-1.8.9-2.3 1.8-.5.9-.8 2.4-.8 4.7s.3 3.8.8 4.7c.5.9 1.3 1.5 2.3 1.8 1.7.4 6.9.4 6.9.4s5.2 0 6.9-.4c1-.3 1.8-.9 2.3-1.8.5-.9.8-2.4.8-4.7zM10 15.5V8.9l6 3.3-6 3.3z"/></svg>',
-    tiktok: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 4c.4 2.8 1.9 4.6 4.6 5v3c-1.6 0-3-.5-4.6-1.5v6.3A5.8 5.8 0 1 1 11.2 11v3.1a2.8 2.8 0 1 0 2.8 2.7V4h0z"/></svg>',
-    github: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.9 9.6.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.4-3.4-1.4-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.4 9.4 0 0 1 5 0c2-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5 4-1.3 6.9-5.1 6.9-9.6C22 6.6 17.5 2 12 2z"/></svg>'
+    tiktok: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 4c.4 2.8 1.9 4.6 4.6 5v3c-1.6 0-3-.5-4.6-1.5v6.3A5.8 5.8 0 1 1 11.2 11v3.1a2.8 2.8 0 1 0 2.8 2.7V4h0z"/></svg>'
   };
-  const labels = { linkedin: 'LinkedIn', instagram: 'Instagram', facebook: 'Facebook', x: 'X', youtube: 'YouTube', tiktok: 'TikTok', github: 'GitHub' };
+  const labels = { linkedin: 'LinkedIn', instagram: 'Instagram', facebook: 'Facebook', x: 'X', youtube: 'YouTube', tiktok: 'TikTok' };
   const html = Object.entries(SOCIAL).filter(([, url]) => url).map(([key, url]) =>
     '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener noreferrer" aria-label="' + (labels[key] || key) + '">' + (icons[key] || '') + '</a>'
   ).join('');
@@ -285,6 +294,45 @@ function initMenu() {
   });
 }
 
+
+function initActiveNav() {
+  const lists = [
+    document.querySelectorAll('.nav-links a[href^="#"]'),
+    document.querySelectorAll('.nav-sheet nav a[href^="#"]')
+  ];
+  const targets = ['services', 'pricing', 'gallery', 'about', 'contact']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+  if (!targets.length) return;
+
+  const pick = () => {
+    const line = Math.round(window.innerHeight * 0.28);
+    let chosen = null;
+    let chosenTop = -Infinity;
+    targets.forEach((t) => {
+      const top = t.getBoundingClientRect().top;
+      if (top <= line && top >= chosenTop) {
+        chosenTop = top;
+        chosen = t.id;
+      }
+    });
+    lists.forEach((list) => {
+      list.forEach((a) => {
+        const href = (a.getAttribute('href') || '').slice(1);
+        if (chosen && href === chosen) a.setAttribute('aria-current', 'location');
+        else a.removeAttribute('aria-current');
+      });
+    });
+  };
+
+  const io = new IntersectionObserver(pick, {
+    rootMargin: '-10% 0px -40% 0px',
+    threshold: [0, 0.15, 0.35, 0.6, 1]
+  });
+  targets.forEach((t) => io.observe(t));
+  pick();
+}
+
 function escapeHtml(s) {
   return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -298,8 +346,8 @@ initSocial();
 initEvents();
 initReviews();
 initMenu();
+initActiveNav();
 initScroll();
-initPointerLight();
 initReveal();
 initPricing();
 initForm();
