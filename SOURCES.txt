@@ -1,103 +1,57 @@
-Vira website media sources
-==========================
+Vira site sources (rebuild-v4, 13 November 2026)
+================================================
 
-Photographers are named only where the source was verified from
-git history, a commit message, image metadata, or a fetched
-source page identified by a known photo ID. Nothing here is guessed.
+Logo
+  assets/logo-vira-light.png, assets/logo-vira-light.webp
+  assets/logo-vira-dark.png, assets/logo-vira-dark.webp
+  assets/mark-vira.png, assets/mark-vira.webp
+  The Vira wordmark and mark, kept from the previous site.
+  og-image.png, favicon.png and apple-touch-icon.png are based on the same mark.
 
+Fonts (self-hosted, SIL Open Font License 1.1)
+  Bodoni Moda — assets/fonts/bodoni-moda-*.woff2
+                 licence assets/fonts/OFL-Bodoni-Moda.txt
+                 Copyright 2020 The Bodoni Moda Project Authors
+                 https://github.com/indestructible-type/Bodoni
+  Source Sans 3 — assets/fonts/source-sans-3-*.woff2
+                  licence assets/fonts/OFL-Source-Sans-3.txt
+                  Copyright Adobe (distributed via fontsource)
+  No fonts are loaded from a CDN.
 
-Studio photographs
-------------------
-The nine previous JPEGs in assets/ had no verified photographer or
-source page (no EXIF artist, copyright, or photo ID in git history),
-so they were replaced on 13 November 2026 with photographs from
-Pexels. Page URL, photographer (as shown on each fetched page),
-image ID and licence for every file are recorded in PHOTO-SOURCES.md.
+Photographs
+  See PHOTO-CREDITS.md. Six Pexels photographs of people at work,
+  self-hosted as WebP under assets/photos/. Captions describe the
+  activity only. None is presented as a portrait of the founder,
+  a team member or a client.
 
-  See PHOTO-SOURCES.md
+QR library
+  js/vendor/qrcode.mjs — qrcode-generator 2.0.4 by Kazuhiko Arase, MIT.
+  Licence: js/vendor/LICENSE-qrcode-generator.txt
+  https://github.com/kazuhikoarase/qrcode-generator
 
-
-Hero video options
-------------------
-Prepared 13 November 2026. All four clips allow commercial use on a
-website and do not require attribution. Web versions are muted H.264
-MP4, 1920×1080, 10–15 seconds, each under 6 MB. Sources checked
-against the notes prepared with the clips.
-
-OPTION 1 — Dark flowing silk
-  Web file:     assets/video/01-black-silk-web.mp4
-  Still:        assets/video/01-black-silk.jpg
-  Title:        Close-Up Video of a Black Silk Cloth
-  Author:       Mikhail Nilov
-  Source page:  https://www.pexels.com/video/close-up-video-of-a-black-silk-cloth-7677322/
-  Licence:      Pexels License — free for commercial and personal use,
-                including websites; modification allowed; attribution
-                not required. https://www.pexels.com/license/
-
-OPTION 2 — Liquid metal  (chosen for the live hero)
-  Web file:     assets/video/02-liquid-metal-web.mp4  (H.264, faststart, 1280×720, 11.5 s, muted, 818,223 bytes)
-  WebM:         assets/video/02-liquid-metal-web.webm (same clip, re-encoded VP9, 1280×720, 11.5 s, muted, 553,586 bytes)
-  Still:        assets/video/02-liquid-metal.jpg      (1280×720 JPEG fallback, 66,134 bytes)
-  Still WebP:   assets/video/02-liquid-metal.webp     (1280×720, 44,832 bytes)
-  Title:        Metallic liquid textures video
-  Author:       Mixkit
-  Source page:  https://mixkit.co/free-stock-video/metallic-liquid-textures-video-42007/
-  Licence:      Mixkit Stock Video Free License — free use in commercial
-                and non-commercial projects; attribution not required
-                (credit appreciated). https://mixkit.co/license/
-
-OPTION 3 — Moody smoke
-  Web file:     assets/video/03-smoke-web.mp4
-  Still:        assets/video/03-smoke.jpg
-  Title:        Footage of smoke against black background
-  Author:       cottonbro studio
-  Source page:  https://www.pexels.com/video/footage-of-smoke-against-black-background-9694807/
-  Licence:      Pexels License. https://www.pexels.com/license/
-
-OPTION 4 — Digital grid
-  Web file:     assets/video/04-digital-grid-web.mp4
-  Still:        assets/video/04-digital-grid.jpg
-  Title:        Abstract Digital Landscape Animation with Grid
-  Author:       Nicola Narracci
-  Source page:  https://www.pexels.com/video/abstract-digital-landscape-animation-with-grid-28649481/
-  Licence:      Pexels License. https://www.pexels.com/license/
-
-
-Fonts
------
-  Inter      SIL Open Font License 1.1  — assets/fonts/OFL-Inter.txt
-  Fraunces   SIL Open Font License 1.1  — assets/fonts/OFL-Fraunces.txt
-
-Payment and chat marks (committed 13 November 2026)
----------------------------------------------------
-PayPal
-  File:     assets/payments/paypal.svg
-  Source:   Simple Icons, slug `paypal`
+Payment and chat marks
+  PayPal    assets/payments/paypal.svg
+            Simple Icons, slug paypal, CC0 1.0.
             https://github.com/simple-icons/simple-icons
-            fetched 13 November 2026 from jsDelivr simple-icons@latest
-  Licence:  CC0 1.0 (Simple Icons collection).
-            PayPal is a trademark of PayPal, Inc. Used here only as an
-            accepted-method mark. PayPal account identifiers are not published.
-
-WhatsApp
-  File:     assets/icons/whatsapp.svg
-  Source:   Simple Icons, slug `whatsapp`, same fetch and licence as above.
-            WhatsApp is a trademark of WhatsApp LLC. Used for click-to-chat
-            buttons only.
-
-BLIK and MTN Mobile Money (MoMo Pay)
-  These brands are not in Simple Icons, and no clean licensed official
-  SVG was used. The files are original studio text wordmarks, not official logos:
+            PayPal is a trademark of PayPal, Inc. Used only as an accepted-method mark.
+            PayPal account identifiers are not published.
+  WhatsApp  assets/icons/whatsapp.svg
+            Simple Icons, slug whatsapp, CC0 1.0.
+            WhatsApp is a trademark of WhatsApp LLC. Used for click-to-chat buttons only.
+  BLIK and MTN Mobile Money (MoMo Pay)
+            Not in Simple Icons. Original studio text wordmarks, not official logos:
             assets/payments/blik.svg
             assets/payments/momo.svg
-
-Bank transfer
-  File:     assets/payments/bank.svg
-  Original generic bank pictogram drawn for this site. Not a brand mark.
+  Bank transfer
+            assets/payments/bank.svg — original generic pictogram, not a brand mark.
 
 Bank transfer numbers
-  Not present in static HTML. A first-party module (js/payments.js)
-  assembles two account numbers at runtime from split, XOR-obfuscated
-  digit groups, and writes them to the DOM only after the visitor
-  clicks "Show bank details". No IBAN prefix, SWIFT code, bank name
-  or account holder name is published (none were in the source data).
+  Not present in static HTML. js/payments.js is reused as-is from the previous
+  release: it assembles two account numbers at runtime from split, XOR-obfuscated
+  digit groups, and writes them to the DOM only after "Show bank details".
+  No IBAN prefix, SWIFT code, bank name or account holder name is published.
+
+Marks drawn for this rebuild
+  assets/marks/seal.svg — original circular studio mark (no founding year).
+  assets/marks/arrow.svg — original hand-drawn-style arrow.
+  assets/textures/grain.svg — original paper-grain tile (SVG turbulence).
