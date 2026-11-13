@@ -557,3 +557,184 @@
 @media (prefers-reduced-motion: reduce) {
   .btn:hover, .card:hover, .plan:hover, .plan-popular, .plan-popular:hover { transform: none; }
 }
+
+/* WhatsApp contact */
+.wa-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 18px 0 8px;
+}
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elev);
+  color: var(--ink);
+  border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
+  box-shadow: none;
+  white-space: normal;
+  text-align: left;
+  max-width: 100%;
+  height: auto;
+}
+.btn-wa:hover { background: var(--bg-tint); color: var(--ink); transform: none; box-shadow: none; }
+.btn-wa em { font-style: normal; color: var(--ink-soft); font-weight: 500; }
+.wa-ico {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  background: currentColor;
+  -webkit-mask: url("../assets/icons/whatsapp.svg") center / contain no-repeat;
+  mask: url("../assets/icons/whatsapp.svg") center / contain no-repeat;
+}
+.contact-places, .contact-reach { color: var(--ink-soft); margin-top: 0.6rem; }
+.wa-region {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.wa-region legend {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.wa-region .radio {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  margin: 6px 0;
+  cursor: pointer;
+}
+.wa-region .hint { color: var(--ink-soft); font-weight: 400; white-space: nowrap; }
+.wa-region input[type="radio"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  accent-color: var(--mocha, #6F4E37);
+  flex-shrink: 0;
+}
+
+/* Payments */
+.payments { margin-top: 56px; padding-top: 8px; }
+.pay-methods {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.pay-methods li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  background: var(--bg-elev);
+  border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
+  border-radius: 16px;
+  padding: 22px 14px 18px;
+  min-height: 132px;
+}
+.pay-mark {
+  display: block;
+  width: 120px;
+  height: 36px;
+  background: var(--ink);
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+}
+.pay-mark[data-mark="blik"] {
+  -webkit-mask-image: url("../assets/payments/blik.svg");
+  mask-image: url("../assets/payments/blik.svg");
+}
+.pay-mark[data-mark="momo"] {
+  width: 160px;
+  -webkit-mask-image: url("../assets/payments/momo.svg");
+  mask-image: url("../assets/payments/momo.svg");
+}
+.pay-mark[data-mark="paypal"] {
+  width: 72px;
+  height: 32px;
+  -webkit-mask-image: url("../assets/payments/paypal.svg");
+  mask-image: url("../assets/payments/paypal.svg");
+}
+.pay-mark[data-mark="bank"] {
+  width: 40px;
+  height: 40px;
+  -webkit-mask-image: url("../assets/payments/bank.svg");
+  mask-image: url("../assets/payments/bank.svg");
+}
+.pay-name { font-size: var(--fs-sm); font-weight: 600; color: var(--ink); }
+@media (max-width: 720px) {
+  .pay-methods { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .pay-methods { grid-template-columns: 1fr; }
+}
+
+/* Bank details (rendered by JS on toggle) and verify box */
+.pay-bank {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 28px;
+  align-items: start;
+}
+.bank-reveal { min-width: 0; }
+.bank-fallback { color: var(--ink-soft); }
+.bank-panel { margin-top: 14px; }
+.bank-accounts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bank-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  background: var(--bg-elev);
+  border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+.bank-ccy { font-weight: 700; min-width: 3.5ch; }
+.bank-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  flex: 1;
+  min-width: 18ch;
+}
+.btn-copy {
+  appearance: none;
+  background: var(--bg-tint);
+  color: var(--ink);
+  border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
+  border-radius: 999px;
+  padding: 6px 14px;
+  font: inherit;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn-copy:hover { background: color-mix(in srgb, var(--ink) 8%, var(--bg-tint)); }
+.pay-verify {
+  background: var(--bg-elev);
+  border: 1px solid var(--line, rgba(47, 35, 27, 0.14));
+  border-radius: 16px;
+  padding: 22px 20px;
+}
+.pay-verify h3 { margin: 0 0 10px; font-size: var(--fs-lg, 1.15rem); }
+.pay-verify p { margin: 0; color: var(--ink-soft); }
+@media (max-width: 720px) {
+  .pay-bank { grid-template-columns: 1fr; }
+}

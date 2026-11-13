@@ -464,3 +464,6 @@
 #values, #request-assist, #pricing, #contact, #events, #reviews, #why {
   scroll-margin-top: calc(var(--header-h) + 16px);
 }
+
+.foot-wa { display: flex; flex-direction: column; gap: 6px; margin-top: 16px; }
+.foot-wa a { font-size: var(--fs-sm); color: var(--footer-muted); }

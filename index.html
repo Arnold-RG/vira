@@ -6,7 +6,7 @@
 <title>Vira | Websites, apps, games, networks, internet, tech support and AI</title>
 <meta name="description" content="Vira builds websites, apps, games, networks, internet setup, tech support and AI, and helps with business, video, freelance and financial work, with security and quality checks on every project.">
 <meta name="theme-color" content="#6F4E37">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self' https://open.er-api.com; base-uri 'self'; form-action 'self' mailto:">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; connect-src 'self' https://open.er-api.com; object-src 'none'; base-uri 'self'; form-action 'self' https://wa.me">
 <link rel="canonical" href="https://arnold-rg.github.io/vira/">
 <meta property="og:url" content="https://arnold-rg.github.io/vira/">
 <meta property="og:title" content="Vira | Websites, apps, games, networks, internet, tech support and AI">
@@ -24,6 +24,21 @@
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/components.css">
 <link rel="stylesheet" href="css/sections.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Vira",
+  "url": "https://arnold-rg.github.io/vira/",
+  "description": "Vira builds websites, apps, games, networks, internet setup, tech support and AI, with security and quality checks on every project.",
+  "telephone": ["+250-794-607-518", "+48-575-217-930"],
+  "areaServed": ["Americas", "Europe", "Africa"],
+  "address": [
+    {"@type": "PostalAddress", "addressLocality": "Kigali", "addressCountry": "RW"},
+    {"@type": "PostalAddress", "addressCountry": "PL"}
+  ]
+}
+</script>
 </head>
 <body>
 <a class="skip-link" href="#content">Skip to content</a>
@@ -45,6 +60,7 @@
     <a href="#pricing">Plans</a>
     <a href="#gallery">Work</a>
     <a href="#about">About</a>
+    <a href="#payments">Payments</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="nav-actions">
@@ -79,6 +95,7 @@
     <a href="#pricing">Plans</a>
     <a href="#gallery">Work</a>
     <a href="#about">About</a>
+    <a href="#payments">Payments</a>
     <a href="#contact">Contact</a>
   </nav>
   <div class="sheet-cta"><a href="#request-assist" class="btn">Request assist</a></div>
@@ -147,7 +164,7 @@
     <div class="story-text">
       <p class="eyebrow">Our story</p>
       <h3>Built from curiosity, shaped by discipline.</h3>
-      <p>Vira began with a simple question: what if a small studio could run with the structure and care of a full team? Today we work across websites, apps, games, networking, internet setup, tech support and AI creation, and we also help with business operations, video content, freelance workflows and financial systems. We serve clients wherever they are.</p>
+      <p>Vira began with a simple question: what if a small studio could run with the structure and care of a full team? Today we work across websites, apps, games, networking, internet setup, tech support and AI creation, and we also help with business operations, video content, freelance workflows and financial systems. We work with clients in the Americas, Europe and Africa.</p>
       <p>We keep our promises small and our standards high: honest timelines, real results and nothing published without the client's approval.</p>
     </div>
   </div>
@@ -490,7 +507,19 @@
       <img class="contact-logo" src="assets/logo-vira-light.png" width="459" height="424" alt="Vira" loading="lazy" decoding="async">
     </picture>
         <h2>Tell us about your project.</h2>
-        <p>Pick a plan above, or just write to us. We will reply with a clear plan before any work starts.</p>
+        <p>Contact is on WhatsApp only. Pick a plan above, or write a short message. We will reply with a clear plan before any work starts. Nothing is stored on this site.</p>
+        <p class="contact-reach">We work with clients in the Americas, Europe and Africa.</p>
+        <p class="contact-places"><strong>Locations.</strong> Kigali, Rwanda and Poland.</p>
+        <div class="wa-buttons">
+          <a class="btn btn-wa btn-wa-primary" href="https://wa.me/250794607518" target="_blank" rel="noopener noreferrer">
+            <span class="wa-ico" aria-hidden="true"></span>
+            <span>WhatsApp, Main: +250 794 607 518 (Rwanda)</span>
+          </a>
+          <a class="btn btn-wa" href="https://wa.me/48575217930" target="_blank" rel="noopener noreferrer">
+            <span class="wa-ico" aria-hidden="true"></span>
+            <span>WhatsApp, Backup: +48 575 217 930 (Poland)</span>
+          </a>
+        </div>
         <div class="social" data-social></div>
       </div>
       <form id="contact-form" class="contact-form reveal" novalidate>
@@ -498,11 +527,6 @@
           <label for="c-name">Name</label>
           <input id="c-name" name="name" type="text" autocomplete="name" required minlength="2" maxlength="80">
           <p class="error" data-error-for="name" hidden></p>
-        </div>
-        <div class="field">
-          <label for="c-email">Email</label>
-          <input id="c-email" name="email" type="email" autocomplete="email" required>
-          <p class="error" data-error-for="email" hidden></p>
         </div>
         <div class="field">
           <label for="c-service">Project type</label>
@@ -523,30 +547,63 @@
           </select>
           <p class="error" data-error-for="service" hidden></p>
         </div>
-        <div class="field">
-          <label for="c-plan">Chosen plan</label>
-          <select id="c-plan" name="plan" required>
-            <option value="">Choose a plan</option>
-            <option>Starter</option>
-            <option>Basic</option>
-            <option>Super</option>
-            <option>Premium Plus</option>
-          </select>
-          <p class="error" data-error-for="plan" hidden></p>
-        </div>
         <div class="field field-full">
-          <label for="c-message">Short description</label>
-          <textarea id="c-message" name="message" rows="6" required minlength="20" maxlength="2000" placeholder="What would you like us to build?"></textarea>
+          <label for="c-message">Short message</label>
+          <textarea id="c-message" name="message" rows="5" required minlength="8" maxlength="2000" placeholder="What would you like us to build?"></textarea>
           <p class="error" data-error-for="message" hidden></p>
         </div>
+        <fieldset class="field field-full wa-region">
+          <legend>Send on WhatsApp via</legend>
+          <label class="radio"><input type="radio" name="region" value="RW" required checked> Main: Rwanda <span class="hint">+250 794 607 518</span></label>
+          <label class="radio"><input type="radio" name="region" value="PL"> Backup: Poland <span class="hint">+48 575 217 930</span></label>
+          <p class="error" data-error-for="region" hidden></p>
+        </fieldset>
+        <input type="hidden" id="c-plan" name="plan" value="">
         <input type="hidden" id="c-currency" name="currency" value="PLN">
         <div class="field-full form-actions">
-          <button type="submit" class="btn">Send a request</button>
-          <p class="form-note">This opens your email app with the message ready to send. Nothing is stored on our servers.</p>
+          <button type="submit" class="btn">Open in WhatsApp</button>
+          <p class="form-note">This opens WhatsApp in a new tab with your message ready to send. Nothing is stored on our servers.</p>
         </div>
       </form>
     </div>
     </div>
+
+    <section id="payments" class="payments" tabindex="-1">
+      <div class="head reveal">
+        <p class="eyebrow">Payments</p>
+        <h2>How you can pay</h2>
+        <p class="muted">We accept the methods below. Payment details are shared on WhatsApp after the job is agreed.</p>
+      </div>
+      <ul class="pay-methods reveal">
+        <li>
+          <span class="pay-mark" data-mark="blik" aria-hidden="true"></span>
+          <span class="pay-name">BLIK</span>
+        </li>
+        <li>
+          <span class="pay-mark" data-mark="bank" aria-hidden="true"></span>
+          <span class="pay-name">Bank transfer</span>
+        </li>
+        <li>
+          <span class="pay-mark" data-mark="momo" aria-hidden="true"></span>
+          <span class="pay-name">MTN Mobile Money (MoMo Pay)</span>
+        </li>
+        <li>
+          <span class="pay-mark" data-mark="paypal" aria-hidden="true"></span>
+          <span class="pay-name">PayPal</span>
+        </li>
+      </ul>
+      <div class="pay-bank reveal">
+        <div class="bank-reveal">
+          <noscript><p class="bank-fallback">Ask on WhatsApp for bank details</p></noscript>
+          <button type="button" class="btn btn-ghost" id="bank-toggle" aria-expanded="false" aria-controls="bank-panel" hidden>Show bank details</button>
+          <div id="bank-panel" class="bank-panel" hidden></div>
+        </div>
+        <aside class="pay-verify" aria-labelledby="pay-verify-title">
+          <h3 id="pay-verify-title">Verify before you pay</h3>
+          <p>These two accounts are the only official Vira accounts. Vira never changes bank details by email or message. Confirm on WhatsApp before paying, and put your order reference in the transfer title.</p>
+        </aside>
+      </div>
+    </section>
   </div>
 </section>
 
@@ -598,12 +655,17 @@
         </a>
         <p>Vira is a technology studio. The name stands for Vision, Innovation, Reliability and Automation.</p>
         <p class="foot-motto">“Think boldly. Build carefully. Shine together.”</p>
+        <p class="foot-wa">
+          <a href="https://wa.me/250794607518" target="_blank" rel="noopener noreferrer">WhatsApp, Main: +250 794 607 518 (Rwanda)</a>
+          <a href="https://wa.me/48575217930" target="_blank" rel="noopener noreferrer">WhatsApp, Backup: +48 575 217 930 (Poland)</a>
+        </p>
       </div>
       <nav class="foot-links" aria-label="Footer">
         <a href="#services">Services</a>
         <a href="#pricing">Plans</a>
         <a href="#gallery">Work</a>
         <a href="#about">About</a>
+        <a href="#payments">Payments</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>

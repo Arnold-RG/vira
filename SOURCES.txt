@@ -67,3 +67,37 @@ Fonts
 -----
   Inter      SIL Open Font License 1.1  — assets/fonts/OFL-Inter.txt
   Fraunces   SIL Open Font License 1.1  — assets/fonts/OFL-Fraunces.txt
+
+Payment and chat marks (committed 13 November 2026)
+---------------------------------------------------
+PayPal
+  File:     assets/payments/paypal.svg
+  Source:   Simple Icons, slug `paypal`
+            https://github.com/simple-icons/simple-icons
+            fetched 13 November 2026 from jsDelivr simple-icons@latest
+  Licence:  CC0 1.0 (Simple Icons collection).
+            PayPal is a trademark of PayPal, Inc. Used here only as an
+            accepted-method mark. PayPal account identifiers are not published.
+
+WhatsApp
+  File:     assets/icons/whatsapp.svg
+  Source:   Simple Icons, slug `whatsapp`, same fetch and licence as above.
+            WhatsApp is a trademark of WhatsApp LLC. Used for click-to-chat
+            buttons only.
+
+BLIK and MTN Mobile Money (MoMo Pay)
+  These brands are not in Simple Icons, and no clean licensed official
+  SVG was used. The files are original studio text wordmarks, not official logos:
+            assets/payments/blik.svg
+            assets/payments/momo.svg
+
+Bank transfer
+  File:     assets/payments/bank.svg
+  Original generic bank pictogram drawn for this site. Not a brand mark.
+
+Bank transfer numbers
+  Not present in static HTML. A first-party module (js/payments.js)
+  assembles two account numbers at runtime from split, XOR-obfuscated
+  digit groups, and writes them to the DOM only after the visitor
+  clicks "Show bank details". No IBAN prefix, SWIFT code, bank name
+  or account holder name is published (none were in the source data).
