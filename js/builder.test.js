@@ -24,10 +24,10 @@ test('builder mapping covers all 11 services and suggests a plan only for Websit
   const names = Object.keys(data.services);
   assert.equal(names.length, 11);
 
-  assert.deepEqual(suggestPlan(['Websites']), { id: 'Starter', price: '250 PLN' });
+  assert.deepEqual(suggestPlan(['Websites']), { id: 'Basic', price: '250 PLN' });
   // Other services do not size or replace the website plan.
-  assert.deepEqual(suggestPlan(['Websites', 'Tech support']), { id: 'Starter', price: '250 PLN' });
-  assert.deepEqual(suggestPlan(['Websites', 'Apps', 'AI creation']), { id: 'Starter', price: '250 PLN' });
+  assert.deepEqual(suggestPlan(['Websites', 'Tech support']), { id: 'Basic', price: '250 PLN' });
+  assert.deepEqual(suggestPlan(['Websites', 'Apps', 'AI creation']), { id: 'Basic', price: '250 PLN' });
   assert.equal(suggestPlan(['Apps']), null);
   assert.equal(suggestPlan(['AI creation']), null);
   assert.equal(suggestPlan(['Games']), null);
@@ -59,7 +59,7 @@ test('builder WhatsApp URL targets Rwanda and encodes the overview', () => {
     otherNote: otherServicesNote(['Websites', 'Apps'])
   });
   assert.match(text, /Websites, Apps/);
-  assert.match(text, /Suggested plan: Starter \(250 PLN\)/);
+  assert.match(text, /Suggested plan: Basic \(250 PLN\)/);
   assert.match(text, /suggestion only, for the website work/);
   assert.match(text, /The final quote comes after we talk/);
   assert.ok(text.includes(NOTE));
@@ -87,7 +87,7 @@ test('builder WhatsApp URL targets Rwanda and encodes the overview', () => {
     plan: suggestPlan(['Websites']),
     otherNote: otherServicesNote(['Websites'])
   });
-  assert.match(sitesOnly, /Suggested plan: Starter \(250 PLN\)/);
+  assert.match(sitesOnly, /Suggested plan: Basic \(250 PLN\)/);
   assert.match(sitesOnly, /The final quote comes after we talk/);
   assert.equal(sitesOnly.includes(NOTE), false);
 
