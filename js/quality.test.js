@@ -90,10 +90,11 @@ test('placeholder slots are clearly empty, not pretended real', () => {
   assert.match(html, /Real project photos coming soon/);
 });
 
-test('FAQ is gone and Vira is not described as small', () => {
-  assert.equal(/id=["']faq["']/.test(html), false);
-  assert.equal(/<details>/.test(html), false);
-  assert.equal(/\bFAQ\b/.test(html), false);
+test('FAQ accordion is present and Vira is not described as small', () => {
+  assert.match(html, /id=["']faq["']/);
+  assert.match(html, /<details>/);
+  assert.match(html, /\bFAQ\b/);
+  assert.match(html, /aria-labelledby="faq-title"/);
   assert.equal(/small studio/i.test(html), false);
   assert.equal(/small technology studio/i.test(html), false);
   const content = readFileSync(join(root, 'content.json'), 'utf8');
@@ -101,6 +102,19 @@ test('FAQ is gone and Vira is not described as small', () => {
   assert.match(html, /Verify before you pay/);
   assert.match(html, /Americas, Europe/);
   assert.match(html, /WhatsApp only/);
+});
+
+test('plans use the final four tiers and prices in PLN', () => {
+  assert.match(html, /data-choose="Basic"/);
+  assert.match(html, /data-choose="Standard"/);
+  assert.match(html, /data-choose="Super"/);
+  assert.match(html, /data-choose="Plus"/);
+  assert.equal(html.includes('data-choose="Starter"'), false);
+  assert.equal(html.includes('data-choose="Premium"'), false);
+  assert.equal(html.includes('Premium Plus'), false);
+  assert.match(html, /Plans for businesses in Rwanda, priced in PLN/);
+  assert.match(html, /155–175 PLN/);
+  assert.match(html, /255–275 PLN/);
 });
 
 test('footer has the studio details on the page', () => {

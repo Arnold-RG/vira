@@ -3,6 +3,7 @@ import { initPayments } from './payments.js';
 import { initQr } from './qr-ui.js';
 import { initBuilder } from './builder.js';
 import { initCarousel } from './carousel.js';
+import { initTheme } from './theme.js';
 
 function initYear() {
   document.querySelectorAll('[data-year]').forEach((el) => {
@@ -112,8 +113,23 @@ async function initSlots() {
   }
 }
 
+function initFaq() {
+  document.querySelectorAll('.faq details, details.plan-includes').forEach((d) => {
+    const summary = d.querySelector('summary');
+    if (!summary) return;
+    const panel = d.querySelector('.faq-panel');
+    summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+    if (panel && panel.id) summary.setAttribute('aria-controls', panel.id);
+    d.addEventListener('toggle', () => {
+      summary.setAttribute('aria-expanded', d.open ? 'true' : 'false');
+    });
+  });
+}
+
 initYear();
 initNav();
+initTheme();
+initFaq();
 initPlans();
 initForm();
 initPayments();

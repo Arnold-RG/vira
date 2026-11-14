@@ -14,11 +14,11 @@ export const OTHER_SERVICES_NOTE =
  * website-plan inclusions and labelled "suggested". Other services never
  * change the plan: they are quoted separately.
  * Without a page count from the client, the suggested starting plan is
- * Starter (one landing page, one revision round, about one week).
+ * Basic (250 PLN).
  */
 export function suggestPlan(services) {
   if (!Array.isArray(services) || !services.includes('Websites')) return null;
-  return { id: 'Starter', price: '250 PLN' };
+  return { id: 'Basic', price: '250 PLN' };
 }
 
 export function otherServicesNote(services) {

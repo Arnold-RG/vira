@@ -16,6 +16,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/bodoni-moda-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/source-sans-3-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script src="js/theme-boot.js"></script>
   <link rel="stylesheet" href="css/site.css">
   <script type="application/ld+json">
 {
@@ -39,9 +40,13 @@
   <header class="site-header">
     <div class="wrap head-inner">
       <a class="brand" href="#top" id="top">
-        <picture>
+        <picture class="brand-logo brand-logo-light">
           <source type="image/webp" srcset="assets/logo-vira-light.webp">
           <img src="assets/logo-vira-light.png" width="200" height="72" alt="Vira">
+        </picture>
+        <picture class="brand-logo brand-logo-dark">
+          <source type="image/webp" srcset="assets/logo-vira-dark.webp">
+          <img src="assets/logo-vira-dark.png" width="200" height="72" alt="Vira">
         </picture>
       </a>
       <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
@@ -51,9 +56,11 @@
         <a href="#builder">Build</a>
         <a href="#plans">Plans</a>
         <a href="#how">How we work</a>
+        <a href="#faq">FAQ</a>
         <a href="#founder">About</a>
         <a href="#payments">Payments</a>
         <a href="#contact">Contact</a>
+        <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Use dark theme">Dark</button>
         <span class="nav-wa">
           <a class="btn btn-wa btn-wa-primary" href="https://wa.me/250794607518" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
           <a class="nav-backup" href="https://wa.me/48575217930" target="_blank" rel="noopener noreferrer">Backup: Poland</a>
@@ -100,7 +107,7 @@
             <p class="t-num">01</p>
             <div>
               <h3>Clear prices</h3>
-              <p>Website plans are 250, 500, 700 and 1000 Polish zloty. These are indicative prices. The final quote comes after we talk, and a short written outline is agreed before we start.</p>
+              <p>Plans are 250, 500, 700 and 1000 PLN. You can pay in full or in two halves. Domain add-ons and monthly fees are listed on each plan. Custom projects get a clear quote first, and a short written outline is agreed before we start.</p>
             </div>
           </li>
           <li>
@@ -121,7 +128,7 @@
             <p class="t-num">04</p>
             <div>
               <h3>A clear process, and the terms already on the plans</h3>
-              <p>From the first WhatsApp message to handover, we agree the work first: nothing starts, and no payment is asked for, until that is agreed. Each website plan includes a set number of revision rounds, a typical delivery time of about one to four weeks, and a support window after delivery. Domain and hosting themselves are not included.</p>
+              <p>From the first WhatsApp message, we agree the work first: nothing starts until that is agreed. You can pay in full or in two halves: the first half before prototype work starts, and the second after you approve the prototype. Each plan includes a support window after launch and a guarantee period when we fix reported problems free. After that, extra fixes are quoted first. Domain add-ons and monthly fees are set out on the plans.</p>
             </div>
           </li>
         </ul>
@@ -461,80 +468,178 @@
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">04 — Plans</p>
-          <h2 id="plans-title">Website plans, priced in Polish zloty</h2>
-          <p class="deck">Indicative prices for website work. The final quote comes after we have talked. Other services are quoted separately. A short written outline is agreed before we start.</p>
+          <h2 id="plans-title">Plans for businesses in Rwanda, priced in PLN</h2>
+          <p class="deck">Vira works only with businesses and clients in Rwanda. Four plans, priced in PLN. You can pay in full or in two halves: the first half before prototype work starts, and the second after we show you the prototype and you give the go-ahead. Domain add-ons and monthly fees are listed on each plan. Custom projects get a clear quote first.</p>
         </header>
         <div class="plans">
           <article class="plan">
             <div class="plan-top">
-              <h3>Starter</h3>
+              <h3>Basic</h3>
               <p class="price"><span class="ccy">PLN</span> <span class="amt">250</span></p>
             </div>
-            <p class="plan-tag">A single landing page or a first online presence.</p>
-            <ul>
-              <li>One landing page, built to an agreed brief</li>
-              <li>One round of revisions</li>
-              <li>Typical delivery in about one week</li>
-              <li>Email support for 7 days after delivery</li>
-              <li>A simple contact form</li>
-              <li>A short written outline before we start</li>
+            <p class="plan-tag">Get your business online. For businesses in Rwanda.</p>
+            <ul class="plan-facts">
+              <li>Pay in full, or 125 PLN before the prototype and 125 PLN after you approve it</li>
+              <li>Plus 100 PLN/month for one project: yearly domain renewal, hosting and running subscriptions paid by us, and keeping your project active on social media to help grow its users</li>
+              <li>Plus 155–175 PLN/month service fee (separate from the 100 PLN subscription)</li>
+              <li>Monthly total after launch: 255–275 PLN</li>
+              <li>Own .rw domain (like yourbusiness.rw): add 500 PLN</li>
+              <li>7 days of support after launch</li>
+              <li>3-week guarantee: report a problem within 21 days of publishing and we fix it free</li>
+              <li>After 21 days, fixes are charged as extra work</li>
             </ul>
-            <button type="button" class="btn" data-choose="Starter">Choose Starter</button>
+            <details class="plan-includes">
+              <summary>See what's included</summary>
+              <div class="plan-includes-panel" id="plan-basic-includes">
+                <h4>Included</h4>
+                <ul>
+                  <li><strong>One-page website:</strong> a clean page with who you are, your services, opening hours, photos and a WhatsApp button, so customers can reach you in one tap. Works on phones first.</li>
+                  <li><strong>Business email:</strong> one free business email address (a Gmail address in your business name) set up and connected to your site, so you stop using a personal address.</li>
+                  <li><strong>Google Maps listing (Google Business Profile):</strong> we create and verify your business on Google Maps with your hours, phone and photos, so people searching “near me” anywhere in Rwanda can find you.</li>
+                  <li><strong>WhatsApp Business:</strong> profile, short description, opening hours and an automatic greeting message.</li>
+                  <li><strong>Facebook and Instagram pages:</strong> created with your logo, bio, contact details and the link to your site.</li>
+                </ul>
+                <h4>Not included</h4>
+                <ul class="not-included">
+                  <li>Your own .rw domain (like yourbusiness.rw). Available as a +500 PLN add-on.</li>
+                  <li>Email on your own domain.</li>
+                  <li>TikTok, YouTube or video production.</li>
+                  <li>Logo design, professional photos or written content beyond the basic page text.</li>
+                  <li>Online shop or payments, and paid ads (ad budget is always separate).</li>
+                </ul>
+              </div>
+            </details>
+            <button type="button" class="btn" data-choose="Basic">Choose Basic</button>
           </article>
           <article class="plan">
             <div class="plan-top">
-              <h3>Basic</h3>
+              <h3>Standard</h3>
               <p class="price"><span class="ccy">PLN</span> <span class="amt">500</span></p>
             </div>
-            <p class="plan-tag">A brochure site of a few pages.</p>
-            <ul>
-              <li>A site of up to three pages</li>
-              <li>Two rounds of revisions</li>
-              <li>Typical delivery in about two weeks</li>
-              <li>Email support for 30 days after delivery</li>
-              <li>A contact form</li>
-              <li>Basic on-page SEO (titles, descriptions and headings)</li>
+            <p class="plan-tag">Be visible across search and social in Rwanda.</p>
+            <ul class="plan-facts">
+              <li>Pay in full, or 250 PLN before the prototype and 250 PLN after you approve it</li>
+              <li>Plus 100 PLN/month for one project: yearly domain renewal, hosting and running subscriptions paid by us, and keeping your project active on social media to help grow its users</li>
+              <li>Plus 155–175 PLN/month service fee (separate from the 100 PLN subscription)</li>
+              <li>Monthly total after launch: 255–275 PLN</li>
+              <li>Own .rw domain (like yourbusiness.rw): add 250 PLN</li>
+              <li>15 days of support after launch</li>
+              <li>6-week guarantee: report a problem within 6 weeks of publishing and we fix it free</li>
+              <li>After 6 weeks, fixes are charged as extra work</li>
             </ul>
-            <button type="button" class="btn" data-choose="Basic">Choose Basic</button>
+            <details class="plan-includes">
+              <summary>See what's included</summary>
+              <div class="plan-includes-panel" id="plan-standard-includes">
+                <h4>Included</h4>
+                <ul>
+                  <li><strong>Everything in Basic.</strong></li>
+                  <li><strong>Website up to 5 pages:</strong> home, about, services, gallery and contact, with a contact form that sends to your WhatsApp or email.</li>
+                  <li><strong>Email on your own domain:</strong> up to 2 addresses (like info@yourbusiness.rw) once the domain add-on is taken.</li>
+                  <li><strong>TikTok account:</strong> set up with your brand, bio and link, plus 3 starter post ideas written for Rwandan customers.</li>
+                  <li><strong>Search visibility (basic SEO):</strong> page titles, descriptions and Google Search Console set up so Google shows your business for searches in Rwanda.</li>
+                  <li><strong>Listed in local directories:</strong> we add your business to free online business directories such as Rwandan business directories, so local customers find you in more places.</li>
+                  <li><strong>Branded profile kit:</strong> matching profile pictures and cover images across all your accounts.</li>
+                </ul>
+                <h4>Not included</h4>
+                <ul class="not-included">
+                  <li>YouTube channel or video production.</li>
+                  <li>Online shop, MTN MoMo payments on the site, or booking systems.</li>
+                  <li>Running your social media posts every day.</li>
+                  <li>Paid ads or ad budget.</li>
+                </ul>
+              </div>
+            </details>
+            <button type="button" class="btn" data-choose="Standard">Choose Standard</button>
           </article>
           <article class="plan">
             <div class="plan-top">
               <h3>Super</h3>
               <p class="price"><span class="ccy">PLN</span> <span class="amt">700</span></p>
             </div>
-            <p class="plan-tag">A business site that needs analytics and a careful launch.</p>
-            <ul>
-              <li>A site of up to five pages</li>
-              <li>Three rounds of revisions</li>
-              <li>Typical delivery in about three weeks</li>
-              <li>Email support for 60 days after delivery</li>
-              <li>A contact form, basic on-page SEO, and a basic analytics setup</li>
-              <li>Help setting up a domain and hosting you already have or will buy — the domain and hosting themselves are not included</li>
+            <p class="plan-tag">Grow with video and sales in Rwanda.</p>
+            <ul class="plan-facts">
+              <li>Pay in full, or 350 PLN before the prototype and 350 PLN after you approve it</li>
+              <li>Plus 100 PLN/month for one project: yearly domain renewal, hosting and running subscriptions paid by us, and keeping your project active on social media to help grow its users</li>
+              <li>Plus 155–175 PLN/month service fee (separate from the 100 PLN subscription)</li>
+              <li>Monthly total after launch: 255–275 PLN</li>
+              <li>Own .rw domain to publish, or a live mobile app: add 50 PLN</li>
+              <li>21 days of support after launch</li>
+              <li>2.5-month guarantee: report a problem within 2 and a half months of publishing and we fix it free</li>
+              <li>After that, fixes are charged as extra work</li>
             </ul>
+            <details class="plan-includes">
+              <summary>See what's included</summary>
+              <div class="plan-includes-panel" id="plan-super-includes">
+                <h4>Included</h4>
+                <ul>
+                  <li><strong>Everything in Standard.</strong></li>
+                  <li><strong>Website up to 10 pages or a small online catalogue:</strong> show your products with prices, and customers order through WhatsApp or pay by MTN Mobile Money (payment link or number shown at checkout).</li>
+                  <li><strong>Email on your own domain:</strong> up to 5 addresses.</li>
+                  <li><strong>YouTube channel:</strong> created and branded, with channel art, a description and links.</li>
+                  <li><strong>3 short promo videos:</strong> AI-assisted videos for TikTok, Instagram Reels and YouTube Shorts showing your business to Rwandan customers, in Kinyarwanda, English or French as you prefer.</li>
+                  <li><strong>Launch visibility campaign:</strong> a 2-week plan to promote your launch to customers in Rwanda on your accounts, with posts, hashtags and tips to get real likes, shares and reviews from customers.</li>
+                  <li><strong>Google reviews setup:</strong> a QR code and short link that customers scan to leave you a Google review.</li>
+                </ul>
+                <h4>Not included</h4>
+                <ul class="not-included">
+                  <li>A mobile app, or custom systems like stock or staff management.</li>
+                  <li>Paid ads or ad budget.</li>
+                  <li>Bought followers, likes or fake reviews. We never do this, because platforms ban accounts that use them.</li>
+                  <li>Daily content creation after the launch campaign.</li>
+                </ul>
+              </div>
+            </details>
             <button type="button" class="btn" data-choose="Super">Choose Super</button>
           </article>
           <article class="plan">
             <div class="plan-top">
-              <h3>Premium Plus</h3>
+              <h3>Plus</h3>
               <p class="price"><span class="ccy">PLN</span> <span class="amt">1000</span></p>
             </div>
-            <p class="plan-tag">A larger site with a simple automation or AI extra and a proper handover.</p>
-            <ul>
-              <li>A site of up to eight pages</li>
-              <li>Four rounds of revisions</li>
-              <li>Typical delivery in about four weeks</li>
-              <li>Email support for 90 days after delivery</li>
-              <li>A contact form, basic SEO, analytics, and help setting up domain and hosting (not the domain or hosting itself)</li>
-              <li>One simple automation or AI add-on (for example a form that files itself, or a basic on-site assistant), plus a short handover</li>
+            <p class="plan-tag">We take care of everything. Highest priority care for businesses in Rwanda.</p>
+            <ul class="plan-facts">
+              <li>Pay in full, or 500 PLN before the prototype and 500 PLN after you approve it</li>
+              <li>Plus 100 PLN/month for one project: yearly domain renewal, hosting and running subscriptions paid by us, and keeping your project active on social media to help grow its users</li>
+              <li>Plus 155–175 PLN/month service fee (separate from the 100 PLN subscription)</li>
+              <li>Monthly total after launch: 255–275 PLN</li>
+              <li>Own .rw domain included at no extra cost</li>
+              <li>4-month guarantee: full responsibility for crashes and problems, fixed free for 4 months</li>
+              <li>We manage your business Gmail, website and social media accounts. You stay the owner and can remove our access at any time</li>
+              <li>Top-priority support: your requests go to the front of the queue</li>
+              <li>Within 7 days of launch, you can still ask for a partial refund of 250 PLN</li>
             </ul>
-            <button type="button" class="btn" data-choose="Premium Plus">Choose Premium Plus</button>
+            <details class="plan-includes">
+              <summary>See what's included</summary>
+              <div class="plan-includes-panel" id="plan-plus-includes">
+                <h4>Included</h4>
+                <ul>
+                  <li><strong>Everything in Super.</strong></li>
+                  <li><strong>Your own domain included:</strong> at no extra cost.</li>
+                  <li><strong>Bigger website, online shop or simple web app:</strong> up to 20 pages, or a shop with an order-management page, built to fit your business.</li>
+                  <li><strong>Email on your own domain:</strong> up to 10 addresses.</li>
+                  <li><strong>Account management:</strong> we manage your business Gmail, website and social media accounts for you. You always stay the owner and can remove our access any time.</li>
+                  <li><strong>Monthly content for your first month:</strong> 8 posts and 2 short videos across your accounts.</li>
+                  <li><strong>Visibility report:</strong> a simple monthly summary of your website visitors, Google Maps views and social media reach.</li>
+                  <li><strong>Top-priority support:</strong> your requests go to the front of the queue.</li>
+                  <li><strong>Partial refund option:</strong> 250 PLN back if you ask within 7 days of launch.</li>
+                </ul>
+                <h4>Not included</h4>
+                <ul class="not-included">
+                  <li>Paid ads or ad budget.</li>
+                  <li>Bought followers, likes or fake reviews (never).</li>
+                  <li>Native mobile apps for the App Store or Google Play (quoted separately).</li>
+                  <li>Printed materials, photography sessions or third-party licences not covered by the monthly subscription.</li>
+                </ul>
+              </div>
+            </details>
+            <button type="button" class="btn" data-choose="Plus">Choose Plus</button>
           </article>
         </div>
-        <p class="fine">Indicative prices, final quote after a short conversation.</p>
+        <p class="fine">The exact service fee, in the 155–175 PLN range, is agreed with you before you start. After the guarantee window, fixes are charged as extra work at a price agreed first. Final refund terms are in your project contract.</p>
       </div>
     </section>
 
-    <section id="how" class="section" aria-labelledby="how-title">
+    <section id="how"" class="section" aria-labelledby="how-title">
       <div class="wrap">
         <header class="section-head">
           <p class="eyebrow">05 — How we work</p>
@@ -562,10 +667,265 @@
     </section>
 
 
+    <section id="faq" class="section" aria-labelledby="faq-title">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow">06 — FAQ</p>
+          <h2 id="faq-title">Questions people ask</h2>
+          <p class="deck">Clear answers on plans, payment, guarantees and how we work with businesses in Rwanda. If something isn't listed here, message us on WhatsApp.</p>
+        </header>
+        <div class="faq-wrap">
+        <div class="faq-group">
+          <h3 class="faq-group-title">About Vira</h3>
+          <div class="faq">
+          <details>
+            <summary>What is Vira?</summary>
+            <div class="faq-panel" id="faq-what-is">
+              <p>Vira is a technology and business-support company. We build websites, apps and games, set up networks and connectivity, create AI video content, and help people manage and grow their business.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What does Vira offer?</summary>
+            <div class="faq-panel" id="faq-offer">
+              <p>Websites, apps, games, networking, internet provision and connectivity, tech support, AI creation (AI videos, AI teaching, video content), business management, freelance support, and financial support and management.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who is Vira for?</summary>
+            <div class="faq-panel" id="faq-for">
+              <p>Individuals, freelancers, founders, small businesses and larger companies in Rwanda who want technology that works without the stress.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who is behind Vira?</summary>
+            <div class="faq-panel" id="faq-behind">
+              <p>Vira was founded by Arnold Rurangwa, Founder &amp; CEO.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who do you work with?</summary>
+            <div class="faq-panel" id="faq-where">
+              <p>Vira works only with businesses and clients in Rwanda.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Getting started</h3>
+          <div class="faq">
+          <details>
+            <summary>How do I start a project?</summary>
+            <div class="faq-panel" id="faq-start">
+              <p>Use the project builder or the contact form: pick a service and a plan, add your details, and send it straight to us on WhatsApp.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What do you need from me?</summary>
+            <div class="faq-panel" id="faq-need">
+              <p>Your goals, any content you have (logo, text, photos) and someone to give feedback on the prototype.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How does your process work?</summary>
+            <div class="faq-panel" id="faq-process">
+              <p>Structure, prototype, share and discuss, refine, your approval, then build and go live.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Services</h3>
+          <div class="faq">
+          <details>
+            <summary>Websites: what kind of sites do you build?</summary>
+            <div class="faq-panel" id="faq-websites">
+              <p>Business sites, portfolios, landing pages and online shops, all mobile-friendly with light and dark modes.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Networking: what networking help do you offer?</summary>
+            <div class="faq-panel" id="faq-networking">
+              <p>Planning and setting up home and office networks, Wi-Fi and devices, and fixing connection problems.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Tech support: what does it cover?</summary>
+            <div class="faq-panel" id="faq-tech-support">
+              <p>Help with computers, software, accounts, websites and everyday tech issues, remotely.</p>
+            </div>
+          </details>
+          <details>
+            <summary>AI creation: what do you make with AI?</summary>
+            <div class="faq-panel" id="faq-ai">
+              <p>AI videos, video content for brands and social media, and teaching you how to use AI tools yourself.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can you teach me or my team AI?</summary>
+            <div class="faq-panel" id="faq-teach-ai">
+              <p>Yes, simple, practical AI lessons tailored to your work.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Business growth and freelancing</h3>
+          <div class="faq">
+          <details>
+            <summary>How does Vira help my business grow?</summary>
+            <div class="faq-panel" id="faq-grow">
+              <p>We give you a professional online presence, organise your processes, help with business management and content, so you can focus on customers.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What is business management support?</summary>
+            <div class="faq-panel" id="faq-biz-mgmt">
+              <p>Help organising tasks, tools, schedules and workflows so your business runs smoothly.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Does Vira lend money or invest?</summary>
+            <div class="faq-panel" id="faq-lend">
+              <p>No. We help you organise and manage your finances; we do not lend money or handle investments.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What is freelance support?</summary>
+            <div class="faq-panel" id="faq-freelance">
+              <p>Help freelancers set up a profile or portfolio site, find and manage clients, organise payments and work more professionally.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can you help me start freelancing?</summary>
+            <div class="faq-panel" id="faq-start-freelance">
+              <p>Yes, we help you set up your online presence, tools and workflow to get started.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Working with Vira</h3>
+          <div class="faq">
+          <details>
+            <summary>Do you collaborate with other founders or enterprises?</summary>
+            <div class="faq-panel" id="faq-collaborate">
+              <p>Yes. We work with founders, small businesses and larger teams in Rwanda, and partner on shared projects.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can Vira work with my existing engineering team?</summary>
+            <div class="faq-panel" id="faq-existing-team">
+              <p>Yes, we can join your tools and workflow and work alongside your developers.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can Vira support my project after launch?</summary>
+            <div class="faq-panel" id="faq-after-launch">
+              <p>Yes, through our 7, 15 or 21-day support plans or full support on Plus.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How do we communicate?</summary>
+            <div class="faq-panel" id="faq-communicate">
+              <p>WhatsApp and video calls, with regular updates during the project.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Pricing and payment</h3>
+          <div class="faq">
+          <details>
+            <summary>How much does it cost?</summary>
+            <div class="faq-panel" id="faq-cost">
+              <p>We have four plans for businesses in Rwanda: Basic, 250 PLN, with 7 days of support and a 3-week guarantee after publishing. Standard, 500 PLN, with 15 days of support and a 6-week guarantee. Super, 700 PLN, with 21 days of support and a 2.5-month guarantee. Plus, 1000 PLN, with full care and a 4-month guarantee. Every plan can be paid in two halves: before the prototype and after you approve it. If you want your own .rw domain (like yourbusiness.rw) to publish your project, add 500 PLN on Basic, 250 PLN on Standard or 50 PLN on Super. On Plus, the domain is included. Every plan also has two monthly charges after launch: a 100 PLN subscription, which covers your domain renewal, the running subscriptions your project needs, and keeping one project active on social media to help it grow, and a separate service fee of 155–175 PLN per month. That makes 255–275 PLN per month in total. Custom projects get a clear quote first.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do I need to pay extra for a domain?</summary>
+            <div class="faq-panel" id="faq-domain">
+              <p>If you want your project published on your own domain (like yourbusiness.rw) or as a live mobile app, the add-on depends on your plan: 500 PLN on Basic, 250 PLN on Standard, 50 PLN on Super. On Plus, the domain is included at no extra cost. The yearly renewal after that is covered by your 100 PLN monthly fee.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Is there a monthly fee?</summary>
+            <div class="faq-panel" id="faq-monthly">
+              <p>Yes, there are two separate monthly charges after launch, 255–275 PLN in total.</p>
+              <ul>
+                <li><strong>100 PLN subscription:</strong> every plan pays this. This covers your yearly domain renewal and all the running subscriptions your project needs, such as hosting and services. We pay these for you and take full responsibility for keeping them paid. For one project, it also covers keeping it active on your social media and working to grow its users. We can't guarantee exact user numbers, but we'll share regular updates on how it's doing.</li>
+                <li><strong>Service fee, 155–175 PLN:</strong> 155 to 175 PLN per month on every plan, for our ongoing service. The exact amount is agreed with you before you start.</li>
+              </ul>
+            </div>
+          </details>
+          <details>
+            <summary>What guarantee do the 250 and 500 PLN plans have?</summary>
+            <div class="faq-panel" id="faq-guarantee-basic">
+              <p>After your project is published, you can report a problem and we fix it free: within 3 weeks (21 days) on the 250 PLN Basic plan, and within 6 weeks on the 500 PLN Standard plan. After that, fixes are charged as extra work, and you agree the price before we start.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What does the 2.5-month guarantee cover (700 PLN Super plan)?</summary>
+            <div class="faq-panel" id="faq-guarantee-plus">
+              <p>For 2 and a half months after launch, you can report any crash or fault in the work we delivered and we fix it at no extra cost. Problems caused by outside changes, such as edits by someone else or a third-party service going down, are quoted separately.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What does the 1000 PLN Plus plan include?</summary>
+            <div class="faq-panel" id="faq-premium">
+              <p>Plus is our highest level of care: you pay more, you get more. You can pay in full or in two halves: 500 PLN before prototype work starts, and 500 PLN after we show you the prototype and you give the go-ahead. In return, you get a 4-month guarantee: for 4 months after launch, we take full responsibility for fixing crashes and problems with what we've built and manage for you, at no extra cost. We also take over the day-to-day management of your business Gmail, website and social media accounts. You always stay the owner of your accounts and can remove our access at any time. Plus is also the only plan with a refund after launch: within 7 days of your project going live, you can ask for a refund and we'll return 250 PLN of the 1000 PLN.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How can I pay?</summary>
+            <div class="faq-panel" id="faq-pay-how">
+              <p>BLIK or MTN Mobile Money. On every plan, you can pay in full or in two halves: the first half before the prototype, and the second half after you approve it.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do I pay upfront?</summary>
+            <div class="faq-panel" id="faq-upfront">
+              <p>Not all of it. Every plan can be paid in two halves. You pay the first half before prototype work starts: 125 PLN on Basic, 250 PLN on Standard, 350 PLN on Super, or 500 PLN on Plus. You pay the second half after we show you the prototype and you give the go-ahead, and then we continue building. You can also pay in full at the start if you prefer.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        <div class="faq-group">
+          <h3 class="faq-group-title">Agreements, changes and refunds</h3>
+          <div class="faq">
+          <details>
+            <summary>Do you sign an NDA or contract?</summary>
+            <div class="faq-panel" id="faq-nda">
+              <p>Yes, every project starts with a written agreement, and we can sign your NDA or provide ours.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How does Vira protect security and confidentiality?</summary>
+            <div class="faq-panel" id="faq-security">
+              <p>We keep your data private, limit access to the people who need it, use secure accounts and hosting, and can sign an NDA.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if I want changes after approval?</summary>
+            <div class="faq-panel" id="faq-changes">
+              <p>Small tweaks are included; bigger changes are quoted before we do them.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I cancel?</summary>
+            <div class="faq-panel" id="faq-cancel">
+              <p>Yes. You get a full refund within 5 days of paying if prototype work hasn't started. After that, we deduct for work done and refund the rest. If you stop after seeing the prototype, you get part of the first half back and don't pay the second half. There is no refund once the project is live and public, except on Plus, where you can still get 250 PLN back if you ask within 7 days of launch. Final terms are in your contract.</p>
+            </div>
+          </details>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
     <section id="founder" class="section" aria-labelledby="founder-title">
       <div class="wrap">
         <header class="section-head">
-          <p class="eyebrow">06 — About me</p>
+          <p class="eyebrow">07 — About me</p>
           <h2 id="founder-title">Arnold Rurangwa, founder</h2>
         </header>
         <div class="founder-grid founder-grid-lg">
@@ -597,7 +957,7 @@
     <section id="why-clients" class="section section-lav" aria-labelledby="why-clients-title">
       <div class="wrap">
         <header class="section-head">
-          <p class="eyebrow">07 — Why Vira</p>
+          <p class="eyebrow">08 — Why Vira</p>
           <h2 id="why-clients-title">Why clients work with Vira</h2>
         </header>
         <div class="why-grid">
@@ -646,9 +1006,9 @@
     <section id="payments" class="section" aria-labelledby="payments-title">
       <div class="wrap">
         <header class="section-head">
-          <p class="eyebrow">08 — Payments</p>
+          <p class="eyebrow">09 — Payments</p>
           <h2 id="payments-title">How you can pay</h2>
-          <p class="deck">We accept the methods below. Payment details are shared on WhatsApp after the job is agreed.</p>
+          <p class="deck">We accept the methods below. On every plan you can pay in full or in two halves: the first half before the prototype, and the second half after you approve it. Payment details are shared on WhatsApp after the job is agreed.</p>
         </header>
         <ul class="pay-methods">
           <li>
@@ -690,7 +1050,7 @@
     <section id="contact" class="section" aria-labelledby="contact-title">
       <div class="wrap contact-grid">
         <div class="contact-intro">
-          <p class="eyebrow">09 — Contact</p>
+          <p class="eyebrow">10 — Contact</p>
           <h2 id="contact-title">Write to us on WhatsApp</h2>
           <p>Contact is on WhatsApp only. Nothing is stored on this site. There is no email form and no backend. Pick a plan above, or just send a short message. We will reply with a clear plan before any work starts.</p>
           <p>Locations: Kigali, Rwanda and Poland.</p>
@@ -807,6 +1167,7 @@
             <li><a href="#builder">Build</a></li>
             <li><a href="#plans">Plans</a></li>
             <li><a href="#how">How we work</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#founder">About me</a></li>
             <li><a href="#why-clients">Why clients work with Vira</a></li>
             <li><a href="#payments">Payments</a></li>
